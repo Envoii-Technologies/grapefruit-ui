@@ -13,7 +13,7 @@
     "build:lib": "rollup -c",
     "semantic-release": "semantic-release --branches main",
     "commit": "cz",
-    "build-storybook": "storybook build -s public -o docs",
+    "build": "storybook build -s public -o docs",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,css,less,scss,vue,json,gql,md}\"",
     "create": "sh create.sh"
   },
