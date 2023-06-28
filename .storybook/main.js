@@ -8,8 +8,6 @@ const config = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     '@storybook/addon-docs',
-    'storybook-addon-mock/register',
-    'storybook-color-picker',
     '@storybook/addon-outline',
     '@storybook/addon-viewport',
     '@storybook/addon-coverage',
@@ -30,26 +28,27 @@ const config = {
   features: {
     interactionsDebugger: true,
   },
-  webpackFinal: async (config, { configType }) => {
-    config.module.rules[5].oneOf.push({
-      test: /\.scss$/i,
-      use: [
-        'style-loader',
-        'css-loader',
-        {
-          loader: 'sass-loader',
-          options: {
-            api: 'modern',
-            sassOptions: {
-              outputStyle: 'expanded',
-            },
-          },
-        },
-      ],
-      include: path.resolve(__dirname, '../'),
-    });
+  // webpackFinal: async (config, { configType }) => {
+  //   config.module.rules[5].oneOf.push({
+  //     test: /\.scss$/i,
+  //     use: [
+  //       'style-loader',
+  //       'css-loader',
+  //       {
+  //         loader: 'sass-loader',
+  //         options: {
+  //           api: 'modern',
+  //           sassOptions: {
+  //             outputStyle: 'expanded',
+  //           },
+  //         },
+  //       },
+  //     ],
+  //     include: path.resolve(__dirname, '../'),
+  //   });
 
-    return config;
-  },
+  //   
+  // },
 };
+
 export default config;
