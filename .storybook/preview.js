@@ -1,8 +1,9 @@
+import './../src/global-styles/index.scss';
+
 /** @type { import('@storybook/react').Preview } */
 const preview = {
   parameters: {
     layout: 'centered',
-    viewMode: 'docs',
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
