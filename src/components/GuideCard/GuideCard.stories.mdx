@@ -1,0 +1,165 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { GuideCard } from './GuideCard';
+
+export const Template = (args) => (
+	<GuideCard { ...args } />
+);
+
+<Meta title='Components/GuideCard' component={ GuideCard } />
+
+# GuideCard
+
+A component wrapper to represent an specific area with content.
+
+<Story
+	name="Example"
+	args={{
+		title: "1 RWTH Hydraulik Presse 100T",
+		image: "https://cdn.achydraulic.com/media/utontrlo/hydraulic-press-p100eh2-workshop.jpg?width=980&height=0&format=webp&quality=80",
+		topicAmount: 3,
+		instructionAmount: 2
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+
+<br />
+
+## Examples
+
+### Default
+
+By default, the GuideCard component shows a placeholder image, a default title and has a scaling animation on hover.
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Title
+
+Passing a `string` to the `title` property will change the "Default" title text.
+
+<Canvas>
+	<Story
+		name="Custom Title"
+		args={{
+			title: "1 RWTH Hydraulik Presse 100T"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Image
+
+Passing a url path to an image as a `string` to the `image` property will show the defined image in the upper part of the GuideCard component.
+
+<Canvas>
+	<Story
+		name="Custom Image"
+		args={{
+			title: "1 RWTH Hydraulik Presse 100T",
+			image: "https://cdn.achydraulic.com/media/utontrlo/hydraulic-press-p100eh2-workshop.jpg?width=980&height=0&format=webp&quality=80"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Animation
+
+By default, the GuideCard component has an scaling animation on hover, increasing the size of the GuideCard by 1.05. This can be deactivated by setting the `hasAnimation` property to false.
+
+<Canvas>
+	<Story
+		name="Hover Animation activated"
+		args={{
+			title: "1 RWTH Hydraulik Presse 100T",
+			image: "https://cdn.achydraulic.com/media/utontrlo/hydraulic-press-p100eh2-workshop.jpg?width=980&height=0&format=webp&quality=80",
+			hasAnimation: true
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Hover Animation deactivated"
+		args={{
+			title: "1 RWTH Hydraulik Presse 100T",
+			image: "https://cdn.achydraulic.com/media/utontrlo/hydraulic-press-p100eh2-workshop.jpg?width=980&height=0&format=webp&quality=80",
+			hasAnimation: false
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## Content
+
+The GuideCard component cansupply informations about the amount of content, that is attached to the components link. This is meant to be passed by the CardList component but can be overwritten.
+
+### Topics
+
+The amount of Topics can be specified by passing a `number` to the `topicAmount` property.
+
+> **Note:** 0 or more than 1 will show as multiple entries, i.E. "Topics".
+
+### Instructions
+
+The amount of Instructions can be specified by passing a `number` to the `instructionAmount` property.
+
+> **Note:** 0 or more than 1 will show as multiple entries, i.E. "Instructions".
+
+<Canvas>
+	<Story
+		name="Single topic and instruction"
+		args={{
+			title: "1 RWTH Hydraulik Presse 100T",
+			image: "https://cdn.achydraulic.com/media/utontrlo/hydraulic-press-p100eh2-workshop.jpg?width=980&height=0&format=webp&quality=80",
+			topicAmount: 1,
+			instructionAmount: 1
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Multiple topics and instructions"
+		args={{
+			title: "1 RWTH Hydraulik Presse 100T",
+			image: "https://cdn.achydraulic.com/media/utontrlo/hydraulic-press-p100eh2-workshop.jpg?width=980&height=0&format=webp&quality=80",
+			topicAmount: 3,
+			instructionAmount: 2
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## Disabled
+
+By passing `true`to the `isDisabled` property, a component can be disabled, showing in grey, not being interactive anymore.
+
+<Canvas>
+	<Story
+		name="Disabled"
+		args={{
+			title: "1 RWTH Hydraulik Presse 100T",
+			image: "https://cdn.achydraulic.com/media/utontrlo/hydraulic-press-p100eh2-workshop.jpg?width=980&height=0&format=webp&quality=80",
+			isDisabled: true
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ GuideCard } />
+
+**Note:** This component supplies a className property, to call the component with a custom class name, if it needs to be specifically adressed.

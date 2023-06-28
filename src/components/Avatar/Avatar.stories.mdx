@@ -1,0 +1,139 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Avatar } from './Avatar';
+
+import userImage from './../../assets/testuser.png'
+
+export const Template = (args) => (
+	<Avatar { ...args } />
+);
+
+<Meta title='Components/Avatar' component={ Avatar } />
+
+# Avatar
+
+A component representing a user, by showing the first letter his first and last name, or an image.
+
+<Story 
+    name="Example"
+    args={{
+        name: "Koray Uygun",
+        image: userImage,
+        size: "large"
+    }}
+>
+    { Template.bind({}) }
+</Story>
+
+<br />
+
+## Examples
+
+### Default
+
+As default, the avatar components name property is set to Jane Doe, resulting in the shown letters J (fistname) and D (lastname).
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Custom Name
+
+The `name` property can be set to a given name (a `string` with 1, 2 or more words), resulting in the first letters of the first and last name being shown in the component.
+
+*In this example, the `name` prop is set to `Max Mustermann`.*
+
+> **TIPP:** Said string should not contain more than two words, as the font will become smaller, to fit into the component shape, and at some point might have unwanted side-effects.
+
+<Canvas>
+    <Story 
+        name="Custom Name"
+        args={{
+            name: 'Max Mustermann'
+        }}
+    >
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
+### Letter fallback
+
+If the `name` property only contains a `string` with one word, only one letter is shown in the component.
+
+*In this example, the `name` prop is set to `Richard`.*
+
+<Canvas>
+    <Story
+        name="Letter fallback"
+        args={{
+            name: 'Richard'
+        }}
+    >
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
+### Image
+
+If the `image` property contains a `string` containing the path to a user image, said imagewill be shown, instead of the above letter examples.
+
+<Canvas>
+    <Story 
+        name="Custom Image"
+        args={{
+            name: "Koray Uygun",
+            image: userImage
+        }}
+    >
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
+### Size
+
+The size of the Avatar Component can be changed by passing `small`, `medium` or `large` as `string` to the `size` property, changing the size of the image to 40x40px, 80x80px and 109x109px respectively.
+
+<Canvas>
+    <Story 
+        name="Small Image Size"
+        args={{
+            name: "Koray Uygun",
+            image: userImage,
+            size: "small"
+        }}
+    >
+        { Template.bind({}) }
+    </Story>
+    <Story 
+        name="Medium Image Size"
+        args={{
+            name: "Koray Uygun",
+            image: userImage,
+            size: "medium"
+        }}
+    >
+        { Template.bind({}) }
+    </Story>
+    <Story 
+       name="Large Image Size"
+        args={{
+            name: "Koray Uygun",
+            image: userImage,
+            size: "large"
+        }}
+    >
+        { Template.bind({}) }
+    </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Avatar } />
+
+**Note:** This component supplies a className property, to call the component with a custom class name, if it needs to be specifically adressed.

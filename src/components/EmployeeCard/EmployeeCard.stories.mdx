@@ -1,0 +1,156 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { EmployeeCard } from './EmployeeCard';
+
+import userImage from './../../assets/testuser.png'
+
+export const Template = (args) => (
+	<EmployeeCard { ...args } />
+);
+
+<Meta title='Components/EmployeeCard' component={ EmployeeCard } />
+
+# EmployeeCard
+
+A component wrapper to represent an specific content-user.
+
+<Story
+	name="Example"
+	args={{
+		name: "Koray Uygun",
+		role: "COO",
+		image: userImage,
+		isAdmin: true
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+
+<br/>
+
+## Examples
+
+### Default
+
+By default, the EmployeeCard component shows a placeholder image, a default name and has a scaling animation on hover.
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Image
+
+If the `image` property contains a `string` containing the path to a user image, said imagewill be shown, instead of the above letter examples.
+
+<Canvas>
+	<Story
+		name="Custom Image"
+		args={{
+			image: userImage,
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Name
+
+The `name` property can be set to a given name (a `string` with 1, 2 or more words), resulting in the first letters of the first and last name being shown in the component.
+
+*In this example, the `name` prop is set to `Max Mustermann`.*
+
+> **TIPP:** Said string should not contain more than two words, as the font will become smaller, to fit into the component shape, and at some point might have unwanted side-effects.
+
+<Canvas>
+	<Story
+		name="Custom Name"
+		args={{
+			name: "Max Mustermann",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Role
+
+If a `string` is passed to the `role` property, it will show the role of the defined user.
+
+<Canvas>
+	<Story
+		name="Custom Role"
+		args={{
+			role: "Test User",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### IsAdmin
+
+By passing `true` to the `isAdmin` property, the EmployeeCard will show an Admin badge at the left upper corner, indicating that the content-user is an administrator.
+<Canvas>
+	<Story
+		name="Is Administrator"
+		args={{
+			isAdmin: true
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## Animation
+
+By default, the GuideCard component has an scaling animation on hover, increasing the size of the GuideCard by 1.05. This can be deactivated by setting the `hasAnimation` property to false.
+
+<Canvas>
+	<Story
+		name="Hover Animation activated"
+		args={{
+			hasAnimation: true
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Hover Animation deactivated"
+		args={{
+			hasAnimation: false
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## Disabled
+
+By passing `true`to the `isDisabled` property, a component can be disabled, showing in grey, not being interactive anymore.
+
+<Canvas>
+	<Story
+		name="Disabled"
+		args={{
+			name: "Koray Uygun",
+			role: "COO",
+			image: userImage,
+			isAdmin: true,
+			isDisabled: true
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ EmployeeCard } />
+
+**Note:** This component supplies a className property, to call the component with a custom class name, if it needs to be specifically adressed.

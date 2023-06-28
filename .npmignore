@@ -1,0 +1,15 @@
+# Folders
+/node_modules
+/src/Components/**/*.stories.jsx
+/.storybook
+/docs
+/public
+/src/stories/
+/.github/
+src/
+
+# Config
+rollup.config.js
+
+#
+package.json

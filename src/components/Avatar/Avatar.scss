@@ -1,0 +1,44 @@
+@use '../../global-styles/' as *;
+
+.Avatar {
+    background: #bcbcbc;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &.with-image {
+        align-items: flex-start;
+    }
+
+    &__name {
+        color: white;
+        font-family: $font-family;
+    }
+
+    &__image {
+        width: 100%;
+    }
+
+    &.small {
+        font-size: 0.5em;
+        border-radius: 8px;
+        width: 40px;
+        height: 40px;
+    }
+
+    &.medium {
+        font-size: 1em;
+        border-radius: 4px;
+        width: 80px;
+        height: 80px;
+    }
+
+    &.large {
+        font-size: 1.25em;
+        border-radius: 8px;
+        width: 109px;
+        height: 109px;
+    }
+}
