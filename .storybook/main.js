@@ -1,50 +1,30 @@
-
-const { mergeConfig } = require('vite');
-
-/** @type { import('@storybook/react-vite').StorybookConfig } */
+/** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
+  staticDirs: ['../src/assets'],
   stories: ["../src/**/*.mdx"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    '@storybook/addon-styling',
     "@storybook/addon-interactions",
-    '@storybook/addon-docs',
-    '@storybook/addon-outline',
+    "storybook-addon-pseudo-states",
     '@storybook/addon-viewport',
-    '@storybook/addon-coverage',
+    {
+      name: '@storybook/addon-styling',
+      options: {
+        sass: {
+          // Require your Sass preprocessor here
+          implementation: require('sass'),
+        },
+      },
+    },
   ],
-  core: {
-    builder: "@storybook/builder-vite",
-  },
   framework: {
-    name: "@storybook/react-vite",
+    name: "@storybook/react-webpack5",
     options: {},
   },
   docs: {
     autodocs: "tag",
   },
-  async viteFinal(config) {
-    return mergeConfig(config, {
-      server:
-      {
-        fs: 
-        {
-          strict: false,
-        },
-      },
-      build: {
-        chunkSizeWarningLimit: 4096,
-        rollupOptions: {
-          onwarn: ({ message }) => {
-            if (/Use of eval in/.test(message)) {
-              return;
-            }
-            console.log(message);
-          },
-        },
-      },
-    });
-  },
+  
 };
 export default config;

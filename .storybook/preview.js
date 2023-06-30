@@ -1,10 +1,11 @@
-import './../src/global-styles/index.scss';
-
 /** @type { import('@storybook/react').Preview } */
+
+import '../src/global-styles/index.scss';
+
 const preview = {
   parameters: {
-    layout: 'centered',
     actions: { argTypesRegex: "^on[A-Z].*" },
+    layout: 'centered',
     controls: {
       matchers: {
         color: /(background|color)$/i,
