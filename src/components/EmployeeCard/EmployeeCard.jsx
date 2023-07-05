@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Card } from './../Card/';
+
 import { Avatar } from './../Avatar/';
 
 import './EmployeeCard.scss';
@@ -16,28 +18,27 @@ export const EmployeeCard = ({
     ...props
 }) => {
     return (
-        <div
+        <Card
             className={`
-			EmployeeCard ${className !== undefined ? className : ''}
-			${hasAnimation ? 'animated' : ''}
-			${isDisabled ? 'disabled' : ''}
-		`}
+            GuideCard ${className !== undefined ? className : ''}
+            `}
+            hasPadding={true}
+            hasAnimation={hasAnimation}
+            isDisabled={isDisabled}
         >
-            <div className="EmployeeCard__wrapper">
-                {isAdmin && (
-                    <div className="EmployeeCard__wrapper__badge">Admin</div>
+            {isAdmin && (
+                <div className="EmployeeCard__wrapper__badge">Admin</div>
+            )}
+            <Avatar size="large" image={image} name={name} />
+            <div className="EmployeeCard__wrapper__info">
+                <p className="EmployeeCard__wrapper__info__name">{name}</p>
+                {role && (
+                    <p className="EmployeeCard__wrapper__info__role">
+                        {role}
+                    </p>
                 )}
-                <Avatar size="large" image={image} name={name} />
-                <div className="EmployeeCard__wrapper__info">
-                    <p className="EmployeeCard__wrapper__info__name">{name}</p>
-                    {role && (
-                        <p className="EmployeeCard__wrapper__info__role">
-                            {role}
-                        </p>
-                    )}
-                </div>
             </div>
-        </div>
+        </Card>
     );
 };
 

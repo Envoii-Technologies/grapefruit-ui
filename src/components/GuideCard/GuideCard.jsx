@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Card } from './../Card/';
+
 import placeholder from './../../assets/placeholder.svg';
 
 import './GuideCard.scss';
@@ -16,31 +18,30 @@ export const GuideCard = ({
     ...props
 }) => {
     return (
-        <div
+        <Card
             className={`
-			GuideCard ${className !== undefined ? className : ''}
-			${hasAnimation ? 'animated' : ''}
-			${isDisabled ? 'disabled' : ''}
-		`}
+            GuideCard ${className !== undefined ? className : ''}
+            `}
+            hasPadding={false}
+            hasAnimation={hasAnimation}
+            isDisabled={isDisabled}
         >
-            <div className="GuideCard__wrapper">
-                <img
-                    className="GuideCard__wrapper__image"
-                    src={image}
-                    alt="alternative title"
-                />
-                <div className="GuideCard__wrapper__meta">
-                    <p className="GuideCard__wrapper__meta__info">
-                        {topicAmount} Topik
-                        {(topicAmount > 1 || topicAmount === 0) && 's'} |&nbsp;
-                        {instructionAmount} Instruktion
-                        {(instructionAmount > 1 || instructionAmount === 0) &&
-                            'en'}
-                    </p>
-                    <h4 className="GuideCard__wrapper__meta__title">{title}</h4>
-                </div>
+            <img
+                className="GuideCard__wrapper__image"
+                src={image}
+                alt="alternative title"
+            />
+            <div className="GuideCard__wrapper__meta">
+                <p className="GuideCard__wrapper__meta__info">
+                    {topicAmount} Topik
+                    {(topicAmount > 1 || topicAmount === 0) && 's'} |&nbsp;
+                    {instructionAmount} Instruktion
+                    {(instructionAmount > 1 || instructionAmount === 0) &&
+                        'en'}
+                </p>
+                <h4 className="GuideCard__wrapper__meta__title">{title}</h4>
             </div>
-        </div>
+        </Card>
     );
 };
 

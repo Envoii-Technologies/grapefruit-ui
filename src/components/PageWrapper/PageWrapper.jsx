@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import './PageWrapper.scss';
 
-export const PageWrapper = ({ className, ...props }) => {
+export const PageWrapper = ({ className, children, ...props }) => {
     return (
         <div
             className={`PageWrapper ${
                 className !== undefined ? className : ''
             }`}
         >
-            PageWrapper Initiated!
+            { children }
         </div>
     );
 };
@@ -20,8 +20,13 @@ PageWrapper.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
+    /**
+     * content of wrapper component
+     */
+    children: PropTypes.element,
 };
 
 PageWrapper.defaultProps = {
     className: undefined,
+    children: "Hello World",
 };

@@ -3,55 +3,13 @@
 .EmployeeCard {
     text-decoration: none;
     line-height: 24px;
-    max-width: 260px;
-    min-width: 250px;
 
-    &.animated:not(.disabled) {
-        .EmployeeCard__wrapper {
-            @include hover-animation;
-
-            &:hover {
-                @include hover-scale;
-            }
-        }
-    }
-
-    &.disabled {
-        .EmployeeCard__wrapper {
-            background-color: $card-background;
-            box-shadow: $card-shadow;
-
-            * {
-                opacity: 0.5;
-            }
-        }
-    }
-
-    &__wrapper {
-        position: relative;
-        background-attachment: scroll;
-        background-repeat: repeat;
-        background-size: auto;
-        background-position-x: 0%;
-        background-position-y: 0%;
-        background-color: $card-background;
+    &__wrapper
+    {
         display: flex;
         flex-direction: column;
         overflow: hidden;
         aspect-ratio: 1/1;
-        border-radius: $card-border-radius;
-        cursor: pointer;
-        box-shadow: $card-shadow;
-        color: $font-color;
-        font-size: $font-size;
-        padding: 24px;
-        font-family: $font-family;
-        align-items: center;
-
-        .Avatar {
-            margin: 0.5em;
-            margin-bottom: 0.25em;
-        }
 
         &__badge {
             background: #1a2f4b;
@@ -64,6 +22,11 @@
             left: -70px;
             font-size: 0.75rem;
             font-weight: bold;
+        }
+        
+        .Avatar {
+            margin: 0.5em;
+            margin-bottom: 0.25em;
         }
 
         &__info {

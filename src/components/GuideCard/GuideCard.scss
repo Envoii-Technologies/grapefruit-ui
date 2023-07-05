@@ -1,47 +1,11 @@
 @use '../../global-styles/' as *;
 
 .GuideCard {
-    text-decoration: none;
-    line-height: 24px;
-    max-width: 260px;
-
-    &.animated:not(.disabled) {
-        .GuideCard__wrapper {
-            @include hover-animation;
-
-            &:hover {
-                @include hover-scale;
-            }
-        }
-    }
-
-    &.disabled {
-        .GuideCard__wrapper {
-            background-color: $card-background;
-            box-shadow: $card-shadow;
-
-            * {
-                opacity: 0.5;
-            }
-        }
-    }
-
     &__wrapper {
-        background-attachment: scroll;
-        background-repeat: repeat;
-        background-size: auto;
-        background-position-x: 0%;
-        background-position-y: 0%;
-        background-color: $card-background;
         display: flex;
         flex-direction: column;
         overflow: hidden;
         aspect-ratio: 1/1;
-        border-radius: $card-border-radius;
-        cursor: pointer;
-        box-shadow: $card-shadow;
-        color: $font-color;
-        font-size: $font-size;
 
         &__image {
             width: 100%;
@@ -55,6 +19,7 @@
             width: 100%;
             color: rgb(22, 22, 22);
             padding: 1em;
+            
             font-family: $font-family;
             &__info {
                 font-size: 0.75em;
@@ -65,4 +30,5 @@
             }
         }
     }
+
 }

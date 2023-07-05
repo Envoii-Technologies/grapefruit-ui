@@ -7,7 +7,7 @@ export const Template = (args) => (
 	<EmployeeCard { ...args } />
 );
 
-<Meta title='Components/EmployeeCard' component={ EmployeeCard } />
+<Meta title='Components/Cards/EmployeeCard' component={ EmployeeCard } />
 
 # EmployeeCard
 
@@ -111,6 +111,8 @@ By passing `true` to the `isAdmin` property, the EmployeeCard will show an Admin
 
 By default, the GuideCard component has an scaling animation on hover, increasing the size of the GuideCard by 1.05. This can be deactivated by setting the `hasAnimation` property to false.
 
+> **Note:** This has been derived from Component Card
+
 <Canvas>
 	<Story
 		name="Hover Animation activated"
@@ -133,6 +135,8 @@ By default, the GuideCard component has an scaling animation on hover, increasin
 ## Disabled
 
 By passing `true`to the `isDisabled` property, a component can be disabled, showing in grey, not being interactive anymore.
+
+> **Note:** This has been derived from Component Card
 
 <Canvas>
 	<Story

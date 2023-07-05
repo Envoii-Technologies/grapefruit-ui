@@ -1,4 +1,12 @@
 @use '../../global-styles/' as *;
 
 .PageWrapper {
+    font-family: $font-family;
+    height: 100%;
+    width: 100%;
+    background: $page-background;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
 }

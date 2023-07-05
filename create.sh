@@ -30,4 +30,4 @@ echo "import React from 'react';\nimport PropTypes from 'prop-types';\nimport '.
 echo "import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'\nimport { ${component} } from './${component}';\n\nexport const Template = (args) => (\n\t<${component} { ...args } />\n);\n\n<Meta title='Components/${component}' component={ ${component} } />\n\n# ${component}\n\n...\n\n## Examples\n\n### Default\n\n...\n\n<Canvas>\n\t<Story\n\t\tname=\"Default\"\n\t\targs={{\n\t\t\t\n\t\t}}\n\t>\n\t\t{ Template.bind({}) }\n\t</Story>\n</Canvas>\n\n## API\n\n<ArgsTable of={ ${component} } />" >> "${directory}/${component}/${component}.stories.mdx"
 echo "@use '../../global-styles/' as *;\n\n.${component}\n{\n\t\n}" >> "${directory}/${component}/${component}.scss"
 echo "export * from './${component}';" >> "${directory}/${component}/index.js"
-echo "export { ${component} } from './components/${component}/index.js';" >> "./src/components/index.js"
+echo "export { ${component} } from './components/${component}/index.js';" >> "./src/index.js"

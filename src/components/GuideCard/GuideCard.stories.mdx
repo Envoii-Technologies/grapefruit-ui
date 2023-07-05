@@ -5,7 +5,7 @@ export const Template = (args) => (
 	<GuideCard { ...args } />
 );
 
-<Meta title='Components/GuideCard' component={ GuideCard } />
+<Meta title='Components/Cards/GuideCard' component={ GuideCard } />
 
 # GuideCard
 
@@ -77,6 +77,8 @@ Passing a url path to an image as a `string` to the `image` property will show t
 
 By default, the GuideCard component has an scaling animation on hover, increasing the size of the GuideCard by 1.05. This can be deactivated by setting the `hasAnimation` property to false.
 
+> **Note:** This has been derived from Component Card
+
 <Canvas>
 	<Story
 		name="Hover Animation activated"
@@ -144,6 +146,8 @@ The amount of Instructions can be specified by passing a `number` to the `instru
 ## Disabled
 
 By passing `true`to the `isDisabled` property, a component can be disabled, showing in grey, not being interactive anymore.
+
+> **Note:** This has been derived from Component Card
 
 <Canvas>
 	<Story
