@@ -1,0 +1,34 @@
+@use '../../global-styles/' as *;
+
+.Button
+{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0.25em;
+    background: #FBE532;
+    font-family: $font-family;
+    font-size: 1em;
+    border-radius: 0.25em;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 40px 0px;
+    color: rgb(22, 22, 22);
+    cursor: pointer;
+
+    &.size-small
+    {
+        height: 1.5em;
+    }
+
+    &.size-medium
+    {
+        height: 2.1em;
+    }
+
+    &.size-large
+    {
+        height: 3em;
+    }
+
+    aspect-ratio: 1/1;
+}
