@@ -16,8 +16,8 @@ jobs:
     
     - name: Build storybook
       run: |
-        npm install
-        npm run build
+        yarn install
+        yarn build
         
     - name: Deploy storybook
       uses: JamesIves/github-pages-deploy-action@v4
