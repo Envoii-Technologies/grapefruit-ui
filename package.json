@@ -1,9 +1,8 @@
 {
-  "name": "grapefruit-ui",
+  "name": "@envoii-technologies/grapefruit-ui",
   "version": "0.1.0",
   "description": "",
   "main": "dist/index.es.js",
-  "private": true,
   "files": [
     "dist"
   ],
