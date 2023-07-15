@@ -1,4 +1,4 @@
-export { Avatar } from './Components/Avatar/';
+export { Avatar } from './components/Avatar/';
 export { EmployeeCard } from './components/EmployeeCard';
 export { GuideCard } from './components/GuideCard';
 export { Card } from './components/Card/index.js';
