@@ -27,6 +27,6 @@ jobs:
         run: yarn semantic-release
         env:
            #TO DO - Not all three tokens *should* be needed
-           NODE_AUTH_TOKEN: ${{ secrets.SEMANTIC_RELEASE }}
-          #  NPM_TOKEN: ${{ secrets.SEMANTIC_RELEASE }}
-           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE }}
+           NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS }}
+          #  NPM_TOKEN: ${{ secrets.GH_ACCESS }}
+           GITHUB_TOKEN: ${{ secrets.GH_ACCESS }}
