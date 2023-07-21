@@ -13,7 +13,16 @@
     border-radius: 0.25em;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 40px 0px;
     color: rgb(22, 22, 22);
+    outline: none;
+    border: none;
+
     cursor: pointer;
+    
+    @include hover-animation;
+    
+    &:hover {
+        @include hover-scale;
+    }
 
     &.size-small
     {

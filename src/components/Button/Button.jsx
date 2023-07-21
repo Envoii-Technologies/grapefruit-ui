@@ -2,15 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Button.scss'
 
-export const Button = ({ className, label, size, ...props }) =>
+export const Button = ({ className, label, size, onClick, ...props }) =>
 {
 	return (
-		<div className={`
-			Button ${ className !== undefined ? className : "" }
-			size-${size}
-		`}>
+		<button 
+			className={`
+				Button ${ className !== undefined ? className : "" }
+				size-${size}
+			`}
+			onClick={onClick}
+		>
 			{ label }
-		</div>
+		</button>
 	)
 }
 
@@ -28,6 +31,10 @@ Button.propTypes =
 	 * Size of the component
 	 */
 	size: PropTypes.oneOf(["small", "medium", "large"]),
+	/**
+	 * Function to be called when button click event is fired
+	 */
+	onClick: PropTypes.func
 };
 
 Button.defaultProps =
