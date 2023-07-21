@@ -27,7 +27,7 @@ Button.propTypes =
 	/**
 	 * Size of the component
 	 */
-	label: PropTypes.oneOf(["small", "medium", "large"]),
+	size: PropTypes.oneOf(["small", "medium", "large"]),
 };
 
 Button.defaultProps =
