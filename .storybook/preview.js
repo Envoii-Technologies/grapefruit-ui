@@ -5,7 +5,7 @@ import '../src/global-styles/index.scss';
 const preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
-    layout: 'centered',
+    layout: 'fullscreen',
     controls: {
       matchers: {
         color: /(background|color)$/i,

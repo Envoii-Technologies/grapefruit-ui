@@ -1,9 +1,19 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
 import { Button } from './Button';
+import {
+   faTriangleExclamation
+} from '@fortawesome/free-solid-svg-icons';
 
 export const Template = (args) => (
 	<Button { ...args } />
 );
+
+export const TemplateFluid = (args) => (
+	<div style={{ width: "70vw", display : 'flex'}}>
+		<Button { ...args } />
+	</div>
+);
+
 
 <Meta title='Components/Button' component={ Button } />
 
@@ -14,76 +24,180 @@ A Component for user interaction on click.
 <Story
 	name="Example"
 	args={{
-		
+		label: "Hello Button!"
 	}}
 >
 	{ Template.bind({}) }
 </Story>
 
-<br />
-
-## Examples
+<br/>
 
 ### Default
 
-By default, the Button component is set to Primary, displays the text "Default" and is of Medium size.
-
 <Canvas>
-	<Story
-		name="Default"
-		args={{
-			
-		}}
-	>
-		{ Template.bind({}) }
-	</Story>
+<Story
+	name="Custom Label"
+	args={{
+		label: "Custom Label!"
+	}}
+>
+	{ Template.bind({}) }
+</Story>
 </Canvas>
 
-### Label
-
-By passing a `string` to the `label` property, the text displayed on the Button component can be changed.
-
+### onclick
 <Canvas>
-	<Story
-		name="Custom Label"
-		args={{
-			label: 'Button!'
-		}}
-	>
-		{ Template.bind({}) }
-	</Story>
+<Story
+	name="onClick"
+	args={{
+		label: "Click Me!",
+		type: "success",
+		onClick: () => alert("Hello"),
+	}}
+>
+	{ Template.bind({}) }
+</Story>
 </Canvas>
 
-### Size
+### type
+<Canvas>
+<Story
+	name="type default"
+	args={{
+		label: "Hello Button!",
+		type: "default",
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+<Story
+	name="type primary"
+	args={{
+		label: "Hello Button!",
+		type: "primary",
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+<Story
+	name="type secondary"
+	args={{
+		label: "Hello Button!",
+		type: "secondary",
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+<Story
+	name="type success"
+	args={{
+		label: "Hello Button!",
+		type: "success",
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+<Story
+	name="type warning"
+	args={{
+		label: "Hello Button!",
+		type: "warning",
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+<Story
+	name="type error"
+	args={{
+		label: "Hello Button!",
+		type: "error",
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+</Canvas>
 
-The size of the Component can be changed by passing either `small`, `medium` or `large` as `string` to the `size` property.
+### size
 
 <Canvas>
-	<Story
-		name="Small Size"
-		args={{
-			size: "small"
-		}}
-	>
-		{ Template.bind({}) }
-	</Story>
-	<Story
-		name="Medium Size"
-		args={{
-			size: "medium"
-		}}
-	>
-		{ Template.bind({}) }
-	</Story>
-	<Story
-		name="Large Size"
-		args={{
-			size: "large"
-		}}
-	>
-		{ Template.bind({}) }
-	</Story>
+<Story
+	name="size small"
+	args={{
+		label: "Hello Button!",
+		type: "success",
+		size: 'small'
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+<Story
+	name="size medium"
+	args={{
+		label: "Hello Button!",
+		type: "success",
+		size: 'medium'
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+<Story
+	name="size large"
+	args={{
+		label: "Hello Button!",
+		type: "success",
+		size: 'large'
+	}}
+>
+	{ Template.bind({}) }
+</Story>
 </Canvas>
+
+### isFluid
+
+<Canvas>
+<Story
+	name="isFluid"
+	args={{
+		label: "Hello Button!",
+        icon: faTriangleExclamation,
+		type: "success",
+		isFluid: true,
+	}}
+>
+	{ TemplateFluid.bind({}) }
+</Story>
+</Canvas>
+
+### icon
+
+<Canvas>
+<Story
+	name="Icon"
+	args={{
+		label: "Hello Button!",
+        icon: faTriangleExclamation,
+		type: "success"
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+</Canvas>
+
+### isLoading
+
+<Canvas>
+<Story
+	name="isLoading"
+	args={{
+		isLoading: true,
+		type: "success"
+	}}
+>
+	{ Template.bind({}) }
+</Story>
+</Canvas>
+
+<br/>
 
 ## API
 

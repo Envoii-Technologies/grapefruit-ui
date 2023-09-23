@@ -1,0 +1,41 @@
+@use '../../global-styles/' as *;
+
+.EditorTabSection
+{
+	display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.EditorTabSectionMenu
+{
+    background: white;
+    flex-basis: 2.5rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    border-bottom: $area-edge-border;
+}
+
+.EditorTabSectionContent
+{
+    flex-grow: 1;
+}
+
+.EditorTabSectionMenuItem
+{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+
+    &:hover,
+    &.active
+    {
+        border-bottom: 3px solid $primary-color;
+        color: $primary-color;
+    }
+}

@@ -1,0 +1,92 @@
+@use '../../../../global-styles/' as *;
+
+.PageMenuSub
+{
+    margin-top: 3rem;
+    z-index: 500;
+    position: absolute;
+    width: 100vw;
+    height: calc(100vh - 3rem);
+
+    @media only screen and (min-width: $breakpoint-large){
+        position: relative;
+        margin-top: inherit;
+        width: 12rem;
+        height: inherit;
+    }
+
+    &.expanded {
+        display: block;
+
+        @media only screen and (min-width: $breakpoint-large) {
+            margin-left: 0;
+        }
+    }
+
+    &.compressed {
+        display: none;
+
+        @media only screen and (min-width: $breakpoint-large) {
+            margin-left: -13rem;
+        }
+    }
+
+    &__logo {
+        position: relative;
+        padding: 0.75rem 0.5rem 0.3rem;
+        display: none;
+        justify-content: center;
+
+        @media only screen and (min-width: $breakpoint-large) {
+            display: flex;
+        }
+
+        &__image {
+            height: 1.5rem;
+        }
+    }
+
+    &__role {
+        height: 3.45rem;
+        padding: 1rem;
+        
+        display: none;
+        justify-content: center;
+
+        @media only screen and (min-width: $breakpoint-large) {
+            display: flex;
+        }
+
+
+        p {
+            font-weight: bold;
+            color: $primary-color;
+        }
+    }
+    
+    &__content
+    {
+        background: white;
+        overflow-y: scroll;
+        padding: 0.5rem 0.5rem 0.5rem;
+
+        min-height: 100%;
+        max-height: calc(100vh - 3rem);
+
+        @media only screen and (min-width: $breakpoint-large) {
+            max-height: calc(100vh);
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            list-style-type: none;
+            gap: 0.5rem;
+
+            li {
+                display: flex;
+            }
+        }
+    }
+}

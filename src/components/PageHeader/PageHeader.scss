@@ -1,0 +1,54 @@
+@use '../../global-styles/' as *;
+
+.PageHeader
+{
+    background: white;
+    flex-basis: 6rem;
+
+    &.transparent
+    {
+        background: none;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+        padding: 1rem;
+        justify-content: space-between;
+
+        &__title {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+
+            &__main {
+                font-weight: 400;
+                font-size: 0.75rem;
+                &.link {
+                    display: inline;
+    
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                }
+            }
+            &__sub {
+                font-weight: 400;
+                font-size: 1.5rem;
+            }
+        }
+
+        &__menu {
+
+            &__content
+            {
+                max-height: 2rem;
+                display: flex;
+                gap: 0.5rem;
+            }
+        }
+    }
+}

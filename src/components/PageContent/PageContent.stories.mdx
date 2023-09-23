@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { PageContent } from './PageContent';
+
+export const Template = (args) => (
+	<PageContent { ...args } />
+);
+
+<Meta title='Components/PageContent' component={ PageContent } />
+
+# PageContent
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ PageContent } />
