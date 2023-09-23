@@ -6,8 +6,16 @@
     box-shadow: $box-shadow-bottom;
     overflow: hidden;
     display: flex;
-    flex-direction: row;
-    height: 100vh;
-    flex-grow: 0;
+    flex-direction: column;
+    width: 100vw;
+    z-index: 1000;
+    flex-grow: 1;
     position: relative;
+    
+    // desktop
+    @media only screen and (min-width: $breakpoint-large)
+    {
+        flex-direction: row;
+        width: inherit;
+    }
 }

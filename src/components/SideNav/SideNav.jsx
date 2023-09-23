@@ -1,32 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import {
-    faMaximize,
-    faMinimize,
     faSliders,
     faFileLines,
+    faRightFromBracket,
+    faArrowRightArrowLeft,
+    faGripLines,
+    faCircleUser,
 } from '@fortawesome/free-solid-svg-icons';
 
-import testUserIcon from './../../assets/testuser.png';
-import envoiiLogo from './../../assets/logo.png';
+import { Button } from '../../';
 
-import helpers from '../../helpers/';
-
-import { Button, Avatar } from '../../';
+import { SideNavMain, SideNavSub } from './components';
 
 import './SideNav.scss';
 
-export const SideNav = ({ className, isExpanded, user, menu, ...props }) => {
-    const [expanded, setIsExpanded] = useState(isExpanded);
+export const SideNav = ({ className, isExpanded, user, ...props }) => {
+    const [screenSize, setScreenSize] = useState(getCurrentDimension());
+    const [expanded, setIsExpanded] = useState(true);
+
+    function getCurrentDimension(){
+    	return {
+      		width: window.innerWidth,
+      		height: window.innerHeight
+    	}
+  	}
+
+      useEffect(() => {
+        const updateDimension = () => {
+              setScreenSize(getCurrentDimension())
+        }
+        window.addEventListener('resize', updateDimension);
+    
+        setIsExpanded(screenSize.width < 768 ? false : isExpanded);
+
+        return(() => {
+            window.removeEventListener('resize', updateDimension);
+        })
+  }, [screenSize])
+
     return (
         <div
             className={`
-			SideNav
-			${className !== undefined ? className : ''}
-		`}
+    			SideNav
+	    		${className !== undefined ? className : ''}
+		    `}
         >
-            
+            <SideNavMain
+                isExpanded={expanded}
+                handleExpand={() =>setIsExpanded(!expanded)}
+                handleSettingsAction={() => alert("YO")}
+            />
+            <SideNavSub
+                isExpanded={expanded}
+            />
         </div>
     );
 };
@@ -40,48 +68,9 @@ SideNav.propTypes = {
      * is the sidebar expanded?
      */
     isExpanded: PropTypes.bool,
-    user: PropTypes.object,
-    menu: PropTypes.object,
 };
 
 SideNav.defaultProps = {
     className: undefined,
-    isExpanded: true,
-    user: {
-        icon: 'static/media/src/assets/testuser.png',
-        name: 'FF',
-        roles: ['app_admin'],
-    },
-    menu: [
-        {
-            role: 'admin',
-            items: [
-                {
-                    title: 'Einstellungen',
-                    icon: faSliders,
-                    path: '',
-                    children: [
-                        {
-                            title: 'Benutzer',
-                            onClick: () => alert('Open User Menu'),
-                        },
-                        {
-                            title: 'Teams',
-                            onClick: () => alert('Open Teams'),
-                        },
-                    ],
-                },
-            ],
-        },
-        {
-            role: 'editor',
-            items: [
-                {
-                    title: 'Karten',
-                    icon: faFileLines,
-                    onClick: () => alert('Open Cards'),
-                },
-            ],
-        },
-    ],
+    isExpanded: false,
 };

@@ -39,9 +39,32 @@ $border-radius-default: 0.25rem;
 
 $page-width-default: 800px;
 
+// @media only screen and (min-width: 40em) {...} cellphone (640px and up)
+$breakpoint-small: 40em;
+
+// @media only screen and (min-width: 48em) {...} tablet (768px and up)
+$breakpoint-medium: 48em;
+
+// @media only screen and (min-width: 64em) {...} desktop (1024px and up)
+$breakpoint-large: 64em;
+
+// @media only screen and (min-width: 80em) {...} desktop (1280px and up)
+$breakpoint-xlarge: 80em;
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 100;
     src: url('../fonts/Roboto-Regular.ttf') format('truetype');
 }
+
+// // tablet
+// @media only screen and (min-width: $breakpoint-medium) {
+        
+// }
+
+// // desktop
+// @media only screen and (min-width: $breakpoint-large) {
+    
+//     flex-direction: row;
+// }

@@ -3,6 +3,8 @@
 .FormNotification {
     border-radius: $border-radius-default;
     margin: 1rem 0;
+    flex-grow: 1;
+    min-width: 250px;
 
     &.success {
         border: 1px solid rgba($success-color, 0.5);

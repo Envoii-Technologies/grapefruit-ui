@@ -2,9 +2,9 @@ import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
 import { FormNotification } from './FormNotification';
 
 export const Template = (args) => (
-	<div style={{ width: "350px"}}>
+	// <div style={{ width: "70vw", display : 'flex'}}>
 		<FormNotification { ...args } />
-	</div>
+	// </div>
 );
 
 <Meta title='Components/FormNotification' component={ FormNotification } />
@@ -28,6 +28,56 @@ export const Template = (args) => (
 	>
 		{ Template.bind({}) }
 	</Story>
+</Canvas>
+
+### Notification Message
+
+...
+
+<Canvas>
+	<Story
+		name="message"
+		args={{
+			message: "This is a custom message!"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Notification Type
+
+...
+
+<Canvas>
+	<Story
+		name="type success"
+		args={{
+			type: "success",
+			message: "This is a success message!"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="type warning"
+		args={{
+			type: "warning",
+			message: "This is a warning message!"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="type error"
+		args={{
+			type: "error",
+			message: "This is an error message!"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
 </Canvas>
 
 ## API

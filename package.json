@@ -29,16 +29,17 @@
   },
   "homepage": "https://github.com/Envoii-Technologies/grapefruit-ui#readme",
   "dependencies": {
-    "@storybook/addon-docs": "^7.0.24",
-    "@storybook/cli": "^7.0.24",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "remark-gfm": "^3.0.1",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@originjs/vite-plugin-federation": "^1.2.3"
+    "@originjs/vite-plugin-federation": "^1.2.3",
+    "@storybook/addon-docs": "^7.0.24",
+    "@storybook/cli": "^7.0.24",
+    "normalize.css": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.22.20",

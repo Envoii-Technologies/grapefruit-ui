@@ -1,0 +1,82 @@
+@use '../../../../global-styles/' as *;
+
+.SideNavSub {
+    flex-grow: 1;
+    z-index: 0;
+
+    width: 100%;
+    transition: margin-top 0.35s ease-in-out;
+
+    display: flex;
+    background: $primary-background-light;
+    position: relative;
+    flex-direction: column;
+
+    @media only screen and (min-width: $breakpoint-large) {
+        width: 13rem;
+        transition: margin-left 0.35s ease-in-out;
+    }
+
+    &.expanded {
+        display: block;
+
+        @media only screen and (min-width: $breakpoint-large) {
+            margin-left: 0;
+        }
+    }
+
+    &.compressed {
+        display: none;
+
+        @media only screen and (min-width: $breakpoint-large) {
+            margin-left: -13rem;
+        }
+    }
+
+    &__logo {
+        position: relative;
+        padding: 0.75rem 0.5rem 0.3rem;
+        display: flex;
+        justify-content: center;
+
+        &__image {
+            height: 1.5rem;
+        }
+    }
+
+    &__role {
+        height: 4rem;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+
+        p {
+            font-weight: bold;
+            color: $primary-color;
+        }
+    }
+
+    &__menu {
+        width: 100%;
+        flex-grow: 1;
+        padding: 0 0.5rem 0.5rem;
+        overflow-y: scroll;
+        max-height: calc(100vh - 9.55rem);
+
+        @media only screen and (min-width: $breakpoint-large) {
+            max-height: calc(100vh);
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            list-style-type: none;
+            gap: 0.5rem;
+
+            li {
+                display: flex;
+            }
+        }
+    }
+}
