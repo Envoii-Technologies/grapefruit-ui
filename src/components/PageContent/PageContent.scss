@@ -1,7 +1,6 @@
 @use '../../global-styles/' as *;
 
 .PageContent {
-    background: orange;
     flex-basis: calc(100vh - (3rem + 6rem));
     overflow-y: scroll;
     display: flex;

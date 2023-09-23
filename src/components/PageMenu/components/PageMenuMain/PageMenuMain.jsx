@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
 import {
     faArrowRightArrowLeft,
@@ -8,50 +7,51 @@ import {
     faGripLines,
     faCircleUser,
     faRightFromBracket,
+    faGear,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { Button } from '../../../Button/Button';
 
-import './SideNavMain.scss';
+import './PageMenuMain.scss'
 
-export const SideNavMain = ({
-    className,
+export const PageMenuMain = ({ 
+	className,
     isExpanded,
     handleExpand,
     handleSettingsAction,
     handleLogoutAction,
     ...props
-}) => {
-    const [userExpanded, setIsUserExpanded] = useState(false);
+}) =>
+{
+	const [userExpanded, setIsUserExpanded] = useState(false);
 
-    const handleUserMenuClick = (action) => {
+	const handleUserMenuClick = (action) => {
 
         action !== undefined ? action() :  alert("[NOT IMPLEMENTED]");
     
         setIsUserExpanded(false);
     };
 
-    return (
-        <div
-            className={`SideNavMain ${
-                className !== undefined ? className : ''
-            }`}
-        >
-            <nav className="SideNavMain__menu">
+	return (
+		<div className={`
+			PageMenuMain
+			${ className !== undefined ? className : "" }
+		`}>
+			<nav className="PageMenuMain__menu">
                 <Button
-                    className="SideNavMain__menu__large"
+                    className="PageMenuMain__menu__large"
                     icon={faArrowRightArrowLeft}
                     type="transparent"
                     onClick={() => handleExpand()}
                 />
                 <Button
-                    className="SideNavMain__menu__small"
+                    className="PageMenuMain__menu__small"
                     icon={faGripLines}
                     type="transparent"
                     onClick={() => handleExpand()}
                 />
                 {!isExpanded && (
-                    <ul className="SideNavMain__menu__items">
+                    <ul className="PageMenuMain__menu__items">
                         <li>
                             <Button
                                 icon={faSliders}
@@ -69,7 +69,7 @@ export const SideNavMain = ({
                     </ul>
                 )}
             </nav>
-            <nav className="SideNavMain__meta">
+            <nav className="PageMenuMain__meta">
                 <Button
                     icon={faCircleUser}
                     type="transparent"
@@ -78,7 +78,7 @@ export const SideNavMain = ({
                 {userExpanded && (
                     <>
                         <Button
-                            icon={faSliders}
+                            icon={faGear}
                             type="transparent"
                             onClick={() =>
                                 handleUserMenuClick(handleSettingsAction)
@@ -94,17 +94,6 @@ export const SideNavMain = ({
                     </>
                 )}
             </nav>
-        </div>
-    );
-};
-
-SideNavMain.propTypes = {
-    /**
-     * Custom class name of Component
-     */
-    className: PropTypes.string,
-};
-
-SideNavMain.defaultProps = {
-    className: undefined,
-};
+		</div>
+	)
+}

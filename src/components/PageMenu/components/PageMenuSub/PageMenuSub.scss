@@ -1,20 +1,18 @@
 @use '../../../../global-styles/' as *;
 
-.SideNavSub {
-    flex-grow: 1;
-    z-index: 0;
+.PageMenuSub
+{
+    margin-top: 3rem;
+    z-index: 500;
+    position: absolute;
+    width: 100vw;
+    height: calc(100vh - 3rem);
 
-    width: 100%;
-    transition: margin-top 0.35s ease-in-out;
-
-    display: flex;
-    background: $primary-background-light;
-    position: relative;
-    flex-direction: column;
-
-    @media only screen and (min-width: $breakpoint-large) {
-        width: 13rem;
-        transition: margin-left 0.35s ease-in-out;
+    @media only screen and (min-width: $breakpoint-large){
+        position: relative;
+        margin-top: inherit;
+        width: 12rem;
+        height: inherit;
     }
 
     &.expanded {
@@ -36,8 +34,12 @@
     &__logo {
         position: relative;
         padding: 0.75rem 0.5rem 0.3rem;
-        display: flex;
+        display: none;
         justify-content: center;
+
+        @media only screen and (min-width: $breakpoint-large) {
+            display: flex;
+        }
 
         &__image {
             height: 1.5rem;
@@ -45,23 +47,31 @@
     }
 
     &__role {
-        height: 4rem;
+        height: 3.45rem;
         padding: 1rem;
-        display: flex;
+        
+        display: none;
         justify-content: center;
+
+        @media only screen and (min-width: $breakpoint-large) {
+            display: flex;
+        }
+
 
         p {
             font-weight: bold;
             color: $primary-color;
         }
     }
-
-    &__menu {
-        width: 100%;
-        flex-grow: 1;
-        padding: 0 0.5rem 0.5rem;
+    
+    &__content
+    {
+        background: white;
         overflow-y: scroll;
-        max-height: calc(100vh - 9.55rem);
+        padding: 0.5rem 0.5rem 0.5rem;
+
+        min-height: 100%;
+        max-height: calc(100vh - 3rem);
 
         @media only screen and (min-width: $breakpoint-large) {
             max-height: calc(100vh);

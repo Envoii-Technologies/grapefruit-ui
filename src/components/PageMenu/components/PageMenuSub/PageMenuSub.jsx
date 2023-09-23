@@ -7,9 +7,9 @@ import { Button } from '../../../Button/Button';
 
 import envoiiLogo from './../../../../assets/logo.png';
 
-import './SideNavSub.scss';
+import './PageMenuSub.scss';
 
-export const SideNavSub = ({
+export const PageMenuSub = ({
     className,
     isExpanded,
     userData,
@@ -18,25 +18,24 @@ export const SideNavSub = ({
 }) => {
     return (
         <div
-            className={`
-            SideNavSub
+            className={`PageMenuSub 
             ${className !== undefined ? className : ''}
             ${isExpanded ? 'expanded' : 'compressed'}
         `}
         >
-            <div className="SideNavSub__logo">
+            <div className="PageMenuSub__logo">
                 <img
                     src={envoiiLogo}
                     alt=""
-                    className="SideNavSub__logo__image"
+                    className="PageMenuSub__logo__image"
                 />
             </div>
 
-            <div className="SideNavSub__role">
+            <div className="PageMenuSub__role">
                 <p>ADMIN</p>
             </div>
 
-            <nav className="SideNavSub__menu">
+            <nav className="PageMenuSub__content">
                 <ul>
                     <li>
                         <Button
@@ -60,7 +59,7 @@ export const SideNavSub = ({
     );
 };
 
-SideNavSub.propTypes = {
+PageMenuSub.propTypes = {
     /**
      * Custom class name of Component
      */
@@ -73,7 +72,7 @@ SideNavSub.propTypes = {
     menu: PropTypes.object,
 };
 
-SideNavSub.defaultProps = {
+PageMenuSub.defaultProps = {
     className: undefined,
     isExpanded: false,
     userData: undefined,

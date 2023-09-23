@@ -2,13 +2,9 @@
 
 .PageHeader
 {
-    position: relative;
-    z-index: 0;
     background: white;
-    height: 7rem;
-    min-width: 250px;
-    width: 100%;
-    
+    flex-basis: 6rem;
+
     &.transparent
     {
         background: none;
@@ -29,7 +25,7 @@
 
             &__main {
                 font-weight: 400;
-                font-size: 1rem;
+                font-size: 0.75rem;
                 &.link {
                     display: inline;
     

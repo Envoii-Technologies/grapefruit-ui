@@ -1,11 +1,12 @@
 @use '../../../../global-styles/' as *;
 
-.SideNavMain
+.PageMenuMain
 {
-    height: 3rem;
-    z-index: 100;
-    width: 100vw;
     background: $primary-color;
+    position: relative;
+    z-index: 1000;
+    height: 3rem;
+    flex-grow: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,7 +58,7 @@
                 }
             }
 
-            ul.SideNavMain__menu__items
+            ul.PageMenuMain__menu__items
             {
                 display: none;
                 flex-direction: column;

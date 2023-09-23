@@ -21,6 +21,8 @@ PageContent.propTypes =
 	 * Custom class name of Component
 	 */
 	className: PropTypes.string,
+	hasWrapper: PropTypes.bool,
+	isFluid: PropTypes.bool,
 };
 
 PageContent.defaultProps =

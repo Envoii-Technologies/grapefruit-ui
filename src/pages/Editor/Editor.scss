@@ -5,6 +5,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    overflow: hidden;
 
     &__wrapper
     {
@@ -16,70 +17,13 @@
             flex-direction: row;
         }
 
-        &__menu
-        {
-            background: purple;
-            display: flex;
-            flex-direction: column;
-
-            @media only screen and (min-width: $breakpoint-large){
-                // width: 14rem;
-                height: 100vh;
-                flex-direction: row;
-            }
-
-            &__main
-            {
-                position: relative;
-                z-index: 1000;
-                height: 3rem;
-                flex-grow: 1;
-                background: red;
-
-                @media only screen and (min-width: $breakpoint-large){
-                    width: 3rem;
-                    height: inherit;
-                }
-            }
-
-            &__sub
-            {
-                margin-top: 3rem;
-                z-index: 500;
-                background: yellow;
-                position: absolute;
-                width: 100vw;
-                height: calc(100vh - 3rem);
-
-                @media only screen and (min-width: $breakpoint-large){
-                    position: relative;
-                    margin-top: inherit;
-                    width: 12rem;
-                    height: inherit;
-                }
-
-                &__content
-                {
-                    background: blue;
-                    height: calc(100vh - 6rem);
-                    overflow-y: scroll;
-                }
-            }
-        }
-
         &__main
         {
-            background: blue;
+            background: $default-color-light;
             flex-grow: 1;
             flex-basis: 100px;
             display: flex;
             flex-direction: column;
-
-            &__header
-            {
-                background: green;
-                flex-basis: 6rem;
-            }
         }
     }
 }

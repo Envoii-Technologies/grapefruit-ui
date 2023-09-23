@@ -1,22 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import {
-    faSliders,
-    faFileLines,
-    faRightFromBracket,
-    faArrowRightArrowLeft,
-    faGripLines,
-    faCircleUser,
-} from '@fortawesome/free-solid-svg-icons';
+import './PageMenu.scss';
+import { PageMenuMain, PageMenuSub } from './components/';
 
-import { Button } from '../../';
-
-import { SideNavMain, SideNavSub } from './components';
-
-import './SideNav.scss';
-
-export const SideNav = ({ className, isExpanded, user, ...props }) => {
+export const PageMenu = ({ className, isExpanded, user, ...props }) => {
     const [screenSize, setScreenSize] = useState(getCurrentDimension());
     const [expanded, setIsExpanded] = useState(true);
 
@@ -42,35 +30,28 @@ export const SideNav = ({ className, isExpanded, user, ...props }) => {
 
     return (
         <div
-            className={`
-    			SideNav
-	    		${className !== undefined ? className : ''}
-		    `}
+            className={`PageMenu ${className !== undefined ? className : ''}
+		`}
         >
-            <SideNavMain
-                isExpanded={expanded}
-                handleExpand={() =>setIsExpanded(!expanded)}
-                handleSettingsAction={() => alert("YO")}
+            <PageMenuMain
+                                isExpanded={expanded}
+                                handleExpand={() =>setIsExpanded(!expanded)}
+                                handleSettingsAction={() => alert("YO")}
             />
-            <SideNavSub
-                isExpanded={expanded}
-            />
+            <PageMenuSub isExpanded={expanded}/>
         </div>
     );
 };
 
-SideNav.propTypes = {
+PageMenu.propTypes = {
     /**
      * Custom class name of Component
      */
     className: PropTypes.string,
-    /**
-     * is the sidebar expanded?
-     */
     isExpanded: PropTypes.bool,
 };
 
-SideNav.defaultProps = {
+PageMenu.defaultProps = {
     className: undefined,
-    isExpanded: false,
+    isExpanded: true,
 };
