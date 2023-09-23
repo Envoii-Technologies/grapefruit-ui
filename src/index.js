@@ -1,8 +1,4 @@
-export { Avatar } from './components/Avatar/';
-export { EmployeeCard } from './components/EmployeeCard';
-export { GuideCard } from './components/GuideCard';
-export { Card } from './components/Card/index.js';
-export { DataList } from './components/DataList/index.js';
-export { DataCard } from './components/DataCard/index.js';
 export { Button } from './components/Button/index.js';
-export { LoadingSpinner } from './components/LoadingSpinner/index.js';
+export { SideNav } from './components/SideNav/index.js';
+export { Avatar } from './components/Avatar/index.js';
+export { FormNotification } from './components/FormNotification/index.js';

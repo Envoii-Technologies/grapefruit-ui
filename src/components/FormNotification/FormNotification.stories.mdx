@@ -1,0 +1,35 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { FormNotification } from './FormNotification';
+
+export const Template = (args) => (
+	<div style={{ width: "350px"}}>
+		<FormNotification { ...args } />
+	</div>
+);
+
+<Meta title='Components/FormNotification' component={ FormNotification } />
+
+# FormNotification
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ FormNotification } />

@@ -1,0 +1,13 @@
+@use '../../global-styles/' as *;
+
+.SideNav
+{
+    user-select: none;
+    box-shadow: $box-shadow-bottom;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    flex-grow: 0;
+    position: relative;
+}

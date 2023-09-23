@@ -1,43 +1,244 @@
 @use '../../global-styles/' as *;
 
-.Button
-{
-	display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 0.25em;
-    background: #FBE532;
-    font-family: $font-family;
-    font-size: 1em;
-    border-radius: 0.25em;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 40px 0px;
-    color: rgb(22, 22, 22);
-    outline: none;
+.Button {
+    border-radius: $border-radius-default;
+
     border: none;
-
     cursor: pointer;
-    
-    @include hover-animation;
-    
-    &:hover {
-        @include hover-scale;
+    font-weight: 800;
+    font-size: $font-size-small;
+
+    &:disabled {
+        background: $disabled-color !important;
+        cursor: default;
     }
 
-    &.size-small
-    {
-        height: 1.5em;
+    &.fluid {
+        flex-grow: 1;
     }
 
-    &.size-medium
-    {
-        height: 2.1em;
+    &.loading {
+        .Button__wrapper {
+            &.withLabel
+            {
+                &.small {
+                    min-width: 8.5rem;
+                }
+        
+                &.medium {
+                    min-width: 9rem;
+                }
+        
+                &.large {
+                    min-width: 10rem;
+                }
+            }
+
+            .Button__spinner {
+                font-size: 0.25rem;
+                width: 0.3rem;
+                height: 0.3rem;
+                border-radius: 50%;
+                animation: mulShdSpin 1.1s infinite ease;
+            }
+        }
     }
 
-    &.size-large
-    {
-        height: 3em;
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.small {
+            height: 1.5rem;
+            padding: 0 0.25rem;
+            min-width: 1.5rem;
+        }
+
+        &.medium {
+            height: 2rem;
+            padding: 0 0.5rem;
+            min-width: 2rem;
+        }
+
+        &.large {
+            height: 2.5rem;
+            padding: 0 1rem;
+            min-width: 2.5rem;
+        }
     }
 
-    aspect-ratio: 1/1;
+    &__label {
+
+        min-width: 8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    &__icon__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 0;
+    }
+
+    &.default {
+        background: rgba($default-color-light, 0.75);
+        color: rgba(black, 0.55);
+
+        &:hover,
+        &:focus {
+            outline: none;
+            background: rgba($default-color-light, 0.5);
+        }
+    }
+
+    &.primary {
+        background: rgba($primary-color, 0.75);
+        color: white;
+
+        &:hover,
+        &:focus {
+            outline: none;
+            background: $primary-color;
+        }
+    }
+
+    &.secondary {
+        background: 2px solid rgba($default-color-light, 0.65);
+        color: rgba(black, 0.55);
+
+        &:hover,
+        &:focus {
+            outline: none;
+            background: rgba(239, 239, 239, 1);
+            color: black;
+        }
+    }
+
+    &.success {
+        background: rgba($success-color, 0.75);
+        color: white;
+
+        &:hover,
+        &:focus {
+            background: $success-color;
+            outline: none;
+        }
+    }
+
+    &.warning {
+        background: rgba($warning-color, 0.75);
+        color: white;
+
+        &:hover,
+        &:focus {
+            background: $warning-color;
+            outline: none;
+        }
+    }
+
+    &.error {
+        background: rgba($error-color, 0.75);
+        color: white;
+
+        &:hover,
+        &:focus {
+            outline: none;
+            background: $error-color;
+        }
+    }
+
+    &.transparent {
+        background: rgba(white, 0.0);
+        color: white;
+
+        &:hover,
+        &:focus {
+            background: rgba(white, 0.2);
+            outline: none;
+        }
+    }
+}
+
+@keyframes mulShdSpin {
+    0%,
+    100% {
+        box-shadow: 0em -2.6em 0em 0em #ffffff,
+            1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+            2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+            1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+            0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+            -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+            -2.6em 0em 0 0em rgba(255, 255, 255, 0.5),
+            -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+    }
+    12.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7),
+            1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+            1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+            0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+            -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+            -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+            -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+    }
+    25% {
+        box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5),
+            1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff,
+            1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+            0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+            -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+            -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+            -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+    }
+    37.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+            1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5),
+            2.5em 0em 0 0em rgba(255, 255, 255, 0.7),
+            1.75em 1.75em 0 0em #ffffff,
+            0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+            -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+            -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+            -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+            1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+            2.5em 0em 0 0em rgba(255, 255, 255, 0.5),
+            1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7),
+            0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+            -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+            -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+    }
+    62.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+            1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+            2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+            1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5),
+            0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff,
+            -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+            -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+    }
+    75% {
+        box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+            1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+            2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+            1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+            0em 2.5em 0 0em rgba(255, 255, 255, 0.5),
+            -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7),
+            -2.6em 0em 0 0em #ffffff,
+            -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+    }
+    87.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+            1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+            2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+            1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+            0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+            -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
+            -2.6em 0em 0 0em rgba(255, 255, 255, 0.7),
+            -1.8em -1.8em 0 0em #ffffff;
+    }
 }
