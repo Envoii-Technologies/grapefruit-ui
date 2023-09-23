@@ -1,37 +1,85 @@
 @use '../../global-styles/' as *;
 
-.Page {
-    background: $default-color-light;
+.Page
+{
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: column;
 
-    @media only screen and (min-width: $breakpoint-large){
-        flex-direction: row;
-    }
-
-    &__nav
+    &__wrapper
     {
-       flex-grow: 1;
-    }
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
 
-    &__content
-    {
-       display: flex;
-       flex-direction: column;
-       position: relative;
+        @media only screen and (min-width: $breakpoint-large){
+            flex-direction: row;
+        }
 
-        &__header
+        &__menu
         {
-            // 
+            background: purple;
+            display: flex;
+            flex-direction: column;
+
+            @media only screen and (min-width: $breakpoint-large){
+                // width: 14rem;
+                height: 100vh;
+                flex-direction: row;
+            }
+
+            &__main
+            {
+                position: relative;
+                z-index: 1000;
+                height: 3rem;
+                flex-grow: 1;
+                background: red;
+
+                @media only screen and (min-width: $breakpoint-large){
+                    width: 3rem;
+                    height: inherit;
+                }
+            }
+
+            &__sub
+            {
+                margin-top: 3rem;
+                z-index: 500;
+                background: yellow;
+                position: absolute;
+                width: 100vw;
+                height: calc(100vh - 3rem);
+
+                @media only screen and (min-width: $breakpoint-large){
+                    position: relative;
+                    margin-top: inherit;
+                    width: 12rem;
+                    height: inherit;
+                }
+
+                &__content
+                {
+                    background: blue;
+                    height: calc(100vh - 6rem);
+                    overflow-y: scroll;
+                }
+            }
         }
 
         &__main
         {
-            overflow-y: scroll;
-            flex-basis: calc(100vh - 10rem);
+            background: blue;
             flex-grow: 1;
+            flex-basis: 100px;
+            display: flex;
+            flex-direction: column;
+
+            &__header
+            {
+                background: green;
+                flex-basis: 6rem;
+            }
         }
     }
 }

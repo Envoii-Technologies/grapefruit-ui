@@ -9,7 +9,6 @@
     flex-direction: column;
     width: 100vw;
     z-index: 1000;
-    flex-grow: 1;
     position: relative;
     
     // desktop
@@ -17,5 +16,6 @@
     {
         flex-direction: row;
         width: inherit;
+        flex-basis: 4rem;
     }
 }
