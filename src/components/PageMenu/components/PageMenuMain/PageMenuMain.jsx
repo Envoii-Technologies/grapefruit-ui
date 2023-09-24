@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
     faArrowRightArrowLeft,
     faSliders,
     faFileLines,
     faGripLines,
-    faCircleUser,
     faRightFromBracket,
     faGear,
 } from '@fortawesome/free-solid-svg-icons';
@@ -18,6 +17,7 @@ export const PageMenuMain = ({
 	className,
     isExpanded,
     handleExpand,
+    userMenuExpanded,
     handleSettingsAction,
     handleLogoutAction,
     ...props
@@ -31,6 +31,10 @@ export const PageMenuMain = ({
     
         setIsUserExpanded(false);
     };
+
+    useEffect(() => {
+        setIsUserExpanded(userMenuExpanded)
+    }, [userMenuExpanded]);
 
 	return (
 		<div className={`

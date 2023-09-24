@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import './PageMenu.scss';
 import { PageMenuMain, PageMenuSub } from './components/';
 
-export const PageMenu = ({ className, isExpanded, user, ...props }) => {
+export const PageMenu = ({ className, isMenuExpanded, isUserMenuExpanded, user, ...props }) => {
     const [screenSize, setScreenSize] = useState(getCurrentDimension());
-    const [expanded, setIsExpanded] = useState(true);
+    const [expanded, setExpanded] = useState(true);
 
     function getCurrentDimension() {
         return {
@@ -16,12 +16,16 @@ export const PageMenu = ({ className, isExpanded, user, ...props }) => {
     }
 
     useEffect(() => {
+        setExpanded(isMenuExpanded)
+    }, [isMenuExpanded])
+
+    useEffect(() => {
         const updateDimension = () => {
             setScreenSize(getCurrentDimension());
         };
         window.addEventListener('resize', updateDimension);
 
-        setIsExpanded(screenSize.width < 768 ? false : isExpanded);
+        setExpanded(screenSize.width < 768 ? false : isMenuExpanded);
 
         return () => {
             window.removeEventListener('resize', updateDimension);
@@ -35,10 +39,13 @@ export const PageMenu = ({ className, isExpanded, user, ...props }) => {
         >
             <PageMenuMain
                 isExpanded={expanded}
-                handleExpand={() => setIsExpanded(!expanded)}
+                handleExpand={() => setExpanded(!expanded)}
+                userMenuExpanded={isUserMenuExpanded}
                 handleSettingsAction={() => alert('YO')}
             />
-            <PageMenuSub isExpanded={expanded} />
+            <PageMenuSub
+                isExpanded={expanded}
+            />
         </div>
     );
 };
@@ -48,10 +55,12 @@ PageMenu.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
-    isExpanded: PropTypes.bool,
+    isMenuExpanded: PropTypes.bool,
+    isUserMenuExpanded: PropTypes.bool,
 };
 
 PageMenu.defaultProps = {
     className: undefined,
-    isExpanded: true,
+    isMenuExpanded: true,
+    isUserMenuExpanded: false,
 };

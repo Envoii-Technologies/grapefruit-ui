@@ -1,8 +1,16 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
 import { PageMenu } from './PageMenu';
 
+export const ExampleTemplate = (args) => (
+	<div style={{ height: 300, display: "flex" }}>
+		<PageMenu { ...args } />
+	</div>
+);
+
 export const Template = (args) => (
-	<PageMenu { ...args } />
+	<div style={{ height: 300 }}>
+		<PageMenu { ...args } />
+	</div>
 );
 
 <Meta title='Components/PageMenu' component={ PageMenu } />
@@ -10,6 +18,15 @@ export const Template = (args) => (
 # PageMenu
 
 ...
+
+<Story
+	name="Example"
+	args={{
+		
+	}}
+>
+	{ ExampleTemplate.bind({}) }
+</Story>
 
 ## Examples
 
@@ -22,6 +39,54 @@ export const Template = (args) => (
 		name="Default"
 		args={{
 			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### isMenuExpanded
+
+<Canvas>
+	<Story
+		name="Expanded Menu"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		name="Compressed Menu"
+		args={{
+			isMenuExpanded: false
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### isUserMenuExpanded
+
+<Canvas>
+	<Story
+		name="Expanded User Menu"
+		args={{
+			isUserMenuExpanded: false
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		name="Compressed User Menu"
+		args={{
+			isUserMenuExpanded: true
 		}}
 	>
 		{ Template.bind({}) }
