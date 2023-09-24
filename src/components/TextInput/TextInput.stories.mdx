@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { TextInput } from './TextInput';
+
+export const Template = (args) => (
+	<TextInput { ...args } />
+);
+
+<Meta title='Components/TextInput' component={ TextInput } />
+
+# TextInput
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ TextInput } />

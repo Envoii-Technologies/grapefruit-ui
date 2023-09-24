@@ -6,3 +6,4 @@ export { PageHeader } from './components/PageHeader/index.js';
 export { ContentWrapper } from './components/ContentWrapper';
 export { PageMenu } from './components/PageMenu/index.js';
 export { EditorTabSection } from './components/EditorTabSection/index.js';
+export { TextInput } from './components/TextInput/index.js';
