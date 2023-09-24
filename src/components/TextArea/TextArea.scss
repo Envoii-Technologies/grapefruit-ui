@@ -1,8 +1,8 @@
 @use '../../global-styles/' as *;
 
-.TextInput
+.TextArea
 {
-	border-radius: $border-radius-default;
+    border-radius: $border-radius-default;
     margin: 1rem 0;
     border: $area-edge-border;
     overflow: hidden;
@@ -15,12 +15,12 @@
     &.success {
         border-color: rgba($success-color, 0.5);
 
-        .FormInput__metaInput {
+        .FormTextarea__wrapper__metaInput {
             color: $success-color;
             background: rgba($success-color, 0.25);
         }
 
-        .FormInput__metaLabel {
+        .FormTextarea__wrapper__metaLabel {
             border-left: 1px solid rgba($success-color, 0.5);
         }
     }
@@ -28,31 +28,44 @@
     &.error {
         border-color: rgba($error-color, 0.5);
 
-        .FormInput__metaInput {
+        .FormTextarea__wrapper__metaInput {
             color: $error-color;
             background: rgba($error-color, 0.25);
         }
 
-        .FormInput__metaLabel {
+        .FormTextarea__wrapper__metaLabel {
             border-left: 1px solid rgba($error-color, 0.5);
         }
     }
 
-    &__wrapper {
+    &__wrapper
+    {
         display: flex;
         align-items: stretch;
         justify-content: stretch;
-        height: 2.5rem;
 
         &__metaInput {
             flex-grow: 1;
-            padding: 0 1rem;
             border: none;
+            padding: 1rem 1rem;
+            color: $font-color-default;
+            font-size: $font-size-small;
+            font-family: 'Roboto', sans-serif;
     
             &:focus {
                 background: rgba($default-color-light, 0.15);
                 border: none;
                 outline: none;
+            }
+    
+            &.resizable
+            {
+                resize: vertical !important;
+            }
+    
+            &.unresizable
+            {
+                resize: none !important;
             }
         }
 
@@ -66,9 +79,9 @@
             background: rgba($default-color-light, 0.25);
 
             &.right
-        {
-            justify-content: flex-end;
-        }
+            {
+                justify-content: flex-end;
+            }
         }
     }
 }

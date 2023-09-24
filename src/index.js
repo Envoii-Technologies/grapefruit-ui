@@ -8,3 +8,4 @@ export { PageMenu } from './components/PageMenu/index.js';
 export { EditorTabSection } from './components/EditorTabSection/index.js';
 export { TextInput } from './components/TextInput/index.js';
 export { ContentBox } from './components/ContentBox/index.js';
+export { TextArea } from './components/TextArea/index.js';
