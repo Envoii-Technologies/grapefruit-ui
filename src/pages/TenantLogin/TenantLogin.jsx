@@ -75,7 +75,7 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus, ...props }) =
                             autoFocus={isInFocus}
                             type="text"
                             status={!errorMessage ? 'default' : 'error'}
-                            placeholder="Ihre Unternehmens-Domain"
+                            placeholder="Unternehmens-Domain"
                             metaLabel=".envoii.de"
                             metaPosition="right"
                             onFocus={isInFocus ? () => handleTenantFocus() : undefined}

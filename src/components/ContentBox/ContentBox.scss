@@ -2,9 +2,15 @@
 
 .ContentBox
 {
-    width: 24rem;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 24rem;
+    padding: 1rem;
+
+    @media only screen and (min-width: $breakpoint-large){
+        max-width: 24rem;
+    }
 
     &__title
     {
