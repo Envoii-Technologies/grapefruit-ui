@@ -21,6 +21,7 @@ export const Avatar = ({ className, name, image, size, ...props }) => {
 			${size === 'small' ? 'small' : size === 'medium' ? 'medium' : 'large'}
 			${image !== undefined && imageError === false ? 'with-image' : ''}
 			`}
+            {...props}
         >
             {image ? (
                 <>
