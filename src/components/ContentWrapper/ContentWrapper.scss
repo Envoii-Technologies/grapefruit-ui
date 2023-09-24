@@ -1,6 +1,6 @@
 @use '../../global-styles/' as *;
 
-.PageContent {
+.ContentWrapper {
     flex-basis: calc(100vh - (3rem + 6rem));
     overflow-y: scroll;
     display: flex;

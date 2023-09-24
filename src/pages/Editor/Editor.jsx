@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SideNav, PageHeader, PageContent, PageMenu, EditorTabSection } from './../../';
+import { SideNav, PageHeader, PageMenu, EditorTabSection, ContentWrapper } from './../../';
 
 import './Editor.scss';
 
@@ -11,9 +11,9 @@ export const Editor = () => {
                 <PageMenu/>
                 <div className="Page__wrapper__main">
                     <PageHeader isTransparent={false} title="Aufträge" subtitle="Nudeln zubereiten"/>
-                    <PageContent isFluid={false} hasWrapper={false}>
+                    <ContentWrapper isFluid={false} hasWrapper={false}>
                         <EditorTabSection/>
-                    </PageContent>
+                    </ContentWrapper>
                 </div>
             </div>
         </div>
