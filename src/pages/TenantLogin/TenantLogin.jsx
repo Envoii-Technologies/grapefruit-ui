@@ -31,7 +31,7 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus, ...props }) =
 
     const handleKeyDown = (e) => {
         if (e.keyCode === 13) {
-            action();
+            action(tenant);
         }
     };
 
@@ -71,7 +71,7 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus, ...props }) =
                             onChange={(e) => handleTenantChange(e)}
                             onKeyDown={(e) => handleKeyDown(e)}
                         />
-                        <Button label="Weiter" type="primary" size="large" onClick={() => action()} />
+                        <Button label="Weiter" type="primary" size="large" onClick={() => action(tenant)} />
                     </ContentBox>
                 </ContentWrapper>
             </div>
