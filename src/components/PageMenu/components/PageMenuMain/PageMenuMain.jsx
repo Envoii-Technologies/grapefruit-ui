@@ -10,7 +10,7 @@ import {
     faGear,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { Button } from '../../../Button/Button';
+import { Button, Avatar } from '../../../../';
 
 import './PageMenuMain.scss'
 
@@ -70,11 +70,7 @@ export const PageMenuMain = ({
                 )}
             </nav>
             <nav className="PageMenuMain__meta">
-                <Button
-                    icon={faCircleUser}
-                    type="transparent"
-                    onClick={() => setIsUserExpanded(!userExpanded)}
-                />
+                <Avatar size="small" name="admin" onClick={() => setIsUserExpanded(!userExpanded)}></Avatar>
                 {userExpanded && (
                     <>
                         <Button
