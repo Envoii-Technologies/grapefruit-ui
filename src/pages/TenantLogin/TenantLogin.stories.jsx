@@ -10,6 +10,8 @@ export default {
     },
 };
 
-const Template = (args) => <TenantLogin {...args} />;
+const Template = (args) => <TenantLogin {...args} action={() => alert('[NOT IMPLEMENTED]')} />;
+const TemplateError = (args) => <TenantLogin {...args} isInFocus={false} error={"Kein Gültiges Unternehmen."} />;
 
 export const Default = Template.bind({});
+export const Error = TemplateError.bind({});
