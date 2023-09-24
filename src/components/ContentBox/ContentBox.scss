@@ -1,0 +1,20 @@
+@use '../../global-styles/' as *;
+
+.ContentBox
+{
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+
+    &__title
+    {
+        color: $font-color-primary;
+        font-size: $font-size-large;
+    }
+
+    &__footer
+    {
+        margin-top: 0.5rem;
+        font-size: $font-size-small;
+    }
+}
