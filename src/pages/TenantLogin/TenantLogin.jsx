@@ -29,9 +29,20 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus, ...props }) =
         setTenant(e.target.value);
     };
 
+    const handleSendData = () =>
+    {
+        if(tenant === "") 
+        {
+            setErrorMessage('Bitte gültiges Unternehmen eingeben.');
+        }
+        else{
+            action(tenant);
+        }
+    }
+
     const handleKeyDown = (e) => {
         if (e.keyCode === 13) {
-            action(tenant);
+            handleSendData();
         }
     };
 
@@ -71,7 +82,7 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus, ...props }) =
                             onChange={(e) => handleTenantChange(e)}
                             onKeyDown={(e) => handleKeyDown(e)}
                         />
-                        <Button label="Weiter" type="primary" size="large" onClick={() => action(tenant)} />
+                        <Button label="Weiter" type="primary" size="large" onClick={() => handleSendData()} />
                     </ContentBox>
                 </ContentWrapper>
             </div>
