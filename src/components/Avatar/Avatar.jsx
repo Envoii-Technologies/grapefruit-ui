@@ -11,7 +11,7 @@ export const Avatar = ({ className, name, image, size, ...props }) => {
             .map((word) => word[0])
             .join('');
 
-        return firstLetters;
+        return firstLetters.toUpperCase();
     };
 
     return (
