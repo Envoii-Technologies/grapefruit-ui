@@ -1,43 +1,52 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
     faArrowRightArrowLeft,
     faSliders,
     faFileLines,
     faGripLines,
-    faCircleUser,
     faRightFromBracket,
     faGear,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { Button } from '../../../Button/Button';
+import { Button, Avatar } from '../../../../';
 
-import './PageMenuMain.scss'
+import './PageMenuMain.scss';
 
-export const PageMenuMain = ({ 
-	className,
+import getUsername from '../../../../helpers/getUsername';
+
+export const PageMenuMain = ({
+    className,
+    userData,
+    menuData,
     isExpanded,
     handleExpand,
+    userMenuExpanded,
     handleSettingsAction,
     handleLogoutAction,
     ...props
-}) =>
-{
-	const [userExpanded, setIsUserExpanded] = useState(false);
+}) => {
+    const [userExpanded, setIsUserExpanded] = useState(false);
+    const [menu, setMenu] = useState(menuData);
 
-	const handleUserMenuClick = (action) => {
+    const handleUserMenuClick = (action) => {
+        action !== undefined ? action() : alert('[NOT IMPLEMENTED]');
 
-        action !== undefined ? action() :  alert("[NOT IMPLEMENTED]");
-    
         setIsUserExpanded(false);
     };
 
-	return (
-		<div className={`
+    useEffect(() => {
+        setIsUserExpanded(userMenuExpanded);
+    }, [userMenuExpanded]);
+
+    return (
+        <div
+            className={`
 			PageMenuMain
-			${ className !== undefined ? className : "" }
-		`}>
-			<nav className="PageMenuMain__menu">
+			${className !== undefined ? className : ''}
+		`}
+        >
+            <nav className="PageMenuMain__menu">
                 <Button
                     className="PageMenuMain__menu__large"
                     icon={faArrowRightArrowLeft}
@@ -52,29 +61,24 @@ export const PageMenuMain = ({
                 />
                 {!isExpanded && (
                     <ul className="PageMenuMain__menu__items">
-                        <li>
-                            <Button
-                                icon={faSliders}
-                                type="transparent"
-                                isFluid
-                            />
-                        </li>
-                        <li>
-                            <Button
-                                icon={faFileLines}
-                                type="transparent"
-                                isFluid
-                            />
-                        </li>
+                        {menuData &&
+                            menuData.map((item, i) => (
+                                <li key={i}>
+                                    <Button
+                                        icon={item.icon}
+                                        type="transparent"
+                                    />
+                                </li>
+                            ))}
                     </ul>
                 )}
             </nav>
             <nav className="PageMenuMain__meta">
-                <Button
-                    icon={faCircleUser}
-                    type="transparent"
+                <Avatar
+                    size="small"
+                    name={getUsername(userData)}
                     onClick={() => setIsUserExpanded(!userExpanded)}
-                />
+                ></Avatar>
                 {userExpanded && (
                     <>
                         <Button
@@ -94,6 +98,6 @@ export const PageMenuMain = ({
                     </>
                 )}
             </nav>
-		</div>
-	)
-}
+        </div>
+    );
+};

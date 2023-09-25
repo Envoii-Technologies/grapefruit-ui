@@ -1,7 +1,6 @@
 @use '../../../../global-styles/' as *;
 
-.PageMenuMain
-{
+.PageMenuMain {
     background: $primary-color;
     position: relative;
     z-index: 1000;
@@ -11,70 +10,65 @@
     justify-content: space-between;
     align-items: center;
 
-    @media only screen and (min-width: $breakpoint-large)
-        {
-            width: 3rem;
-            height: 100vh;
+    @media only screen and (min-width: $breakpoint-large) {
+        width: 3rem;
+        height: 100%;
+        flex-direction: column;
+        align-items: space-between;
+        justify-content: space-between;
+    }
+
+    &__menu,
+    &__meta {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+
+        @media only screen and (min-width: $breakpoint-large) {
             flex-direction: column;
-            align-items: space-between;
-            justify-content: space-between;
         }
+    }
 
-        &__menu,
-        &__meta
-        {
-            display: flex;
-            flex-direction: row;
-            gap: 0.5rem;
-            justify-content: center;
-            align-items: center;
-            padding: 0.5rem;
+    &__menu {
+        &__large {
+            display: none;
 
-            @media only screen and (min-width: $breakpoint-large)
-            {
-                flex-direction: column;
-            }
-        }
-
-        &__menu
-        {
-            &__large
-            {
-                display: none;
-
-                @media only screen and (min-width: $breakpoint-large)
-                {
-                    display: block;
-                }
-            }
-
-            &__small
-            {
+            @media only screen and (min-width: $breakpoint-large) {
                 display: block;
-
-                @media only screen and (min-width: $breakpoint-large)
-                {
-                    display: none;
-                }
-            }
-
-            ul.PageMenuMain__menu__items
-            {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                list-style-type: none;
-                gap: 0.5rem;
-
-                li
-                {
-                    display: flex;
-                }
-
-                @media only screen and (min-width: $breakpoint-large)
-                {
-                    display: flex;
-                }
             }
         }
+
+        &__small {
+            display: block;
+
+            @media only screen and (min-width: $breakpoint-large) {
+                display: none;
+            }
+        }
+
+        ul.PageMenuMain__menu__items {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            list-style-type: none;
+            gap: 0.5rem;
+
+            li {
+                display: flex;
+            }
+
+            @media only screen and (min-width: $breakpoint-large) {
+                display: flex;
+            }
+        }
+    }
+
+    &__meta {
+        .Avatar {
+            cursor: pointer;
+        }
+    }
 }

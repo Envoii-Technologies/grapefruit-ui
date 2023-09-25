@@ -1,38 +1,43 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render } from '@testing-library/react';
 import { FormNotification } from './FormNotification';
 
 describe('FormNotification', () => {
-	// render component
-	it('should render', () => {
-		render(<FormNotification />);
-		const testFormNotification = screen.getByText('[DEFAULT MESSAGE]');
-		expect(testFormNotification).toBeInTheDocument();
-	});
+  it('renders with default props', () => {
+    const { container } = render(<FormNotification />);
+    const formNotification = container.querySelector('.FormNotification');
+    expect(formNotification).toBeInTheDocument();
+    expect(formNotification).toHaveClass('error');
+    expect(formNotification).toHaveTextContent('[DEFAULT MESSAGE]');
+  });
 
-	// custom class
-	it('should render with a custom class', () => {
-		const { container } = render(<FormNotification className="test-class" />)
-		expect(container.getElementsByClassName('test-class').length).toBe(1);
-	});
+  it('renders with custom props', () => {
+    const { container } = render(
+      <FormNotification
+        className="custom-notification"
+        type="success"
+        message="Custom Message"
+      />
+    );
+    const formNotification = container.querySelector('.custom-notification');
+    expect(formNotification).toBeInTheDocument();
+    expect(formNotification).toHaveClass('success');
+    expect(formNotification).toHaveTextContent('Custom Message');
+  });
 
-	// success state
-	it('should render success message', () => {
-		const { container } = render(<FormNotification type="success" />)
-		expect(container.getElementsByClassName('FormNotification success').length).toBe(1);
-		expect(container.getElementsByClassName('FormNotification__wrapper__icon success').length).toBe(1);
-	});
+  it('renders different icons based on type', () => {
+    const { container } = render(<FormNotification type="success" />);
+    const successIcon = container.querySelector('.FormNotification__wrapper__icon.success');
+    expect(successIcon).toBeInTheDocument();
+    const warningIcon = render(<FormNotification type="warning" />).container.querySelector('.FormNotification__wrapper__icon.warning');
+    expect(warningIcon).toBeInTheDocument();
+    const errorIcon = render(<FormNotification type="error" />).container.querySelector('.FormNotification__wrapper__icon.error');
+    expect(errorIcon).toBeInTheDocument();
+  });
 
-	// warning state
-	it('should render warning message', () => {
-		const { container } = render(<FormNotification type="warning" />)
-		expect(container.getElementsByClassName('FormNotification warning').length).toBe(1);
-		expect(container.getElementsByClassName('FormNotification__wrapper__icon warning').length).toBe(1);
-	});
-
-	// error state
-	it('should render error message', () => {
-		const { container } = render(<FormNotification type="error" />)
-		expect(container.getElementsByClassName('FormNotification error').length).toBe(1);
-		expect(container.getElementsByClassName('FormNotification__wrapper__icon error').length).toBe(1);
-	});
+  it('handles custom class names', () => {
+    const { container } = render(<FormNotification className="custom-class" />);
+    const formNotification = container.querySelector('.custom-class');
+    expect(formNotification).toBeInTheDocument();
+  });
 });

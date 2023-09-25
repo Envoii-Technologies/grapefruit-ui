@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { ContentWrapper } from './ContentWrapper';
+
+export const Template = (args) => (
+	<ContentWrapper { ...args }>Content</ContentWrapper>
+);
+
+<Meta title='Components/ContentWrapper' component={ ContentWrapper } />
+
+# ContentWrapper
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ ContentWrapper } />

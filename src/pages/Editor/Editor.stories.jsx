@@ -1,5 +1,7 @@
 import React from 'react';
-// import { within, userEvent } from '@storybook/testing-library';
+
+import mockUser from './../../data/mockUser';
+import mockMenu from './../../data/mockMenuItems';
 
 import { Editor } from './Editor';
 
@@ -11,6 +13,6 @@ export default {
     },
 };
 
-const Template = (args) => <Editor {...args} />;
+const Template = (args) => <Editor userData={mockUser.userData} userMenu={mockMenu.admin} {...args} />;
 
 export const Default = Template.bind({});

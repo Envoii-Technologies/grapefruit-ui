@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Data/User" />
+
+# User
+
+The following is a set of mock data, to emulate the supplied data by authorized User called Max Mustermann, who works at the Acme Corporation
+
+```js
+{
+    isAuthenticated: true,
+    tenant: 'acme',
+    userData: {
+        id: 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
+        username: 'max.mustermann',
+        email: 'max@acme.com',
+        emailVerified: false,
+        attributes: {
+            firstname: ['Max'],
+            lastname: ['Mustermann'],
+            personalId: ['12345678'],
+            jobtitle: ['test-user'],
+        },
+        roles: [
+            "app_admin",
+            "app_user"
+        ]
+    },
+};
+```
