@@ -5,5 +5,6 @@
         "^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
     },
     "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": ["@testing-library/jest-dom"]
+    "setupFilesAfterEnv": ["@testing-library/jest-dom"],
+    "collectCoverageFrom": ["src/**/*.jsx","!src/*/index.js", "!src/pages/*/*.jsx" ]
   }

@@ -22,12 +22,12 @@ export const TextInput = ({
             <div
                 className={`TextInput 
 				${className !== undefined ? className : ''}
-				${status ? status : ''}
+				${ status }
 				`}
             >
                 <div className="TextInput__wrapper">
                     {metaLabel && metaPosition === 'left' && (
-                        <div className="TextInput__wrapper__metaLabel">
+                        <div className="NumberInput__wrapper__metaLabel left">
                             <span>{metaLabel}</span>
                         </div>
                     )}
@@ -40,7 +40,7 @@ export const TextInput = ({
                         {...props}
                     />
                     {metaLabel && metaPosition === 'right' && (
-                        <div className="TextInput__wrapper__metaLabel">
+                        <div className="NumberInput__wrapper__metaLabel right">
                             <span>{metaLabel}</span>
                         </div>
                     )}

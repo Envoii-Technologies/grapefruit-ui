@@ -5,9 +5,10 @@ import './LoadingIndicator.scss';
 export const LoadingIndicator = ({ className, fluid, full, color, ...props }) => {
     return (
         <div
-            className={`LoadingIndicator ${fluid ? 'fluid' : ''} ${
-                full ? 'full' : ''
-            }`}
+            className={`LoadingIndicator 
+                ${ className !== undefined ? className : "" }
+                ${fluid ? 'fluid' : ''}
+                ${ full ? 'full' : ''}`}
             {...props}
         >
             <div

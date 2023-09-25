@@ -22,12 +22,12 @@ export const TextArea = ({
                 className={`
 				TextArea
 				${className !== undefined ? className : ''}
-				${status ? status : ''}
+				${ status }
 			`}
             >
                 <div className="TextArea__wrapper">
                     {metaLabel && metaPosition === 'left' && (
-                        <div className="TextArea__wrapper__metaLabel">
+                        <div className="TextArea__wrapper__metaLabel left">
                             <span>{metaLabel}</span>
                         </div>
                     )}
