@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookOpen, faGauge, faSliders, faUsers, faBookOpen, faListCheck } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpen, faGauge, faSliders, faUsers, faListCheck } from '@fortawesome/free-solid-svg-icons';
 
 export default {
     admin: [
