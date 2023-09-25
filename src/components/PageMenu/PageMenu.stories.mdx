@@ -1,15 +1,19 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+
+import mockUser from './../../data/mockUser';
+import mockMenu from './../../data/mockMenuItems';
+
 import { PageMenu } from './PageMenu';
 
 export const ExampleTemplate = (args) => (
-	<div style={{ height: 300, width: 500, display: "flex" }}>
-		<PageMenu { ...args } />
+	<div style={{ height: 350, width: 500, display: "flex" }}>
+		<PageMenu { ...args } userData={mockUser.userData} menuData={mockMenu.admin} isMenuExpanded={true}/>
 	</div>
 );
 
 export const Template = (args) => (
-	<div style={{ height: 300 , width: 500 }}>
-		<PageMenu { ...args } />
+	<div style={{ height: 350 , width: 500 }}>
+		<PageMenu { ...args } userData={mockUser.userData} menuData={mockMenu.admin} isMenuExpanded={true}/>
 	</div>
 );
 

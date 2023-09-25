@@ -5,6 +5,8 @@ import { faSliders, faFileLines } from '@fortawesome/free-solid-svg-icons';
 
 import { Button } from '../../../Button/Button';
 
+import getHighestRole from '../../../../helpers/getHighestRole';
+
 import envoiiLogo from './../../../../assets/logo.png';
 
 import './PageMenuSub.scss';
@@ -13,6 +15,7 @@ export const PageMenuSub = ({
     className,
     isExpanded,
     userData,
+    menuData,
     menu,
     ...props
 }) => {
@@ -37,199 +40,17 @@ export const PageMenuSub = ({
 
             <nav className="PageMenuSub__content">
                 <ul>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faSliders}
-                            label="Test 1"
-                            isFluid
-                        />
-                    </li>
-                    <li>
-                        <Button
-                            size="large"
-                            icon={faFileLines}
-                            label="Test 2"
-                            isFluid
-                        />
-                    </li>
-                    
+                    {menuData &&
+                            menuData.map((item, i) => (
+                                <li key={i}>
+                                    <Button
+                                        size="large"
+                                        icon={item.icon}
+                                        label={item.title}
+                                        isFluid
+                                    />
+                                </li>
+                            ))}
                 </ul>
             </nav>
         </div>

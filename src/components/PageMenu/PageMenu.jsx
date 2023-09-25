@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import './PageMenu.scss';
 import { PageMenuMain, PageMenuSub } from './components/';
 
-export const PageMenu = ({ className, isMenuExpanded, isUserMenuExpanded, user, ...props }) => {
+export const PageMenu = ({ className, isMenuExpanded, isUserMenuExpanded, userData, menuData, ...props }) => {
     const [screenSize, setScreenSize] = useState(getCurrentDimension());
-    const [expanded, setExpanded] = useState(true);
+    const [expanded, setExpanded] = useState(isMenuExpanded);
 
     function getCurrentDimension() {
         return {
@@ -42,9 +42,13 @@ export const PageMenu = ({ className, isMenuExpanded, isUserMenuExpanded, user, 
                 handleExpand={() => setExpanded(!expanded)}
                 userMenuExpanded={isUserMenuExpanded}
                 handleSettingsAction={() => alert('YO')}
+                userData={userData}
+                menuData={menuData}
             />
             <PageMenuSub
                 isExpanded={expanded}
+                userData={userData}
+                menuData={menuData}
             />
         </div>
     );
@@ -57,10 +61,14 @@ PageMenu.propTypes = {
     className: PropTypes.string,
     isMenuExpanded: PropTypes.bool,
     isUserMenuExpanded: PropTypes.bool,
+    userData: PropTypes.object,
+    menuData: PropTypes.array,
 };
 
 PageMenu.defaultProps = {
     className: undefined,
-    isMenuExpanded: true,
+    isMenuExpanded: false,
     isUserMenuExpanded: false,
+    userData: undefined,
+    menuData: undefined,
 };
