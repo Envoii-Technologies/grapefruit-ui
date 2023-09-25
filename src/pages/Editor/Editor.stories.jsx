@@ -1,5 +1,6 @@
 import React from 'react';
-// import { within, userEvent } from '@storybook/testing-library';
+
+import mockUser from './../../data/mockUser';
 
 import { Editor } from './Editor';
 
@@ -11,6 +12,6 @@ export default {
     },
 };
 
-const Template = (args) => <Editor {...args} />;
+const Template = (args) => <Editor userData={mockUser.userData} {...args} />;
 
 export const Default = Template.bind({});

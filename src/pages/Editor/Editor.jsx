@@ -4,11 +4,11 @@ import { SideNav, PageHeader, PageMenu, EditorTabSection, ContentWrapper } from 
 
 import './Editor.scss';
 
-export const Editor = () => {
+export const Editor = ({ userData }) => {
     return (
         <div className="Page">
             <div className="Page__wrapper">
-                <PageMenu/>
+                <PageMenu userData={userData} isMenuExpanded={false}/>
                 <div className="Page__wrapper__main">
                     <PageHeader isTransparent={false} title="Aufträge" subtitle="Nudeln zubereiten"/>
                     <ContentWrapper isFluid={false} hasWrapper={false}>
