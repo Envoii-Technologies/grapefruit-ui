@@ -1,19 +1,26 @@
 export default (userData) =>
 {
-    if(userData.attributes.firstname === "" && userData.attributes.lastname === "")
+    if (userData?.attributes === undefined) {
+        return undefined
+    } else {
+        const userAttributes = userData.attributes;
+
+ if(userAttributes.firstname === "" && userAttributes.lastname === "")
     {
         return userData.username
     }
-    else if(userData.attributes.firstname !== "" && userData.attributes.lastname === "")
+    else if(userAttributes.firstname !== "" && userAttributes.lastname === "")
     {
-        return userData.attributes.firstname;
+        return userAttributes.firstname;
     }
-    else if(userData.attributes.lastname !== "" && userData.attributes.firstname === "")
+    else if(userAttributes.lastname !== "" && userAttributes.firstname === "")
     {
-        return userData.attributes.lastname;
+        return userAttributes.lastname;
     }
-    if(userData.attributes.firstname !== "" && userData.attributes.lastname !== "")
+    if(userAttributes.firstname !== "" && userAttributes.lastname !== "")
     {
-        return userData.attributes.firstname + " " + userData.attributes.lastname;
+        return userAttributes.firstname + " " + userAttributes.lastname;
+    }
+        
     }
 }
