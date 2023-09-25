@@ -13,6 +13,6 @@ export default {
     },
 };
 
-const Template = (args) => <Editor userData={mockUser.userData} userMenu={mockMenu.admin} {...args} />;
+const Template = (args) => <Editor userData={mockUser.userData} userMenu={mockMenu} {...args} />;
 
 export const Default = Template.bind({});

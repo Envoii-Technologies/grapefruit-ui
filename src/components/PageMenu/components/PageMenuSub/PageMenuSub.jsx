@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { faSliders, faFileLines } from '@fortawesome/free-solid-svg-icons';
@@ -19,6 +19,8 @@ export const PageMenuSub = ({
     menu,
     ...props
 }) => {
+    const [ userRole, setUserRole ] = useState(getHighestRole(userData).role);
+
     return (
         <div
             className={`PageMenuSub 
@@ -35,13 +37,13 @@ export const PageMenuSub = ({
             </div>
 
             <div className="PageMenuSub__role">
-                <p>ADMIN</p>
+                <p>{userRole}</p>
             </div>
 
             <nav className="PageMenuSub__content">
                 <ul>
                     {menuData &&
-                            menuData.map((item, i) => (
+                            menuData[userRole.toLowerCase()].map((item, i) => (
                                 <li key={i}>
                                     <Button
                                         size="large"

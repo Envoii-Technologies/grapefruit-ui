@@ -14,6 +14,7 @@ import { Button, Avatar } from '../../../../';
 import './PageMenuMain.scss';
 
 import getUsername from '../../../../helpers/getUsername';
+import getHighestRole from '../../../../helpers/getHighestRole';
 
 export const PageMenuMain = ({
     className,
@@ -28,6 +29,7 @@ export const PageMenuMain = ({
 }) => {
     const [userExpanded, setIsUserExpanded] = useState(false);
     const [menu, setMenu] = useState(menuData);
+    const [ userRole, setUserRole ] = useState(getHighestRole(userData).role);
 
     const handleUserMenuClick = (action) => {
         action !== undefined ? action() : alert('[NOT IMPLEMENTED]');
@@ -62,7 +64,7 @@ export const PageMenuMain = ({
                 {!isExpanded && (
                     <ul className="PageMenuMain__menu__items">
                         {menuData &&
-                            menuData.map((item, i) => (
+                            menuData[userRole.toLowerCase()].map((item, i) => (
                                 <li key={i}>
                                     <Button
                                         icon={item.icon}
