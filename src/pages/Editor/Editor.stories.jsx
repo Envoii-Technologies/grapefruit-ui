@@ -1,6 +1,7 @@
 import React from 'react';
 
 import mockUser from './../../data/mockUser';
+import mockMenu from './../../data/mockMenuItems';
 
 import { Editor } from './Editor';
 
@@ -12,6 +13,6 @@ export default {
     },
 };
 
-const Template = (args) => <Editor userData={mockUser.userData} {...args} />;
+const Template = (args) => <Editor userData={mockUser.userData} userMenu={mockMenu.admin} {...args} />;
 
 export const Default = Template.bind({});
