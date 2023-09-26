@@ -3,6 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import './Button.scss';
 
+export const ButtonSizes = {
+    small: 'small',
+    medium: 'medium',
+    large: 'large',
+};
+
+export const ButtonTypes = {
+    default: 'default',
+    primary: 'primary',
+    secondary: 'secondary',
+    success: 'success',
+    warning: 'warning',
+    error: 'error',
+    transparent: 'transparent',
+};
+
 export const Button = ({
     className,
     label,
@@ -18,16 +34,19 @@ export const Button = ({
         <>
             <button
                 className={`Button 
-				${ className !== undefined ? className : "" }
+				${className !== undefined ? className : ''}
 				${isFluid ? 'fluid' : ''} 
 				${type} 
-				${isLoading ? 'loading' : ''}`
-				}
+				${isLoading ? 'loading' : ''}`}
                 type="button"
                 onClick={onClick}
                 {...props}
             >
-                <div className={`Button__wrapper ${size} ${label ? 'withLabel' :''}`}>
+                <div
+                    className={`Button__wrapper ${size} ${
+                        label ? 'withLabel' : ''
+                    }`}
+                >
                     {!isLoading ? (
                         <>
                             {icon && (
@@ -54,45 +73,37 @@ export const Button = ({
 };
 
 Button.propTypes = {
-	/**
-	 * Custom class name of Component
-	 */
+    /**
+     * Custom class name of Component
+     */
     className: PropTypes.string,
-	/**
-	 * Label of Component
-	 */
+    /**
+     * Label of Component
+     */
     label: PropTypes.string,
-	/**
-	 * Function to be called when click event is fired
-	 */
+    /**
+     * Function to be called when click event is fired
+     */
     onClick: PropTypes.func,
-	/**
-	 * Type of Component
-	 */
-    type: PropTypes.oneOf([
-        'default',
-        'primary',
-        'secondary',
-        'success',
-        'warning',
-        'error',
-        'transparent',
-    ]),
-	/**
-	 * Size of Component
-	 */
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-	/**
-	 * Is Component fluid?
-	 */
+    /**
+     * Type of Component
+     */
+    type: PropTypes.oneOf(Object.keys(ButtonTypes)),
+    /**
+     * Size of Component
+     */
+    size: PropTypes.oneOf(Object.keys(ButtonSizes)),
+    /**
+     * Is Component fluid?
+     */
     isFluid: PropTypes.bool,
-	/**
-	 * Icon for Component
-	 */
+    /**
+     * Icon for Component
+     */
     icon: PropTypes.any,
-	/**
-	 * Is Component showing loading state?
-	 */
+    /**
+     * Is Component showing loading state?
+     */
     isLoading: PropTypes.bool,
 };
 
@@ -100,8 +111,8 @@ Button.defaultProps = {
     className: undefined,
     label: '',
     onClick: undefined,
-    type: 'default',
-    size: 'medium',
+    type: ButtonTypes.default,
+    size: ButtonSizes.medium,
     isFluid: true,
     icon: undefined,
     isLoading: false,

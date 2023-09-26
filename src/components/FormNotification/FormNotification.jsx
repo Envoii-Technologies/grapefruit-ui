@@ -3,60 +3,63 @@ import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-   faCircleExclamation,
-   faTriangleExclamation,
-   faCircleCheck
+    faCircleExclamation,
+    faTriangleExclamation,
+    faCircleCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
-import './FormNotification.scss'
+import './FormNotification.scss';
 
-export const FormNotification = ({ className, type, message, ...props }) =>
-{
-	return (
-		<div className={`
+export const FormNotificationTypes = {
+    success: 'success',
+    warning: 'warning',
+    error: 'error',
+};
+
+export const FormNotification = ({ className, type, message, ...props }) => {
+    return (
+        <div
+            className={`
 			FormNotification
-			${ className !== undefined ? className : "" }
+			${className !== undefined ? className : ''}
 			${type}
-		`}>
-			<div className="FormNotification__wrapper">
-			<div className={`FormNotification__wrapper__icon ${type}`}>
-					{
-						type === "success" && <FontAwesomeIcon icon={faCircleCheck} />
-					}
-					{
-						type === "warning" && <FontAwesomeIcon icon={faTriangleExclamation} />
-					}
-					{
-						type === "error" && <FontAwesomeIcon icon={faCircleExclamation} />
-					}
-				</div>
-				<p className="FormNotification__wrapper__message">
-					{message}
-				</p>
-			</div>
-		</div>
-	)
-}
+		`}
+        >
+            <div className="FormNotification__wrapper">
+                <div className={`FormNotification__wrapper__icon ${type}`}>
+                    {type === 'success' && (
+                        <FontAwesomeIcon icon={faCircleCheck} />
+                    )}
+                    {type === 'warning' && (
+                        <FontAwesomeIcon icon={faTriangleExclamation} />
+                    )}
+                    {type === 'error' && (
+                        <FontAwesomeIcon icon={faCircleExclamation} />
+                    )}
+                </div>
+                <p className="FormNotification__wrapper__message">{message}</p>
+            </div>
+        </div>
+    );
+};
 
-FormNotification.propTypes =
-{
-	/**
-	 * Custom class name of Component
-	 */
-	className: PropTypes.string,
-	/**
-	 * Type of notification
-	 */
-	type: PropTypes.oneOf(["success", "warning", "error"]),
-	/**
-	 * Message to be shown
-	 */
+FormNotification.propTypes = {
+    /**
+     * Custom class name of Component
+     */
+    className: PropTypes.string,
+    /**
+     * Type of notification
+     */
+    type: PropTypes.oneOf(Object.keys(FormNotificationTypes)),
+    /**
+     * Message to be shown
+     */
     message: PropTypes.string,
 };
 
-FormNotification.defaultProps =
-{
-	className: undefined,
-	type: "error",
-    message: "[DEFAULT MESSAGE]"
+FormNotification.defaultProps = {
+    className: undefined,
+    type: FormNotificationTypes.error,
+    message: '[DEFAULT MESSAGE]',
 };
