@@ -18,6 +18,7 @@ export const Editor = ({ userData, userMenu }) => {
                         isTransparent={false}
                         title="Aufträge"
                         subtitle="Nudeln zubereiten"
+                        onBack={() => alert("[NOT IMPLEMENTED]")}
                     />
                     <Tabs>
                         <TabItem title="Schritte">Schritte...</TabItem>
