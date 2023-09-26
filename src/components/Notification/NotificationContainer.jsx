@@ -43,6 +43,7 @@ export const NotificationContainer = ({
                 notificationList.map((notification, i) => (
                     <Notification
                         className={"slideIn"}
+                        title={notification.title}
                         key={i}
                         type={notification.type}
                         onDelete={() =>

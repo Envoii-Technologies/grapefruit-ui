@@ -22,6 +22,7 @@ export const NotificationTypes = {
 export const Notification = ({
     className,
     children,
+    title,
     type,
     onDelete,
     ...props
@@ -47,7 +48,7 @@ export const Notification = ({
             </div>
             <div className="Notification__content">
                 <div className="Notification__content__header">
-                    <b>ABC</b>
+                    { title }
                     <button
                         className="Notification__content__header__close"
                         onClick={onDelete}
@@ -55,6 +56,12 @@ export const Notification = ({
                         <FontAwesomeIcon icon={faXmark} />
                     </button>
                 </div>
+                    <button
+                        className="Notification__content__close"
+                        onClick={onDelete}
+                    >
+                        <FontAwesomeIcon icon={faXmark} />
+                    </button>
                 <div className="Notification__content__wrapper">{children}</div>
             </div>
         </div>
@@ -68,6 +75,7 @@ Notification.propTypes = {
     className: PropTypes.string,
     color: PropTypes.string,
     type: PropTypes.oneOf(Object.keys(NotificationTypes)),
+    title: PropTypes.string,
     childen: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.element),
         PropTypes.element,
@@ -78,6 +86,7 @@ Notification.propTypes = {
 Notification.defaultProps = {
     className: undefined,
     color: undefined,
+    title: undefined,
     type: NotificationTypes.info,
     childen: undefined,
     onDelete: undefined,

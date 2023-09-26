@@ -51,21 +51,32 @@
         align-items: flex-start;
         padding-top: 1rem;
         width: 3rem;
+        flex-shrink: 0;
     }
 
     &__content {
         display: flex;
         flex-grow: 1;
-        flex-direction: column;
+        flex-direction: row-reverse;
+        align-items: flex-start;
         padding: 1rem;
         gap: 0.5rem;
 
+        @media only screen and (min-width: $breakpoint-large){
+            flex-direction: column;
+            align-items: stretch;
+        }
+
         &__header {
-            display: flex;
+            display: none;
             justify-content: space-between;
             flex-direction: row;
             font-weight: bold;
             padding: 0;
+
+            @media only screen and (min-width: $breakpoint-large){
+                display: flex;
+            }
 
             &__close {
                 background: transparent;
@@ -76,7 +87,20 @@
             }
         }
 
+        &__close {
+            background: transparent;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+
+            @media only screen and (min-width: $breakpoint-large){
+                display: none;
+            }
+        }
+
         &__wrapper {
+            flex-grow: 1;
             font-size: 0.85rem;
         }
     }
@@ -85,10 +109,16 @@
 .NotificationContainer {
     position: absolute;
     display: flex;
-    flex-direction: column-reverse;
-    top: 1rem;
+    flex-direction: column;
     right: 1rem;
     width: 18rem;
+    bottom: 0.5rem;
+
+    @media only screen and (min-width: $breakpoint-large){
+        flex-direction: column-reverse;
+        top: 1rem;
+        bottom: inherit;
+    }
 }
 
 @keyframes slideIn {

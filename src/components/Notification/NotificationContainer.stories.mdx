@@ -12,12 +12,12 @@ export const Template = (args) => {
 
     return (
         <>
-			<div style={{ display: "flex", gap: "0.5rem", flexDirection: "column"}}>
-            <Button label="Create Info Notification" onClick={() => createNotification({ content: "Test Notification", type: "info" })} />
-			<Button label="Create Success Notification" onClick={() => createNotification({ content: "Test Notification", type: "success" })} />
-			<Button label="Create Warning Notification" onClick={() => createNotification({ content: "Test Notification", type: "warning" })} />
-			<Button label="Create Error Notification" onClick={() => createNotification({ content: "Test Notification", type: "error" })} />
-			</div>
+    		<div style={{ display: "flex", gap: "0.5rem", flexDirection: "column"}}>
+            <Button label="Create Info Notification" onClick={() => createNotification({ content: "Test Notification", title: "Title", type: "info" })} />
+    		<Button label="Create Success Notification" onClick={() => createNotification({ content: "Test Notification", title: "Title", type: "success" })} />
+    		<Button label="Create Warning Notification" onClick={() => createNotification({ content: "Test Notification", title: "Title", type: "warning" })} />
+    		<Button label="Create Error Notification" onClick={() => createNotification({ content: "Test Notification", title: "Title", type: "error" })} />
+    		</div>
             <NotificationContainer addNotification={newNotification} notifications={notifications} {...args} />
         </>
     );
