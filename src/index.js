@@ -12,3 +12,4 @@ export { TextArea } from './components/TextArea/index.js';
 export { SearchBar } from './components/SearchBar/index.js';
 export { NumberInput } from './components/NumberInput/index.js';
 export { Notification } from './components/Notification/index.js';
+export { ModalWindow } from './components/ModalWindow/index.js';

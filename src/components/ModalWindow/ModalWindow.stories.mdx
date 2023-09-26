@@ -1,0 +1,41 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { ModalWindow } from './ModalWindow';
+import { Button } from './../../';
+
+export const Template = (args) => {
+    const [showWindow, setShowWindow] = React.useState(false);
+	const [newNotification, setNewNotification] = React.useState();
+
+        const createNotification = (data) => {
+    		setNewNotification({ ...data, id: Date.now() + Math.floor(Math.random() * 10000) });
+    	}
+
+    return (
+        <>
+    		<Button label="Show ModalWindow" onClick={() => setShowWindow(true)} />
+		  	<ModalWindow { ...args } show={showWindow} body="This is a Modal Window!" onCancel={() => setShowWindow(false)} onAccept={() => alert("[NOT IMPLEMENTED]")} />
+        </>
+    );
+};
+
+<Meta title="Components/ModalWindow" component={ModalWindow} />
+
+# ModalWindow
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+    <Story name="Default" args={{}}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ModalWindow} />
