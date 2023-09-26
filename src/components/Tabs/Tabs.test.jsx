@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { EditorTabSection } from './EditorTabSection';
+import { Tabs } from './Tabs';
 
-describe('EditorTabSection', () => {
+describe('Tabs', () => {
   it('renders with default props', () => {
     const { container } = render(<EditorTabSection />);
     const tabSection = container.querySelector('.EditorTabSection');
