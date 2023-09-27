@@ -29,11 +29,41 @@ export const Dashboard = ({ userData, userMenu }) => {
                 />
                 <div className="Page__wrapper__main">
                     <PageHeader isTransparent={false} title="Dashboard" />
-                    <ContentWrapper
-                        isFluid={true}
-                        hasWrapper={true}
-                    >
-                        
+                    <ContentWrapper isFluid={true} hasWrapper={true}>
+                        <Grid>
+                            <Row>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                            </Row>
+                        </Grid>
                     </ContentWrapper>
                 </div>
             </div>

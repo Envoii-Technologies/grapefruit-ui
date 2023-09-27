@@ -6,6 +6,7 @@ import mockMenu from './../../data/mockMenuItems';
 import { Dashboard } from './Dashboard';
 
 export default {
+
     title: 'Pages/Dashboard',
     component: Dashboard,
     parameters: {
