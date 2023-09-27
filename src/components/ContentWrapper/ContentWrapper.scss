@@ -4,23 +4,25 @@
     position: relative;
     overflow-y: scroll;
     display: flex;
+    justify-content: center;
 
-    &__wrapper
-    {
+    &__wrapper {
         height: 100%;
 
-        &.padded
-        {
+        &.padded {
             padding: 1em;
         }
 
-        &.fluid
-        {
+        &:not(.fluid) {
+            width: 100%;
+            max-width: $breakpoint-small;
+        }
+
+        &.fluid {
             width: 100%;
         }
 
-        &.centered
-        {
+        &.centered {
             display: flex;
             justify-content: center;
             align-items: center;
