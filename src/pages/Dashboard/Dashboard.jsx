@@ -26,6 +26,7 @@ export const Dashboard = ({ userData, userMenu }) => {
                     userData={userData}
                     menuData={userMenu}
                     isMenuExpanded={true}
+                    activeMenuItem={"/"}
                 />
                 <div className="Page__wrapper__main">
                     <PageHeader isTransparent={false} title="Dashboard" />

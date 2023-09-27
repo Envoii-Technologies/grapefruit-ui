@@ -17,6 +17,7 @@ export const PageMenuSub = ({
     userData,
     menuData,
     menu,
+    activeMenuItem,
     ...props
 }) => {
     const [ userRole, setUserRole ] = useState(getHighestRole(userData).role);
@@ -49,6 +50,7 @@ export const PageMenuSub = ({
                                         size="large"
                                         icon={item.icon}
                                         label={item.title}
+                                        type={activeMenuItem === item.path ? 'primary' : 'default'}
                                         isFluid
                                     />
                                 </li>

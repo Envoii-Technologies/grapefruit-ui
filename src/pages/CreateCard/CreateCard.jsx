@@ -63,6 +63,7 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
                     userData={userData}
                     menuData={userMenu}
                     isMenuExpanded={true}
+                    activeMenuItem={"/guides"}
                 />
                 <div className="Page__wrapper__main">
                     <PageHeader

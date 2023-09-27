@@ -18,6 +18,7 @@ import getHighestRole from '../../../../helpers/getHighestRole';
 
 export const PageMenuMain = ({
     className,
+    activeMenuItem,
     userData,
     menuData,
     isExpanded,
@@ -68,7 +69,7 @@ export const PageMenuMain = ({
                                 <li key={i}>
                                     <Button
                                         icon={item.icon}
-                                        type="transparent"
+                                        type={activeMenuItem === item.path ? 'secondary' : 'transparent'}
                                     />
                                 </li>
                             ))}

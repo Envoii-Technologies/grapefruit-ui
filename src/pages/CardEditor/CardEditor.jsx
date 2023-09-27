@@ -12,6 +12,7 @@ export const CardEditor = ({ userData, userMenu }) => {
                     userData={userData}
                     menuData={userMenu}
                     isMenuExpanded={false}
+                    activeMenuItem={"/guides"}
                 />
                 <div className="Page__wrapper__main">
                     <PageHeader
