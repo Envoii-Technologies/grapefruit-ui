@@ -41,7 +41,7 @@ export const PageMenu = ({ className, isMenuExpanded, isUserMenuExpanded, userDa
                 isExpanded={expanded}
                 handleExpand={() => setExpanded(!expanded)}
                 userMenuExpanded={isUserMenuExpanded}
-                handleSettingsAction={() => alert('YO')}
+                handleSettingsAction={() => alert("[NOT IMPLEMENTED]")}
                 userData={userData}
                 menuData={menuData}
             />
@@ -62,7 +62,7 @@ PageMenu.propTypes = {
     isMenuExpanded: PropTypes.bool,
     isUserMenuExpanded: PropTypes.bool,
     userData: PropTypes.object,
-    menuData: PropTypes.array,
+    menuData: PropTypes.object,
 };
 
 PageMenu.defaultProps = {

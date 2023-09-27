@@ -42,7 +42,8 @@
         }
 
         &__menu {
-
+            display: flex;
+            align-items: flex-end;
             &__content
             {
                 max-height: 2rem;

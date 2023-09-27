@@ -6,7 +6,6 @@ import { Column } from './Column';
 export const Row = ({ className, children, style, maxColumns, ...props }) =>
 {
 	const arrayChildren = Children.toArray(children);
-	console.log(arrayChildren);
 	
 	return (
 		<div className={`Row ${ className !== undefined ? className : "" }`} style={style}>

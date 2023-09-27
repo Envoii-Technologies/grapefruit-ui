@@ -21,6 +21,7 @@ export const TextArea = ({
     placeholder,
     metaLabel,
     metaPosition,
+    name,
     isResizable,
     ...props
 }) => {
@@ -50,7 +51,7 @@ export const TextArea = ({
                         rows="4"
                         placeholder={placeholder}
                         {...props}
-                    ></textarea>
+                    />
 					{metaLabel && metaPosition === TextAreaMetaPositions.right && (
                         <div className="TextArea__wrapper__metaLabel right">
                             <span>{metaLabel}</span>
@@ -74,7 +75,7 @@ TextArea.propTypes = {
     placeholder: PropTypes.string,
     metaLabel: PropTypes.string,
     metaPosition: PropTypes.oneOf(Object.keys(TextAreaMetaPositions)),
-    isResizable: PropTypes.bool
+    isResizable: PropTypes.bool,
 };
 
 TextArea.defaultProps = {

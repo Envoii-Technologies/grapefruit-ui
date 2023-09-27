@@ -45,6 +45,19 @@ export const PageHeader = ({
                         </>
                     )}
                 </div>
+                <div className="PageHeader__wrapper__menu">
+                    <div className="PageHeader__wrapper__menu__content">
+                        {children}
+                        {helplink && (
+                            <Button
+                                size="small"
+                                fluid={false}
+                                icon={faCircleQuestion}
+                                type="success"
+                            />
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
         // <div

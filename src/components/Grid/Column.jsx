@@ -23,7 +23,7 @@ Column.propTypes =
 	 */
 	className: PropTypes.string,
 	width: PropTypes.oneOf([10, 15, 20, 25, 50]),
-	fixedWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.undefined])
+	fixedWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.any])
 };
 
 Column.defaultProps =
