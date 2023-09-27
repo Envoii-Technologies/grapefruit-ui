@@ -2,9 +2,9 @@ import React from 'react';
 
 import { PageHeader, PageMenu, Tabs, ContentWrapper, TabItem } from './../../';
 
-import './Editor.scss';
+import './CardEditor.scss';
 
-export const Editor = ({ userData, userMenu }) => {
+export const CardEditor = ({ userData, userMenu }) => {
     return (
         <div className="Page">
             <div className="Page__wrapper">
