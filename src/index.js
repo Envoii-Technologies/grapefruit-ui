@@ -15,3 +15,4 @@ export { Notification } from './components/Notification/index.js';
 export { ModalWindow } from './components/ModalWindow/index.js';
 export { PopOver } from './components/PopOver/index.js';
 export { ContentCard, ContentCardBody, ContentCardFooter, ContentCardHeader } from './components/ContentCard/index.js';
+export { Grid, Row, Column } from './components/Grid/index.js';
