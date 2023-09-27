@@ -53,6 +53,7 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus, ...props }) =
                     hasPadding={false}
                     isCentered={true}
                     isFluid={true}
+                    scollFix={false}
                 >
                     <ContentBox
                         dropAmount={-10}

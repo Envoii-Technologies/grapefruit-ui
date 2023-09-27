@@ -22,7 +22,7 @@ export const PopOver = ({
 }) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const handleAction = ({ action, e }) => {
+    const handleAction = (action, e) => {
         setIsOpen(false);
 
         action(e);
@@ -45,6 +45,7 @@ export const PopOver = ({
                     ? options.map((option, i) => (
                           <Button
                               key={i}
+                              disabled={option.disabled || false}
                               type={option.type || 'primary'}
                               label={option.label}
                               onClick={(e) => handleAction(option.action, e)}

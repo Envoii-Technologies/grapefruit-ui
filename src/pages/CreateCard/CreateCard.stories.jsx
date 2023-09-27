@@ -26,4 +26,20 @@ const Template = (args) => (
         />
 );
 
+
+const TemplateError = (args) => (
+    <CreateCard
+        userData={mockUser.userData}
+        userMenu={mockMenu}
+        onSendData={(data) => alert(`
+            Title: ${data.title}
+            Language: ${data.language[0]?.title}
+            Description: ${data.description}
+        `)}
+        onError={{ type: 'error', message: 'This is an error message!' }}
+        {...args}
+        />
+);
+
 export const Default = Template.bind({});
+export const Error = TemplateError.bind({});

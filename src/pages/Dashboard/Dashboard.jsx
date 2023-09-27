@@ -63,6 +63,102 @@ export const Dashboard = ({ userData, userMenu }) => {
                                     </ContentCard>
                                 </Column>
                             </Row>
+                            <Row>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                            </Row>
+                            <Row>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                            </Row>
+                            <Row>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                                <Column>
+                                    <ContentCard>
+                                        <ContentCardHeader>
+                                            Content Header
+                                        </ContentCardHeader>
+                                        <ContentCardBody>
+                                            Content Card
+                                        </ContentCardBody>
+                                    </ContentCard>
+                                </Column>
+                            </Row>
                         </Grid>
                     </ContentWrapper>
                 </div>

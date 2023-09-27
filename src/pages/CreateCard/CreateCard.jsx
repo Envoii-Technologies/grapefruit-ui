@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
     PageHeader,
@@ -16,7 +16,7 @@ import {
 
 import './CreateCard.scss';
 
-export const CreateCard = ({ userData, userMenu, onSendData, }) => {
+export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
     const [errorMessage, setErrorMessage] = useState({ type: '', message: '' });
     const [documentInfo, setDocumentInfo] = useState({
         title: '',
@@ -34,6 +34,11 @@ export const CreateCard = ({ userData, userMenu, onSendData, }) => {
             value: 'english'
         }
     ];
+
+    useEffect(() => {
+        setErrorMessage(onError);
+    },
+    [onError])
 
     const handleChangeDocumentInfo = (e) => {
         const value = e.target.value;
@@ -64,18 +69,20 @@ export const CreateCard = ({ userData, userMenu, onSendData, }) => {
                         isTransparent={false}
                         title="Dokumente"
                         subtitle="Neues Dokument"
+                        options={[
+                            {
+                                label: "Abbrechen",
+                                type: "secondary",
+                                action: () => alert("[NOT IMPLEMENTED]")
+                            },
+                            {
+                                disabled: documentInfo.title.length < 1,
+                                label: "Speichern",
+                                type: "primary",
+                                action: () => handleSendData()
+                            }
+                        ]}
                     >
-                        <Button
-                            label="Abbrechen"
-                            type="secondary"
-                            onClick={() => alert('[NOT IMPLEMENTED]')}
-                        />
-                        <Button
-                            label="Speichern"
-                            type="primary"
-                            onClick={() => handleSendData()}
-                            disabled={documentInfo.title.length < 1}
-                        />
                     </PageHeader>
                     <ContentWrapper isFluid={false} hasWrapper={true}>
                         <Grid>
@@ -83,7 +90,7 @@ export const CreateCard = ({ userData, userMenu, onSendData, }) => {
                                 <Row>
                                     <Column>
                                         <FormNotification
-                                            type="error"
+                                            type={errorMessage.type}
                                             message={errorMessage.message}
                                         />
                                     </Column>
