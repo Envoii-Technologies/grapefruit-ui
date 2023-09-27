@@ -1,29 +1,38 @@
 @use '../../global-styles/' as *;
 
 .ContentWrapper {
+    position: relative;
     overflow-y: scroll;
     display: flex;
-    width: 100%;
+    justify-content: center;
 
-    &__wrapper
-    {
-        &.padded
+    &__wrapper {
+        
+        &.scrollFix
         {
-            padding: 2em;
+            height: 100px;
         }
 
-        &.fluid
-        {
+        &.padded {
+            padding: 1em;
+        }
+
+        &:not(.fluid) {
+            width: 100%;
+            max-width: $breakpoint-small;
+        }
+
+        &.fluid {
             width: 100%;
         }
 
-        &.centered
-        {
+        &.centered {
             display: flex;
             justify-content: center;
             align-items: center;
         }
     }
+
     width: 100%;
     height: 100%;
 }

@@ -1,0 +1,151 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Grid, Column, Row } from './';
+
+export const columnStyle = {
+	border: "1px solid rgba(2,180,224, 1.0)",
+	background: "rgba(2,180,224, 0.25)",
+	display: "flex",
+	alignItems: "center",
+	padding: "0.5rem 1rem",
+};
+
+export const Template = (args) => (
+	<div style={{ width: "500px"}}>
+		<Grid { ...args }>
+			<Row>
+				<Column style={columnStyle}>One of Three</Column>
+				<Column style={columnStyle}>One of Three</Column>
+				<Column style={columnStyle}>One of Three</Column>
+			</Row>
+		</Grid>
+	</div>
+);
+
+<Meta title='Components/Grid' component={ Grid } />
+
+# Grid
+
+...
+
+	<Story
+		name="Example"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+<br/>
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Automatic layout
+
+export const TemplateEqualWidth = (args) => (
+	<div style={{ width: "500px"}}>
+		<Grid { ...args }>
+			<Row>
+				<Column style={columnStyle}>One of Three</Column>
+				<Column style={columnStyle}>One of Three</Column>
+				<Column style={columnStyle}>One of Three</Column>
+			</Row>
+			<Row>
+				<Column style={columnStyle}>One of Two</Column>
+				<Column style={columnStyle}>One of Two</Column>
+			</Row>
+			<Row>
+				<Column style={columnStyle}>One of Four</Column>
+				<Column style={columnStyle}>One of Four</Column>
+				<Column style={columnStyle}>One of Four</Column>
+				<Column style={columnStyle}>One of Four</Column>
+			</Row>
+		</Grid>
+	</div>
+);
+
+By default, all columns will share the same space along the width of the container.
+
+<Canvas>
+	<Story
+		name="Automatic Layout"
+		args={{
+			
+		}}
+	>
+		{ TemplateEqualWidth.bind({}) }
+	</Story>
+</Canvas>
+
+### Custom width for single columns
+
+export const TemplateCustomWidth = (args) => (
+	<div style={{ width: "500px"}}>
+		<Grid { ...args }>
+			<Row>
+				<Column style={columnStyle} width={20}>One of Three (20)</Column>
+				<Column style={columnStyle}>One of Three</Column>
+				<Column style={columnStyle}>One of Three</Column>
+			</Row>
+			<Row>
+				<Column style={columnStyle} width={25}>One of Two (25)</Column>
+				<Column style={columnStyle} width={50}>One of Two (50)</Column>
+			</Row>
+		</Grid>
+	</div>
+);
+
+<Canvas>
+	<Story
+		name="Custom Columns"
+		args={{
+			
+		}}
+	>
+		{ TemplateCustomWidth.bind({}) }
+	</Story>
+</Canvas>
+
+### Custom fixed width
+
+export const TemplateFixedWidth = (args) => (
+	<div style={{ width: "500px"}}>
+		<Grid { ...args }>
+			<Row>
+				<Column style={columnStyle} fixedWidth="20rem">One of Three (20rem)</Column>
+				<Column style={columnStyle}>One of Three</Column>
+				<Column style={columnStyle}>One of Three</Column>
+			</Row>
+		</Grid>
+	</div>
+);
+
+<Canvas>
+	<Story
+		name="Fixed Width"
+		args={{
+			
+		}}
+	>
+		{ TemplateFixedWidth.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Grid } />

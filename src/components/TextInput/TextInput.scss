@@ -1,14 +1,12 @@
 @use '../../global-styles/' as *;
 
-.TextInput
-{
-	border-radius: $border-radius-default;
-    margin: 1rem 0;
+.TextInput {
+    border-radius: $border-radius-default;
+    margin: 0.5rem 0 1rem;
     border: $area-edge-border;
     overflow: hidden;
 
-    &__label
-    {
+    &__label {
         font-weight: bold;
     }
 
@@ -48,7 +46,7 @@
             flex-grow: 1;
             padding: 0 1rem;
             border: none;
-    
+
             &:focus {
                 background: rgba($default-color-light, 0.15);
                 border: none;
@@ -65,10 +63,9 @@
             border-left: 1px solid rgba($default-color-light, 0.1);
             background: rgba($default-color-light, 0.25);
 
-            &.right
-        {
-            justify-content: flex-end;
-        }
+            &.right {
+                justify-content: flex-end;
+            }
         }
     }
 }

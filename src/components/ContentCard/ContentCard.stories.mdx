@@ -1,0 +1,124 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { ContentCard } from './ContentCard';
+import { ContentCardHeader } from './ContentCardHeader';
+import { ContentCardBody } from './ContentCardBody';
+import { ContentCardFooter } from './ContentCardFooter';
+import { Button } from './../Button/Button'
+
+export const Template = (args) => (
+    <div style={{ width: '500px', height: '300px', display: 'flex' }}>
+        <ContentCard {...args}>
+            <ContentCardHeader>Content Header</ContentCardHeader>
+            <ContentCardBody>Content Card</ContentCardBody>
+            <ContentCardFooter>Content Footer</ContentCardFooter>
+        </ContentCard>
+    </div>
+);
+
+export const TemplateNoHeader = (args) => (
+    <div style={{ width: '500px', height: '300px', display: 'flex' }}>
+        <ContentCard {...args}>
+            <ContentCardBody>Content Card</ContentCardBody>
+            <ContentCardFooter>Content Footer</ContentCardFooter>
+        </ContentCard>
+    </div>
+);
+
+export const TemplateNoFooter = (args) => (
+    <div style={{ width: '500px', height: '300px', display: 'flex' }}>
+        <ContentCard {...args}>
+            <ContentCardHeader>Content Header</ContentCardHeader>
+            <ContentCardBody>Content Card</ContentCardBody>
+        </ContentCard>
+    </div>
+);
+
+export const TemplatOnlyBody = (args) => (
+    <div style={{ width: '500px', height: '300px', display: 'flex' }}>
+        <ContentCard {...args}>
+            <ContentCardBody>Content Card</ContentCardBody>
+        </ContentCard>
+    </div>
+);
+
+export const TemplateWithButtonsInFooter = (args) => (
+    <div style={{ width: '500px', height: '300px', display: 'flex' }}>
+        <ContentCard {...args}>
+            <ContentCardHeader>Content Header</ContentCardHeader>
+            <ContentCardBody>Content Card</ContentCardBody>
+            <ContentCardFooter>
+				<Button label="Prev" type="primary"/>
+				<Button label="Next" type="primary"/>
+			</ContentCardFooter>
+        </ContentCard>
+    </div>
+);
+
+
+<Meta title="Components/ContentCard" component={ContentCard} />
+
+# ContentCard
+
+The ContentCard component provides a flexible content container, for various possible use cases.
+
+    <Story
+    	name="Example"
+    	args={{
+
+    	}}
+    >
+    	{ Template.bind({}) }
+    </Story>
+
+<br />
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+    <Story name="Default" args={{}}>
+        {TemplateNoFooter.bind({})}
+    </Story>
+</Canvas>
+
+The ContentCard component contains different subComponents for the header, body and footer areas,
+it is entirely possible to create a card without either of these, as shown below:
+
+### Without Header
+
+<Canvas>
+    <Story name="Without Header" args={{}}>
+        {TemplateNoHeader.bind({})}
+    </Story>
+</Canvas>
+
+### Without Footer
+
+<Canvas>
+    <Story name="Without Footer" args={{}}>
+        {TemplateNoHeader.bind({})}
+    </Story>
+</Canvas>
+
+### Only Body
+
+<Canvas>
+    <Story name="Only Body" args={{}}>
+        {TemplatOnlyBody.bind({})}
+    </Story>
+</Canvas>
+
+Either subcomponent can take any child content, for example the footer could contain a set of buttons:
+
+<Canvas>
+    <Story name="Custom Content" args={{}}>
+        {TemplateWithButtonsInFooter.bind({})}
+    </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ContentCard} />

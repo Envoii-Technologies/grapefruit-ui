@@ -6,6 +6,7 @@ import mockMenu from './../../data/mockMenuItems';
 import { Dashboard } from './Dashboard';
 
 export default {
+
     title: 'Pages/Dashboard',
     component: Dashboard,
     parameters: {
@@ -13,6 +14,6 @@ export default {
     },
 };
 
-const Template = (args) => <Dashboard userData={mockUser.userData} userMenu={mockMenu.admin} {...args} />;
+const Template = (args) => <Dashboard userData={mockUser.userData} userMenu={mockMenu} {...args} />;
 
 export const Default = Template.bind({});

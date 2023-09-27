@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Avatar.scss';
 
-export const Avatar = ({ className, name, image, size, ...props }) => {
+export const AvatarSizes = {
+    small: 'small',
+    medium: 'medium',
+    large: 'large',
+};
 
+export const Avatar = ({ className, name, image, size, ...props }) => {
     const getFirstLetters = (str) => {
         const firstLetters = str
             .split(' ')
@@ -17,7 +22,7 @@ export const Avatar = ({ className, name, image, size, ...props }) => {
         <div
             className={`
 			Avatar ${className !== undefined ? className : ''}
-			${size === 'small' ? 'small' : size === 'medium' ? 'medium' : 'large'}
+			${size ===  AvatarSizes.small ? 'small' : size === AvatarSizes.medium ? 'medium' : 'large'}
 			${image !== undefined ? 'with-image' : ''}
 			`}
             {...props}
@@ -43,7 +48,10 @@ Avatar.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    /**
+     * Size of avatar image
+     */
+    size: PropTypes.oneOf(Object.keys(AvatarSizes)),
     /**
      * Initials shown in Avatar
      */
@@ -56,7 +64,7 @@ Avatar.propTypes = {
 
 Avatar.defaultProps = {
     className: undefined,
-    size: 'medium',
+    size: AvatarSizes.medium,
     name: 'Jane Doe',
     image: undefined,
 };

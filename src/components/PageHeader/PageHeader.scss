@@ -1,12 +1,10 @@
 @use '../../global-styles/' as *;
 
-.PageHeader
-{
+.PageHeader {
     background: white;
-    flex-basis: 7rem;
+    flex-basis: 6rem;
 
-    &.transparent
-    {
+    &.transparent {
         background: none;
     }
 
@@ -28,7 +26,7 @@
                 font-size: 0.75rem;
                 &.link {
                     display: inline;
-    
+
                     &:hover {
                         cursor: pointer;
                         text-decoration: underline;
@@ -42,12 +40,27 @@
         }
 
         &__menu {
+            display: flex;
+            align-items: flex-end;
 
-            &__content
-            {
+            &__content {
+                
                 max-height: 2rem;
-                display: flex;
                 gap: 0.5rem;
+
+                display: none;
+
+                @media only screen and (min-width: $breakpoint-medium) {
+                    display: flex;
+                }
+            }
+
+            &__mobile {
+                display: block;
+
+                @media only screen and (min-width: $breakpoint-medium) {
+                    display: none;
+                }
             }
         }
     }

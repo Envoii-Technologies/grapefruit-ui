@@ -2,6 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TextInput.scss';
 
+export const TextInputType = {
+    text: 'text',
+    password: 'password',
+};
+
+export const TextInputStatus = {
+    default: 'default',
+    success: 'success',
+    error: 'error',
+};
+
+export const TextInputMetaPosition = {
+    left: 'left',
+    right: 'right',
+};
+
 export const TextInput = ({
     className,
     autoFocus,
@@ -26,7 +42,7 @@ export const TextInput = ({
 				`}
             >
                 <div className="TextInput__wrapper">
-                    {metaLabel && metaPosition === 'left' && (
+                    {metaLabel && metaPosition === TextInputMetaPosition.left && (
                         <div className="NumberInput__wrapper__metaLabel left">
                             <span>{metaLabel}</span>
                         </div>
@@ -39,7 +55,7 @@ export const TextInput = ({
                         placeholder={placeholder ? placeholder : label}
                         {...props}
                     />
-                    {metaLabel && metaPosition === 'right' && (
+                    {metaLabel && metaPosition === TextInputMetaPosition.right && (
                         <div className="NumberInput__wrapper__metaLabel right">
                             <span>{metaLabel}</span>
                         </div>
@@ -57,12 +73,12 @@ TextInput.propTypes = {
     className: PropTypes.string,
     autoFocus: PropTypes.bool,
     label: PropTypes.string,
-    type: PropTypes.oneOf(['text', 'password']),
-    status: PropTypes.oneOf(['default', 'success', 'error']),
+    type:  PropTypes.oneOf(Object.keys(TextInputType)),
+    status: PropTypes.oneOf(Object.keys(TextInputStatus)),
     name: PropTypes.string,
     placeholder: PropTypes.string,
     metaLabel: PropTypes.string,
-    metaPosition: PropTypes.oneOf(['left', 'right']),
+    metaPosition: PropTypes.oneOf(Object.keys(TextInputMetaPosition)),
 };
 
 TextInput.defaultProps = {
@@ -70,9 +86,9 @@ TextInput.defaultProps = {
     autoFocus: false,
     label: undefined,
     type: 'text',
-    status: 'default',
+    status: TextInputStatus.default,
     name: '',
     placeholder: '',
     metaLabel: '',
-    metaPosition: 'left',
+    metaPosition: TextInputMetaPosition.left,
 };

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './PageMenu.scss';
 import { PageMenuMain, PageMenuSub } from './components/';
 
-export const PageMenu = ({ className, isMenuExpanded, isUserMenuExpanded, userData, menuData, ...props }) => {
+export const PageMenu = ({ className, isMenuExpanded, isUserMenuExpanded, userData, menuData, activeMenuItem, ...props }) => {
     const [screenSize, setScreenSize] = useState(getCurrentDimension());
     const [expanded, setExpanded] = useState(isMenuExpanded);
 
@@ -41,14 +41,16 @@ export const PageMenu = ({ className, isMenuExpanded, isUserMenuExpanded, userDa
                 isExpanded={expanded}
                 handleExpand={() => setExpanded(!expanded)}
                 userMenuExpanded={isUserMenuExpanded}
-                handleSettingsAction={() => alert('YO')}
+                handleSettingsAction={() => alert("[NOT IMPLEMENTED]")}
                 userData={userData}
                 menuData={menuData}
+                activeMenuItem={activeMenuItem}
             />
             <PageMenuSub
                 isExpanded={expanded}
                 userData={userData}
                 menuData={menuData}
+                activeMenuItem={activeMenuItem}
             />
         </div>
     );
@@ -62,7 +64,8 @@ PageMenu.propTypes = {
     isMenuExpanded: PropTypes.bool,
     isUserMenuExpanded: PropTypes.bool,
     userData: PropTypes.object,
-    menuData: PropTypes.array,
+    menuData: PropTypes.object,
+    activeMenuItem: PropTypes.string,
 };
 
 PageMenu.defaultProps = {
@@ -71,4 +74,5 @@ PageMenu.defaultProps = {
     isUserMenuExpanded: false,
     userData: undefined,
     menuData: undefined,
+    activeMenuItem: undefined,
 };

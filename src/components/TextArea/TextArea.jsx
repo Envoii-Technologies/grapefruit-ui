@@ -2,6 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TextArea.scss';
 
+export const TextAreaStatus = {
+    default: 'default',
+    success: 'success',
+    error: 'error',
+};
+
+export const TextAreaMetaPositions = {
+    left: 'left',
+    right: 'right',
+};
+
 export const TextArea = ({
     className,
     autoFocus,
@@ -10,6 +21,7 @@ export const TextArea = ({
     placeholder,
     metaLabel,
     metaPosition,
+    name,
     isResizable,
     ...props
 }) => {
@@ -26,7 +38,7 @@ export const TextArea = ({
 			`}
             >
                 <div className="TextArea__wrapper">
-                    {metaLabel && metaPosition === 'left' && (
+                    {metaLabel && metaPosition === TextAreaMetaPositions.left && (
                         <div className="TextArea__wrapper__metaLabel left">
                             <span>{metaLabel}</span>
                         </div>
@@ -39,8 +51,8 @@ export const TextArea = ({
                         rows="4"
                         placeholder={placeholder}
                         {...props}
-                    ></textarea>
-					{metaLabel && metaPosition === 'right' && (
+                    />
+					{metaLabel && metaPosition === TextAreaMetaPositions.right && (
                         <div className="TextArea__wrapper__metaLabel right">
                             <span>{metaLabel}</span>
                         </div>
@@ -58,22 +70,22 @@ TextArea.propTypes = {
     className: PropTypes.string,
 	autoFocus: PropTypes.bool,
     label: PropTypes.string,
-    status: PropTypes.oneOf(["default", 'success', 'error']),
+    status: PropTypes.oneOf(Object.keys(TextAreaStatus)),
     name: PropTypes.string,
     placeholder: PropTypes.string,
     metaLabel: PropTypes.string,
-    metaPosition: PropTypes.oneOf(['left', 'right']),
-    isResizable: PropTypes.bool
+    metaPosition: PropTypes.oneOf(Object.keys(TextAreaMetaPositions)),
+    isResizable: PropTypes.bool,
 };
 
 TextArea.defaultProps = {
     className: undefined,
 	autoFocus: false,
     label: undefined,
-    status: "default",
+    status: TextAreaStatus.default,
     placeholder: '',
     metaLabel: '',
     name: '',
-    metaPosition: 'left',
+    metaPosition: TextAreaMetaPositions.left,
     isResizable: false
 };

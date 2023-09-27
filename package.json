@@ -33,12 +33,14 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@manifoldco/react-select-zero": "^0.0.1",
     "@originjs/vite-plugin-federation": "^1.2.3",
     "@storybook/addon-docs": "^7.0.24",
     "@storybook/cli": "^7.0.24",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-indiana-drag-scroll": "^3.0.3-alpha",
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {

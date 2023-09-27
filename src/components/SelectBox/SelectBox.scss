@@ -1,0 +1,94 @@
+@use '../../global-styles/' as *;
+
+.SelectBox
+{
+    &__label {
+        font-weight: bold;
+    }
+
+    margin: 0.5rem 0 1rem;
+
+    .rsz
+    {
+        border-radius: $border-radius-default;
+        border: $area-edge-border;
+        width: 100%;
+        align-items: stretch;
+        justify-content: stretch;
+
+
+        [role=option][data-highlighted]
+        {
+            background: $default-color !important;
+        }
+
+        [role=option][aria-selected=true]
+        {
+            color: $primary-color;
+        }
+        
+        .rsz__trigger
+        {
+            height: 2.5rem;
+            background: white;
+            border-radius: $border-radius-default;
+        } 
+
+        .rsz__trigger-button
+        {
+            outline: none;
+            border: none;
+
+
+            &:focus {
+                background: rgba($default-color-light, 0.15);
+                border: none;
+                outline: none;
+            }
+        }
+
+        .rsz__selected-text
+        {
+            background: transparent;
+        }
+
+        .rsz__selected-action
+        {
+            background: transparent;
+        }
+
+        .rsz__selection.rsz__placeholder
+        {
+            padding: 0 0.5rem;
+        }
+
+        .rsz__option-list
+        {
+            border-radius: $border-radius-default;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border: $area-edge-border;
+            box-shadow: $box-shadow-bottom;
+
+            .rsz__option
+            {
+                button
+                {
+                    padding: 1rem;
+                    font-size: 0.85rem;
+
+                    &::before
+                    {
+                        content: none
+                    }
+
+                    &:hover
+                    {
+                        background: $default-color !important;
+                    }
+
+                }
+            }
+        }
+    }
+}
