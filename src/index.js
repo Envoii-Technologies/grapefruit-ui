@@ -17,3 +17,4 @@ export { PopOver } from './components/PopOver/index.js';
 export { ContentCard, ContentCardBody, ContentCardFooter, ContentCardHeader } from './components/ContentCard/index.js';
 export { Grid, Row, Column } from './components/Grid/index.js';
 export { SelectBox } from './components/SelectBox/index.js';
+export { DateSelectBox } from './components/DateSelectBox/index.js';

@@ -1,0 +1,49 @@
+@use '../../global-styles/' as *;
+
+
+.react-datepicker-wrapper
+{
+    display: block;
+}
+
+.react-datepicker__triangle
+{
+    left: inherit;
+    transform: inherit;
+}
+
+.react-datepicker__input-container 
+{
+    background: transparent !important;
+}
+
+.DateSelectBox
+{
+    margin: 0.5rem 0 1rem;
+    border-radius: $border-radius-default;
+    border: $area-edge-border;
+    
+    &__label {
+        font-weight: bold;
+    }
+
+    &__input
+    {
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+        border: 1px solid transparent;
+        border-radius: $border-radius-default;
+        background: white;
+        height: 2.5rem;
+        padding: 1rem;
+        width: 100%;
+
+        &:focus {
+            background: rgba($default-color-light, 0.15);
+            border-radius: $border-radius-default;
+            border: 1px solid transparent;
+            outline: none;
+        }
+    }
+}

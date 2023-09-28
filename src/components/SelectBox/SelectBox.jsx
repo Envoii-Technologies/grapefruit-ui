@@ -19,7 +19,6 @@ export const SelectBox = ({
 	...props
 }) => {
     const [selection, setSelection] = useState(value || []);
-
     
 
     const handleOnChange = (e) =>
