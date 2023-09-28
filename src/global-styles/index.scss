@@ -58,6 +58,19 @@ $breakpoint-xlarge: 80em;
     src: url('../fonts/Roboto-Regular.ttf') format('truetype');
 }
 
+* > a,
+.link
+{
+    color: rgba($primary-color, 0.75);
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover
+    {
+        color: rgba($primary-color, 1);
+    }
+}
+
 // // tablet
 // @media only screen and (min-width: $breakpoint-medium) {
         
