@@ -14,6 +14,7 @@ import {
     SelectBox,
     TextArea,
     FormNotification,
+    DateSelectBox,
 } from './../../';
 
 import './CreateCard.scss';
@@ -25,6 +26,7 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
         title: '',
         description: '',
         language: '',
+        expiration: '',
     });
 
     const languageOptions = [
@@ -122,6 +124,18 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
                                 </Column>
                                 <Column>
                                     <TextInput label="Klassifizierung" />
+                                </Column>
+                            </Row>
+                            <Row>
+                                <Column>
+                                    <DateSelectBox
+                                        label="Gültig Bis"
+                                        onChange={(e) => handleChangeDocumentInfo(e)}
+                                        name="expiration"
+                                    />
+                                </Column>
+                                <Column>
+                                    <TextInput label="Tags" />
                                 </Column>
                             </Row>
                             <Row>

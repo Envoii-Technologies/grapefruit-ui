@@ -21,6 +21,7 @@ const Template = (args) => (
             Title: ${data.title}
             Language: ${data.language[0]?.title}
             Description: ${data.description}
+            Expiration: ${data.expiration}
         `)}
         {...args}
         />
@@ -35,6 +36,7 @@ const TemplateError = (args) => (
             Title: ${data.title}
             Language: ${data.language[0]?.title}
             Description: ${data.description}
+            Expiration: ${data.expiration}
         `)}
         onError={{ type: 'error', message: 'This is an error message!' }}
         {...args}
