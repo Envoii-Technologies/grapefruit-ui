@@ -38,6 +38,7 @@ export const DateSelectBox = ({ className, name, label, placeholder, value, onCh
             >
                 <DatePicker
                     selected={startDate}
+                    dateFormat="dd.MM.yyyy"
 					className="DateSelectBox__input"
                     onChange={(date) => handleOnChange(date)}
 					shouldCloseOnSelect={true}
