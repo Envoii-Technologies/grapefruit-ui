@@ -33,7 +33,7 @@ export const TableBody = ({
 
                     {columns.map((column) => (
                         <td
-                            key={column.id}
+                        key={`${row.id}-${column.id}`}
                             style={{
                                 width: 
                                 !column.size ? "70%" : column.size > 50 ? column.size : 50,

@@ -212,7 +212,7 @@ Table.propTypes = {
     columns: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.string.isRequired,
-            size: PropTypes.string.isRequired,
+            size: PropTypes.string,
             title: PropTypes.string.isRequired,
         })
     ).isRequired,
