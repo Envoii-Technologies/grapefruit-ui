@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ContentWrapper, PageHeader, PageMenu, Table } from './../../';
 
@@ -10,6 +10,19 @@ import './CardOverview.scss';
 export const CardOverview = ({ userData, userMenu, cardsData }) => {
 
     const [showFilterMenu, setShowFilterMenu] = useState(false);
+    const [searchInput, setSearchInput] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
+
+    useEffect(() => {
+        if(searchInput.length < 2)
+        {
+            setSearchTerm("");
+        }
+        else
+        {
+            setSearchTerm(searchInput);
+        }
+    },[searchInput])
 
     return (
         <div className="Page">
@@ -23,6 +36,8 @@ export const CardOverview = ({ userData, userMenu, cardsData }) => {
                 <div className="Page__wrapper__main">
                     <PageHeader
                         isTransparent={false}
+                        hasSearchBar={true}
+                        onSearchBarInput={(search) => setSearchInput(search)}
                         title="Karten"
                         onBack={() => alert('[NOT IMPLEMENTED]')}
                         options={[
@@ -45,6 +60,7 @@ export const CardOverview = ({ userData, userMenu, cardsData }) => {
                                 cardsData
                             }
                             initialSortedColumn="updatedAt"
+                            searchValue={searchTerm}
                             pageSize={10}
                             onFilterClick={() => setShowFilterMenu(!showFilterMenu)}
                         />
