@@ -2,6 +2,7 @@ import React from 'react';
 
 import mockUser from './../../data/mockUser';
 import mockMenu from './../../data/mockMenuItems';
+import mockCards from './../../data/MockCards';
 
 import { CardOverview } from './CardOverview';
 
@@ -13,6 +14,13 @@ export default {
     },
 };
 
-const Template = (args) => <CardOverview userData={mockUser.userData} userMenu={mockMenu} {...args} />;
+const Template = (args) => (
+    <CardOverview
+        userData={mockUser.userData}
+        userMenu={mockMenu}
+        cardsData={mockCards}
+        {...args} 
+        />
+    );
 
 export const Default = Template.bind({});
