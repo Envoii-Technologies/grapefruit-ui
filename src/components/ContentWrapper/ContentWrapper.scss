@@ -7,29 +7,40 @@
     justify-content: center;
 
     &__wrapper {
-        
-        &.scrollFix
-        {
+        &.scrollFix {
             height: 100px;
         }
 
         &.padded {
-            padding: 1em;
+            padding: 1rem;
         }
 
         &:not(.fluid) {
             width: 100%;
             max-width: $breakpoint-small;
+            position: relative;
+
+            @media only screen and (min-width: $breakpoint-small) {
+                max-width: $breakpoint-small;
+            }
+
+            @media only screen and (min-width: $breakpoint-medium) {
+                max-width: $breakpoint-medium;
+            }
+
+            @media only screen and (min-width: $breakpoint-large) {
+                max-width: $breakpoint-large;
+            }
         }
 
         &.fluid {
             width: 100%;
+            position: relative;
         }
 
         &.centered {
             display: flex;
             justify-content: center;
-            align-items: center;
         }
     }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PageHeader, PageMenu, Tabs, ContentWrapper, TabItem } from './../../';
+import { PageHeader, PageMenu, Tabs, TabItem } from './../../';
 
 import './CardEditor.scss';
 

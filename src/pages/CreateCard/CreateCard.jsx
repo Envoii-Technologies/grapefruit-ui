@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {
     PageHeader,
     PageMenu,
@@ -12,9 +14,11 @@ import {
     SelectBox,
     TextArea,
     FormNotification,
+    DateSelectBox,
 } from './../../';
 
 import './CreateCard.scss';
+import { faPencil, faQrcode } from '@fortawesome/free-solid-svg-icons';
 
 export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
     const [errorMessage, setErrorMessage] = useState({ type: '', message: '' });
@@ -22,23 +26,23 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
         title: '',
         description: '',
         language: '',
+        expiration: '',
     });
 
     const languageOptions = [
         {
             title: 'Deutsch',
-            value: 'german'
+            value: 'german',
         },
         {
             title: 'Englisch',
-            value: 'english'
-        }
+            value: 'english',
+        },
     ];
 
     useEffect(() => {
         setErrorMessage(onError);
-    },
-    [onError])
+    }, [onError]);
 
     const handleChangeDocumentInfo = (e) => {
         const value = e.target.value;
@@ -52,9 +56,9 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
     };
 
     const handleSendData = () => {
-        onSendData(documentInfo)
-        console.log(documentInfo)
-    }
+        onSendData(documentInfo);
+        console.log(documentInfo);
+    };
 
     return (
         <div className="Page">
@@ -63,7 +67,7 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
                     userData={userData}
                     menuData={userMenu}
                     isMenuExpanded={true}
-                    activeMenuItem={"/guides"}
+                    activeMenuItem={'/guides'}
                 />
                 <div className="Page__wrapper__main">
                     <PageHeader
@@ -72,19 +76,18 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
                         subtitle="Neues Dokument"
                         options={[
                             {
-                                label: "Abbrechen",
-                                type: "secondary",
-                                action: () => alert("[NOT IMPLEMENTED]")
+                                label: 'Abbrechen',
+                                type: 'secondary',
+                                action: () => alert('[NOT IMPLEMENTED]'),
                             },
                             {
                                 disabled: documentInfo.title.length < 1,
-                                label: "Speichern",
-                                type: "primary",
-                                action: () => handleSendData()
-                            }
+                                label: 'Speichern',
+                                type: 'primary',
+                                action: () => handleSendData(),
+                            },
                         ]}
-                    >
-                    </PageHeader>
+                    ></PageHeader>
                     <ContentWrapper isFluid={false} hasWrapper={true}>
                         <Grid>
                             {errorMessage?.message && (
@@ -114,8 +117,8 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
                                         label="Sprache"
                                         options={languageOptions}
                                         name="language"
-                                        onChange={
-                                            (e) => handleChangeDocumentInfo(e)
+                                        onChange={(e) =>
+                                            handleChangeDocumentInfo(e)
                                         }
                                     />
                                 </Column>
@@ -125,14 +128,48 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
                             </Row>
                             <Row>
                                 <Column>
+                                    <DateSelectBox
+                                        label="Gültig Bis"
+                                        onChange={(e) => handleChangeDocumentInfo(e)}
+                                        name="expiration"
+                                    />
+                                </Column>
+                                <Column>
+                                    <TextInput label="Tags" />
+                                </Column>
+                            </Row>
+                            <Row>
+                                <Column>
                                     <TextArea
                                         label="Notizen"
                                         name="description"
                                         placeholder="Notizen"
-                                        onChange={
-                                            (e) => handleChangeDocumentInfo(e)
+                                        onChange={(e) =>
+                                            handleChangeDocumentInfo(e)
                                         }
                                     />
+                                </Column>
+                            </Row>
+                            <Row>
+                                <Column>
+                                    <h4>QR-CODES</h4>
+                                    <div style={{ padding: '0.5rem 0 1rem', fontSize: "0.85rem" }}>
+                                        <span className="link">
+                                            <FontAwesomeIcon icon={faQrcode} />{' '}
+                                            QR-Code hinzufügen
+                                        </span>
+                                    </div>
+                                </Column>
+                            </Row>
+                            <Row>
+                                <Column>
+                                <h4>STRUKTURKLASSEN</h4>
+                                    <div style={{ padding: '0.5rem 0 1rem', fontSize: "0.85rem"  }}>
+                                        <span className="link">
+                                            <FontAwesomeIcon icon={faPencil} />{' '}
+                                            Klassen bearbeiten
+                                        </span>
+                                    </div>
                                 </Column>
                             </Row>
                         </Grid>
