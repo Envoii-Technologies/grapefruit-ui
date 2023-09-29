@@ -52,9 +52,9 @@ export const SelectBox = ({
                 value={selection}
                 noSearch={!hasSearch}
                 multi={multi}
-                placeholder="Sprache"
+                placeholder={placeholder ? placeholder : label}
             >
-                Select a Pokémon
+                {/* Select a Pokémon */}
             </Select>
         </div>
 		</>

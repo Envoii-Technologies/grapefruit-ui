@@ -1,5 +1,6 @@
 export default [
     {
+        id: 0,
         title: "Montageanleitung Modul 365",
         description: "Dies ist eine Montageanleitung",
         released: false,
@@ -11,6 +12,7 @@ export default [
         updatedAt: 1695981449
     },
     {
+        id: 1,
         title: "Bedienung Hydraulikpresse",
         description: "Wie bedient man die Hydraulikpresse?",
         released: false,
@@ -22,6 +24,7 @@ export default [
         updatedAt: 1695895049
     },
     {
+        id: 2,
         title: "Verfahrensleitung",
         description: "",
         released: false,
@@ -33,6 +36,7 @@ export default [
         updatedAt: 1687427849
     },
     {
+        id: 3,
         title: "Wartungsanleitung für CNC-Maschinen",
         description: "Tipps und Tricks zur Wartung von CNC-Maschinen",
         released: true,
@@ -44,6 +48,7 @@ export default [
         updatedAt: 1696306249
     },
     {
+        id: 4,
         title: "Programmieranleitung für Roboterarme",
         description: "Schritte zur Programmierung von Roboterarmen",
         released: true,
@@ -55,6 +60,7 @@ export default [
         updatedAt: 1696261449
     },
     {
+        id: 5,
         title: "Instandhaltung von Förderbändern",
         description: "Wartung und Instandhaltung von Förderbandanlagen",
         released: true,
@@ -66,6 +72,7 @@ export default [
         updatedAt: 1696257049
     },
     {
+        id: 6,
         title: "Anleitung für Schweißroboter",
         description: "Bedienung und Programmierung von Schweißrobotern",
         released: true,
@@ -77,6 +84,7 @@ export default [
         updatedAt: 1696229449
     },
     {
+        id: 7,
         title: "Bedienungshandbuch für 3D-Drucker",
         description: "Schritte zur Nutzung von 3D-Druckern",
         released: true,
@@ -88,6 +96,7 @@ export default [
         updatedAt: 1695981449
     },
     {
+        id: 8,
         title: "Anleitung für CNC-Fräsmaschinen",
         description: "Programmierung und Betrieb von CNC-Fräsmaschinen",
         released: true,
@@ -99,6 +108,7 @@ export default [
         updatedAt: 1696187849
     },
     {
+        id: 9,
         title: "Wartungshandbuch für Elektromotoren",
         description: "Wartung von Elektromotoren in Industrieanlagen",
         released: true,
@@ -110,6 +120,7 @@ export default [
         updatedAt: 1696163849
     },
     {
+        id: 10,
         title: "Betriebsanleitung für CNC-Plasmaschneider",
         description: "Lernen Sie, wie Sie unseren CNC-Plasmaschneider verwenden, um präzise Schnitte in Metallmaterialien durchzuführen.",
         released: true,
