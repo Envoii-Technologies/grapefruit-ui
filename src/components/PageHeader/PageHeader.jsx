@@ -6,7 +6,7 @@ import {
     faEllipsisV,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { Button, PopOver } from '../../';
+import { Button, PopOver, SearchBar, TextInput } from '../../';
 import './PageHeader.scss';
 
 export const PageHeader = ({
@@ -19,11 +19,18 @@ export const PageHeader = ({
     subtitle,
     action,
     onBack,
+    hasSearchBar,
+    onSearchBarInput,
     ...props
 }) => {
     const handleAction = (action , e) => {
         action(e);
     };
+
+    const handleSearchBarInput = (input) =>
+    {
+        onSearchBarInput(input);
+    }
     
     return (
         <div
@@ -61,6 +68,13 @@ export const PageHeader = ({
                         </PopOver>
                     </div>
                     <div className="PageHeader__wrapper__menu__content">
+                        {
+                            hasSearchBar && (
+                                <>
+                                    <SearchBar handleSearchSubmit={(input) => handleSearchBarInput(input)}/>
+                                </>
+                            )
+                        }
                         {options
                             && options.map((option, i) => (
                                   <Button
@@ -91,9 +105,9 @@ PageHeader.propTypes = {
     subtitle: PropTypes.string,
     onBack: PropTypes.func,
     hasBackground: PropTypes.bool,
-    action: PropTypes.bool,
     helplink: PropTypes.string,
     options: PropTypes.array,
+    hasSearchBar: PropTypes.bool,
 };
 
 PageHeader.defaultProps = {
@@ -104,6 +118,8 @@ PageHeader.defaultProps = {
     hasBackground: true,
     helplink: undefined,
     options: undefined,
+    hasSearchBar: false,
+    onSearchBarInput: undefined
 };
 
 {

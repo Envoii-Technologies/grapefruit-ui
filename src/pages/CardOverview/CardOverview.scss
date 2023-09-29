@@ -26,6 +26,18 @@
             flex-direction: column;
         }
 
+        .PageHeader__wrapper__menu
+        {   
+            .TextInput__wrapper
+            {
+
+                .TextInput
+                {
+                    margin: inherit;
+                }
+            }
+        }
+
         &__aside
         {
             border-left: $area-edge-border;
