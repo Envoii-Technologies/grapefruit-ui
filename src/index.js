@@ -18,3 +18,4 @@ export { ContentCard, ContentCardBody, ContentCardFooter, ContentCardHeader } fr
 export { Grid, Row, Column } from './components/Grid/index.js';
 export { SelectBox } from './components/SelectBox/index.js';
 export { DateSelectBox } from './components/DateSelectBox/index.js';
+export { Table } from './components/Table/index.js';

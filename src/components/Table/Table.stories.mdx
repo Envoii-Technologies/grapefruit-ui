@@ -1,0 +1,153 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Table } from './Table';
+
+export const initialFilters = {
+    city: "Dallas"
+};
+
+export const testDataColumns = [
+        { id: 'id', size: '50px', title: 'ID', sortable: true },
+        { id: 'name', size: '400px', title: 'Name', sortable: true },
+        { id: 'age', size: '200px', title: 'Age', sortable: false },
+        { id: 'city', size: '300px', title: 'City', sortable: true }
+]
+
+export const testData = [
+		{ id: 1, name: 'John Doe', age: 30, city: 'New York' },
+        { id: 2, name: 'Jane Smith', age: 25, city: 'Los Angeles' },
+        { id: 3, name: 'Bob Johnson', age: 35, city: 'Chicago' },
+        { id: 4, name: 'Alice Brown', age: 28, city: 'San Francisco' },
+        { id: 5, name: 'Eva Wilson', age: 32, city: 'Seattle' },
+        { id: 6, name: 'Michael Davis', age: 40, city: 'Boston' },
+        { id: 7, name: 'Emily White', age: 27, city: 'Dallas' },
+        { id: 8, name: 'David Lee', age: 31, city: 'Dallas' },
+        { id: 9, name: 'Linda Taylor', age: 29, city: 'Denver' },
+        { id: 10, name: 'James Harris', age: 45, city: 'Atlanta' },
+        { id: 11, name: 'Sophia Clark', age: 33, city: 'Phoenix' },
+        { id: 12, name: 'William Hall', age: 31, city: 'Dallas' },
+        { id: 13, name: 'Olivia Turner', age: 26, city: 'Portland' },
+        { id: 14, name: 'Daniel Martinez', age: 36, city: 'San Diego' },
+        { id: 15, name: 'Ava Anderson', age: 34, city: 'Las Vegas' },
+        { id: 16, name: 'Joseph Young', age: 39, city: 'Minneapolis' },
+        { id: 17, name: 'Mia Rodriguez', age: 28, city: 'Philadelphia' },
+	]
+
+export const Template = (args) => (
+    <Table
+        {...args}
+        // initialSortedColumn="id"
+        // // initialFilters={initialFilters}
+        // // searchValue="Willi"
+        // onFilterClick={() => alert('OK')}
+		// data={}
+    />
+);
+
+<Meta title="Components/Table" component={Table} />
+
+# Table
+
+...
+
+    <Story name="Example" args={{
+        columns: testDataColumns,
+        data: testData,
+    }}>
+        {Template.bind({})}
+    </Story>
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+    <Story name="Default" args={{
+        columns: testDataColumns,
+        data: testData
+    }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Search
+
+...
+
+<Canvas>
+    Example search value is "John"
+    <Story name="Search" args={{
+        columns: testDataColumns,
+        data: testData,
+        searchValue: "John"
+    }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Sorting
+
+...
+
+<Canvas>
+    The column "name" is set to be sorted ascending when table is loaded, for testing purposes, the column "age" can not be sorted.
+    <Story name="Sorting" args={{
+        columns: testDataColumns,
+        data: testData,
+        initialSortedColumn: 'name',
+    }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Filtering
+
+...
+
+<Canvas>
+    the filter is set to only show rows with the "city" value "Dallas" and an age of "31"
+    <Story name="Filtering" args={{
+        columns: testDataColumns,
+        data: testData,
+        initialFilters: {
+            city: "Dallas",
+            age: 31
+        }
+    }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Pagination
+
+...
+
+<Canvas>
+    Page size is set to "10", showing 10 rows per page.
+    <Story name="Pagination" args={{
+        columns: testDataColumns,
+        data: testData,
+        pageSize: 10,
+    }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Row Selection
+
+Multiple rows can be selected by clicking the button at the far left side of the row, the button above the selection checkboxes selects all rows.
+
+<Canvas>
+    <Story name="Row Selection" args={{
+        columns: testDataColumns,
+        data: testData,
+        isSelectable: true
+    }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={Table} />

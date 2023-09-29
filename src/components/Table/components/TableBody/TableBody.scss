@@ -1,0 +1,43 @@
+@use '../../../../global-styles/' as *;
+
+.TableBody {
+    font-size: 0.85rem;
+
+    tr {
+        &--selected {
+            background-color: #e0e0e0;
+        }
+    }
+
+    &__row {
+        border-top: $area-edge-border;
+    
+        td {
+            padding: 0.5rem 1rem;
+        }
+    }
+
+    &__checkbox {
+        width: 50px;
+        input {
+            cursor: pointer;
+            margin-top: 3px;
+        }
+    }
+
+    &__cell {
+        &--id {
+            width: 50px;
+        }
+        &--name {
+            width: 200px;
+        }
+        &--age {
+            width: 100px;
+        }
+        &--city {
+            width: 150px;
+        }
+    }
+    
+}
