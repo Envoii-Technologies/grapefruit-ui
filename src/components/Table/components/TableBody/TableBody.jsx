@@ -34,7 +34,11 @@ export const TableBody = ({
                     {columns.map((column) => (
                         <td
                             key={column.id}
-                            style={{ width: column.size }}
+                            style={{
+                                width: 
+                                !column.size ? "70%" : column.size > 50 ? column.size : 50,
+                                minWidth: "150px"
+                            }}
                             className={`TableBody__cell TableBody__cell--${column.id}`}
                         >
                             {row[column.id]}

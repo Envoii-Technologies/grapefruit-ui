@@ -166,7 +166,7 @@ export function Table({
                 <button onClick={handleFilterClick}><FontAwesomeIcon icon={faSliders} /> Filter</button>
             </div>
             {paginatedData.length === 0 ? (
-                <p>No rows found.</p>
+                <p className='Table__no__rows'>No Content found.</p>
             ) : (
                 <div className="TableWrapper">
                     <div className="TableRows">
