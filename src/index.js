@@ -19,3 +19,4 @@ export { Grid, Row, Column } from './components/Grid/index.js';
 export { SelectBox } from './components/SelectBox/index.js';
 export { DateSelectBox } from './components/DateSelectBox/index.js';
 export { Table } from './components/Table/index.js';
+export { StepManager } from './components/StepManager/index.js';

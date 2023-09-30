@@ -28,11 +28,8 @@ export const SelectBox = ({
         });
 
         onChange({
-            target: 
-            {
                 name: name,
                 value: newee
-            }
         });
         setSelection(newee.map(a => a.title));
     }
