@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import './PopOver.scss';
@@ -27,6 +27,7 @@ export const PopOver = ({
     ...props
 }) => {
     const [isVisible, setIsVisible] = useState(false);
+    const popoverRef = useRef(null);
 
     const handleMouseEnter = () => {
         if (openOnHover) {
@@ -46,6 +47,27 @@ export const PopOver = ({
         }
     };
 
+    const handleClickOutside = (event) => {
+        if (popoverRef.current && !popoverRef.current.contains(event.target)) {
+            setIsVisible(false);
+        }
+    };
+
+    useEffect(() => {
+        if (isVisible) {
+            // Add a click event listener to the document to close the popover when clicked outside
+            document.addEventListener('click', handleClickOutside);
+        } else {
+            // Remove the click event listener when the popover is not visible
+            document.removeEventListener('click', handleClickOutside);
+        }
+
+        return () => {
+            // Clean up the event listener when the component unmounts
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [isVisible]);
+
     return (
         <div
             className={`PopOver ${position} ${
@@ -54,6 +76,7 @@ export const PopOver = ({
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}
+            ref={popoverRef} // Ref to the popover div
         >
             {children}
             {isVisible && (
