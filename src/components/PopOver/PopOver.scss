@@ -4,13 +4,18 @@
     position: relative;
     display: inline-block;
 
+    &__trigger
+    {
+        display: flex;
+    }
+
     &__content {
         box-shadow: $box-shadow-bottom;
         position: absolute;
         background-color: #fff;
-        z-index: 1000;
         width: 200px; /* Increase the width as desired */
         padding: 10px; /* Add padding for spacing */
+        z-index:10000;
 
         &-inner {
             display: flex;

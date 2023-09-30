@@ -78,7 +78,7 @@ export const PopOver = ({
             onClick={handleClick}
             ref={popoverRef} // Ref to the popover div
         >
-            {children}
+            <div className="PopOver__trigger">{children}</div>
             {isVisible && (
                 <div className="PopOver__content">
                     <div className="PopOver__content-inner">{content}</div>
