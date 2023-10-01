@@ -5,6 +5,7 @@ import { PageHeader, PageMenu, Tabs, TabItem, ContentWrapper, StepManager } from
 import './CardEditor.scss';
 
 export const CardEditor = ({ userData, userMenu, cardData }) => {
+
     return (
         <div className="Page">
             <div className="Page__wrapper">
@@ -25,7 +26,9 @@ export const CardEditor = ({ userData, userMenu, cardData }) => {
                         <TabItem title="Schritte">
                             <div style={{ display: "flex", height: "100%"}}>
                                 <StepManager steps={cardData.steps}/>
-                                <div>A</div>
+                                <div>
+                                    
+                                </div>
                             </div>
                         </TabItem>
                         <TabItem title="Informationen">
