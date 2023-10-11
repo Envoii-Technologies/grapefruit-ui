@@ -1,0 +1,50 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { NotificationContainer } from './NotificationContainer';
+import { Button } from './../../';
+
+export const Template = (args) => {
+    const [notifications, setNotifications] = React.useState([]);
+	const [newNotification, setNewNotification] = React.useState();
+
+        const createNotification = (data) => {
+    		setNewNotification({ ...data, id: Date.now() + Math.floor(Math.random() * 10000) });
+    	}
+
+    return (
+        <>
+    		<div style={{ display: "flex", gap: "0.5rem", flexDirection: "column"}}>
+            <Button label="Create Info Notification" onClick={() => createNotification({ content: "Test Notification", title: "Title", type: "info" })} />
+    		<Button label="Create Success Notification" onClick={() => createNotification({ content: "Test Notification", title: "Title", type: "success" })} />
+    		<Button label="Create Warning Notification" onClick={() => createNotification({ content: "Test Notification", title: "Title", type: "warning" })} />
+    		<Button label="Create Error Notification" onClick={() => createNotification({ content: "Test Notification", title: "Title", type: "error" })} />
+    		</div>
+            <NotificationContainer addNotification={newNotification} notifications={notifications} {...args} />
+        </>
+    );
+
+};
+
+<Meta
+    title="components/Notifications/NotificationContainer"
+    component={NotificationContainer}
+/>
+
+# NotificationContainer
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+    <Story name="Default" args={{}}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={Notification} />

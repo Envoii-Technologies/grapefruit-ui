@@ -1,0 +1,44 @@
+@use '../../global-styles/' as *;
+
+.ContentCard {
+    border-radius: $border-radius-default;
+    background: $primary-background-light;
+    box-shadow: $box-shadow-bottom;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.ContentCardHeader {
+    height: 4rem;
+    padding: 0.5rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    border-bottom: $area-edge-border;
+}
+
+.ContentCardBody {
+    flex-grow: 1;
+    padding: 0.5rem;
+    min-height: 10rem;
+    // max-height: calc(100vh - 16rem);
+    max-height: 100%;
+    overflow-y: scroll;
+    &__wrapper {
+        justify-content: stretch;
+        display: flex;
+        align-items: flex-start;
+    }
+}
+
+.ContentCardFooter {
+    border-top: $area-edge-border;
+    height: 3rem;
+    padding: 0.5rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}

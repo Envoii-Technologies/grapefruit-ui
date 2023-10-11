@@ -1,0 +1,57 @@
+@use '../../global-styles/' as *;
+
+.Grid {
+    margin: 0 auto;
+    width: 100%;
+    // height: 100%;
+    max-width: $breakpoint-large;
+
+    .Row {
+        flex-basis: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .Column {
+            flex-basis: 100%;
+            padding: 0 0.5rem 1rem;
+    position: relative;
+        
+            @media only screen and (min-width: $breakpoint-medium) {
+                
+                flex-basis: calc(50% - 0.5rem);
+            }
+
+            @media only screen and (min-width: $breakpoint-large) {
+                &.width__10
+                {
+                    flex: 1;
+                }
+                &.width__15
+                {
+                    flex: 1.5;
+                }
+                &.width__20
+                {
+                    flex: 2;
+                }
+                &.width__25 {
+                    flex: 2.5;
+                }
+                &.width__50 {
+                    flex: 5.0;
+                }
+            }
+            
+            &.breaker {
+                flex-basis: 100%;
+                padding-bottom: 0;
+                height: 0;
+                width: 0;
+            }
+        }
+    }
+}
+
+

@@ -1,0 +1,47 @@
+@use '../../global-styles/' as *;
+
+// Table.scss
+
+.TableContainer
+{
+  position: absolute;
+  top: 0rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+
+  &__menu
+  {
+    background: white;
+    border-top-left-radius: $border-radius-default;
+    border-top-right-radius: $border-radius-default;
+    display: flex;
+    height: 3rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .Table {
+    border-collapse: collapse;
+    background-color: white;
+
+    &__no__rows
+    {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      font-size: 0.85rem;
+      height: 2rem;
+    }
+  }
+
+  .TableRows {
+    position: relative;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+
+}

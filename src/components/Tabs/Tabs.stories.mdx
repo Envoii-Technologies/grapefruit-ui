@@ -1,0 +1,42 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Tabs } from './Tabs';
+import { TabItem } from './TabItem';
+
+export const Template = (args) => (
+	<div style={{maxWidth: "100%"}}>
+	<Tabs { ...args }>
+		<TabItem title="First Tab">First Tab</TabItem>
+		<TabItem title="Second Tab">Second Tab</TabItem>
+		<TabItem title="Third Tab">Third Tab</TabItem>
+		<TabItem title="Fourth Tab">Fourth Tab</TabItem>
+		<TabItem title="Fifth Tab">Fifth Tab</TabItem>
+	</Tabs>
+	</div>
+);
+
+<Meta title='Components/Tabs' component={ Tabs } />
+
+# Tabs
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Tabs } />

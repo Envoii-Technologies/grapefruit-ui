@@ -1,0 +1,143 @@
+@use '../../global-styles/' as *;
+
+.Notification {
+    box-shadow: $box-shadow-bottom;
+    transition: transform 0.3s ease-out;
+    width: 100%;
+    max-height: 10rem;
+    overflow: hidden;
+    z-index: 99;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.5rem;
+    background: white;
+
+    &.info {
+        .Notification__icon__area {
+            background: rgba($primary-color, 0.25);
+            border-left: 0.25rem solid $primary-color;
+            color: $primary-color;
+        }
+    }
+
+    &.success {
+        .Notification__icon__area {
+            background: rgba($success-color, 0.25);
+            border-left: 0.25rem solid $success-color;
+            color: $success-color;
+        }
+    }
+
+    &.warning {
+        .Notification__icon__area {
+            background: rgba($warning-color, 0.25);
+            border-left: 0.25rem solid $warning-color;
+            color: $warning-color;
+        }
+    }
+
+    &.error {
+        .Notification__icon__area {
+            background: rgba($error-color, 0.25);
+            border-left: 0.25rem solid $error-color;
+            color: $error-color;
+        }
+    }
+
+    &__icon__area {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 1rem;
+        width: 3rem;
+        flex-shrink: 0;
+    }
+
+    &__content {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        padding: 1rem;
+        gap: 0.5rem;
+
+        @media only screen and (min-width: $breakpoint-large){
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        &__header {
+            display: none;
+            justify-content: space-between;
+            flex-direction: row;
+            font-weight: bold;
+            padding: 0;
+
+            @media only screen and (min-width: $breakpoint-large){
+                display: flex;
+            }
+
+            &__close {
+                background: transparent;
+                padding: 0;
+                border: none;
+                cursor: pointer;
+                font-size: 1rem;
+            }
+        }
+
+        &__close {
+            background: transparent;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+
+            @media only screen and (min-width: $breakpoint-large){
+                display: none;
+            }
+        }
+
+        &__wrapper {
+            flex-grow: 1;
+            font-size: 0.85rem;
+        }
+    }
+}
+
+.NotificationContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 1rem;
+    width: 18rem;
+    bottom: 0.5rem;
+
+    @media only screen and (min-width: $breakpoint-large){
+        flex-direction: column-reverse;
+        top: 1rem;
+        bottom: inherit;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+.Notification.slideIn {
+    animation-name: slideIn;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+}
+
+.Notification.slideOut {
+    transform: translateX(150%);
+    flex: 0;
+}

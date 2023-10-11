@@ -1,0 +1,14 @@
+@use '../../global-styles/' as *;
+
+.PageMenu
+{
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    box-shadow: $box-shadow-bottom;
+
+    @media only screen and (min-width: $breakpoint-large){
+        height: 100%;
+        flex-direction: row;
+    }
+}

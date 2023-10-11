@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { NumberInput } from './NumberInput';
+
+export const Template = (args) => (
+	<NumberInput { ...args } />
+);
+
+<Meta title='Components/NumberInput' component={ NumberInput } />
+
+# NumberInput
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ NumberInput } />

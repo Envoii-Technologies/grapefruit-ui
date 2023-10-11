@@ -1,0 +1,91 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { PopOver } from './PopOver'; // Import your PopOver component here
+
+export const Template = (args) => <PopOver {...args} />;
+
+<Meta title="Components/PopOver" component={PopOver} />
+
+# PopOver
+
+A versatile popover component that can be positioned in various ways and controlled by click or hover.
+
+<Story
+  name="Example"
+  args={{
+    children: 'Trigger Element',
+    content: 'Popover Content',
+    position: 'bottom-center',
+    openOnHover: false,
+  }}
+>
+  { Template.bind({}) }
+</Story>
+
+<br/>
+
+## Examples
+
+### Default
+
+By default, the PopOver component is positioned at the bottom-center and opens when clicked.
+
+<Canvas>
+    <Story name="Default" args={{
+      children: 'Default Trigger',
+      content: 'Default Popover Content',
+      position: 'bottom-center',
+      openOnHover: false,
+    }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Custom Position and Hover
+
+You can customize the position and set it to open on hover by setting the `position` and `openOnHover` props.
+
+<Canvas>
+    <Story name="Custom Position (Hover On)" args={{
+      children: 'Custom Trigger',
+      content: 'Custom Popover Content',
+      position: 'top-left',
+      openOnHover: true,
+    }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Custom Color
+
+The component can take a custom color by setting the `color` prop to any hex or string color value.
+
+<Canvas>
+    <Story name="Custom Color (Hover On)" args={{
+      children: 'Colored Trigger',
+      content: 'Colored Popover Content',
+      position: 'bottom-right',
+      openOnHover: true,
+      color: '#3cafe2',
+    }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Hover Off
+
+Setting `openOnHover` to false makes the component open when clicked instead of hovering.
+
+<Canvas>
+    <Story name="Click to Open (Hover Off)" args={{
+      children: 'Click Trigger',
+      content: 'Click Popover Content',
+      position: 'right-center',
+      openOnHover: false,
+    }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={PopOver} />

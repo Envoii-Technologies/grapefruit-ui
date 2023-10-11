@@ -1,0 +1,26 @@
+@use '../../global-styles/' as *;
+
+.ContentBox
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 24rem;
+    padding: 1rem;
+
+    @media only screen and (min-width: $breakpoint-large){
+        max-width: 24rem;
+    }
+
+    &__title
+    {
+        color: $font-color-primary;
+        font-size: $font-size-large;
+    }
+
+    &__footer
+    {
+        margin-top: 0.5rem;
+        font-size: $font-size-small;
+    }
+}

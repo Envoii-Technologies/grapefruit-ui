@@ -1,0 +1,75 @@
+@use '../../global-styles/' as *;
+
+.modalWrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($font-color-default, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.ModalWindow {
+    max-width: 100%;
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+
+    @media only screen and (min-width: $breakpoint-medium) {
+        width: 28rem;
+    }
+    
+
+    &__header,
+    &__footer {
+        padding: 10px;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 1px solid #eee;
+
+        &__title {
+            margin: 0;
+            font-weight: 800;
+            font-size: 1em;
+        }
+
+        &__close {
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.25em;
+            color: rgba(0, 0, 0, 0.75);
+
+            &:hover {
+                color: rgba(0, 0, 0, 1);
+            }
+        }
+    }
+
+    &__body
+    {
+        padding: 10px;
+        font-size: 0.85rem;
+        border-bottom: 1px solid #eee;
+    }
+        
+    &__footer
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5em;
+    }
+}
+
+
+
+
+// }

@@ -1,0 +1,28 @@
+@use '../../../../global-styles/' as *;
+
+// Pagination.scss
+.TablePagination {
+    width: 100%;
+    display: flex;
+    border-top: $area-edge-border;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    padding: 0 0.5rem 0 1rem;
+
+
+    &__button {
+        cursor: pointer;
+        margin: 0 4px;
+        padding: 0.25rem 0.25rem;
+        border: none;
+        background-color: #fff;
+        background: none;
+        color: #333;
+
+        &--active {
+            text-decoration: underline;
+        }
+    }
+}

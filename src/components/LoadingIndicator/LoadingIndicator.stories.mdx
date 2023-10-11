@@ -1,0 +1,71 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { LoadingIndicator } from './LoadingIndicator';
+
+export const Template = (args) => <LoadingIndicator {...args} />;
+
+<Meta title="Components/LoadingIndicator" component={LoadingIndicator} />
+
+# LoadingIndicator
+
+A component showing an animation to indicate that the application is loading.
+
+    <Story
+    	name="Example"
+    	args={{
+
+    	}}
+    >
+    	{ Template.bind({}) }
+    </Story>
+
+## Examples
+
+### Default
+
+By default, the LoadingIndicator component is of black color and is aligned by default values to the parent element.
+
+<Canvas>
+    <Story name="Default" args={{}}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Custom Color
+
+The component can take a custom color by setting the `color` property to any hex or string color value.
+
+<Canvas>
+    <Story name="custom color" args={{
+		color: '#3cafe2'
+	}}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### fluid
+
+Setting the `fluid` property to true makes the component take 100% of the parent elements height.
+
+<Canvas>
+    <Story name="fluid" args={{
+		fluid: true
+	}}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### full
+
+Setting the `full` property to true makes the component take 100% of the views height.
+
+<Canvas>
+    <Story name="full" args={{
+		full: true
+	}}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={LoadingIndicator} />

@@ -1,0 +1,136 @@
+@use '../../global-styles/' as *;
+
+.Tabs {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    &__container {
+        background: white;
+
+        border-bottom: $area-edge-border;
+        &__wrapper {
+            max-width: 100vw;
+            @media only screen and (min-width: $breakpoint-large) {
+                width: 100%;
+            }
+
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @media only screen and (min-width: $breakpoint-large) {
+                justify-content: center;
+            }
+
+            &__content {
+                user-select: none;
+                min-width: 8rem;
+                cursor: pointer;
+                padding: 0.5rem 2rem;
+                display: flex;
+                justify-content: center;
+                opacity: 1;
+                transition: opacity 0.5s;
+                font-size: $font-size-small;
+                border-bottom: 3px solid transparent;
+
+                &:hover,
+                &.active {
+                    border-bottom: 3px solid $primary-color;
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+    }
+}
+
+// &__menu
+// {
+//     display: flex;
+//     justify-content: center;
+//     overflow: auto;
+
+//     &__wrapper
+//     {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         flex-wrap: nowrap;
+
+//         &__item
+//         {
+//             display: flex;
+//             justify-content: center;
+//             min-width: 8rem;
+//             align-items: center;
+//             padding: 0.5rem 1rem;
+//             cursor: pointer;
+//             border-bottom: 3px solid transparent;
+
+//                             &:hover,
+//             &.active
+//             {
+//                 border-bottom: 3px solid $primary-color;
+//                 color: $primary-color;
+//             }
+//         }
+//     }
+// }
+
+// &__menu
+// {
+//     background: white;
+//     flex-basis: 2.5rem;
+//     width: 100%;
+//     display: flex;
+//     align-items: stretch;
+//     justify-content: center;
+//     border-bottom: $area-edge-border;
+
+//     &__wrapper
+//     {
+
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         flex-wrap: nowrap;
+
+//         &__item
+//         {
+//             width: 400px;
+//         }
+
+//         // width: 100%;
+//         // background: red;
+//         // overflow-x: scroll;
+//         // position: relative;
+//         // &__item
+//         // {
+//         //     justify-content: center;
+//         //     width: 300px;
+//         //     align-items: center;
+//         //     padding: 0 1rem;
+//         //     cursor: pointer;
+//         //     border-bottom: 3px solid transparent;
+//         //     position: absolute;
+
+//         //     &:hover,
+//         //     &.active
+//         //     {
+//         //         border-bottom: 3px solid $primary-color;
+//         //         color: $primary-color;
+//         //     }
+//         // }
+//     }
+// }
+
+//     &__content
+//     {
+//         flex-grow: 1;
+//     }
+// }

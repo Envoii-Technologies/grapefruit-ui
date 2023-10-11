@@ -1,0 +1,110 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { ContentBox } from './ContentBox';
+
+export const Template = (args) => (
+	<ContentBox { ...args }>Content Box</ContentBox>
+);
+
+export const ChildrenTemplate = (args) => (
+	<ContentBox { ...args }>This is different content</ContentBox>
+);
+
+<Meta title='Components/ContentBox' component={ ContentBox } />
+
+# ContentBox
+
+...
+
+	<Story
+		name="Example"
+		args={{
+			title: "Content Box Title",
+			footer: "Content Box Footer"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+	<br/>
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### children
+
+...
+
+<Canvas>
+	<Story
+		name="children"
+		args={{
+			
+		}}
+	>
+		{ ChildrenTemplate.bind({}) }
+	</Story>
+</Canvas>
+
+### dropAmount
+
+...
+
+<Canvas>
+	<Story
+		name="drop amount"
+		args={{
+			dropAmount: -1
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### title
+
+...
+
+<Canvas>
+	<Story
+		name="title"
+		args={{
+			title: "Custom Title"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### footer
+
+...
+
+<Canvas>
+	<Story
+		name="footer"
+		args={{
+			footer: <p>Footer content...</p>
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+
+## API
+
+<ArgsTable of={ ContentBox } />
