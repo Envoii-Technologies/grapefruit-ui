@@ -8,6 +8,7 @@ const config = {
     "@storybook/addon-interactions",
     "storybook-addon-pseudo-states",
     '@storybook/addon-viewport',
+    "storybook-zeplin/register",
     {
       name: '@storybook/addon-styling',
       options: {
