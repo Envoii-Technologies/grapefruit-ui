@@ -9,7 +9,39 @@ export default [
         createdBy: "Frederik Reich",
         updatedBy: "Jan Treffon",
         createdAt: 1695463049,
-        updatedAt: 1695981449
+        updatedAt: 1695981449,
+        steps: [
+            {
+                id: 3,
+                name: "Maschine kalibrieren",
+                type: "instruction"
+            },
+            {
+                id: 4,
+                name: "Wartungsarbeiten durchführen",
+                type: "instruction"
+            },
+            {
+                id: 5,
+                name: "Produktionsprozess starten",
+                type: "slide"
+            },
+            {
+                id: 6,
+                name: "Qualitätskontrolle durchführen",
+                type: "instruction"
+            },
+            {
+                id: 7,
+                name: "Produktverpackung vorbereiten",
+                type: "instruction"
+            },
+            {
+                id: 8,
+                name: "Fehlerbehebung bei Maschinenausfall",
+                type: "slide"
+            }
+        ]
     },
     {
         id: 1,
@@ -21,7 +53,8 @@ export default [
         createdBy: "Frederik Reich",
         updatedBy: "Frederik Reich",
         createdAt: 1695895049,
-        updatedAt: 1695895049
+        updatedAt: 1695895049,
+        steps: []
     },
     {
         id: 2,
@@ -33,7 +66,8 @@ export default [
         createdBy: "Koray Uygun",
         updatedBy: "Jan Treffon",
         createdAt: 1679997449,
-        updatedAt: 1687427849
+        updatedAt: 1687427849,
+        steps: []
     },
     {
         id: 3,
@@ -45,7 +79,8 @@ export default [
         createdBy: "Maria Schmidt",
         updatedBy: "Maria Schmidt",
         createdAt: 1696306249,
-        updatedAt: 1696306249
+        updatedAt: 1696306249,
+        steps: []
     },
     {
         id: 4,
@@ -57,7 +92,8 @@ export default [
         createdBy: "Thomas Müller",
         updatedBy: "Thomas Müller",
         createdAt: 1696261449,
-        updatedAt: 1696261449
+        updatedAt: 1696261449,
+        steps: []
     },
     {
         id: 5,
@@ -69,7 +105,8 @@ export default [
         createdBy: "Sophia Wagner",
         updatedBy: "Sophia Wagner",
         createdAt: 1696257049,
-        updatedAt: 1696257049
+        updatedAt: 1696257049,
+        steps: []
     },
     {
         id: 6,
@@ -81,7 +118,8 @@ export default [
         createdBy: "Markus Becker",
         updatedBy: "Markus Becker",
         createdAt: 1696229449,
-        updatedAt: 1696229449
+        updatedAt: 1696229449,
+        steps: []
     },
     {
         id: 7,
@@ -93,7 +131,8 @@ export default [
         createdBy: "Laura Schneider",
         updatedBy: "Jan Treffon",
         createdAt: 1696211849,
-        updatedAt: 1695981449
+        updatedAt: 1695981449,
+        steps: []
     },
     {
         id: 8,
@@ -105,7 +144,8 @@ export default [
         createdBy: "Paul Fischer",
         updatedBy: "Paul Fischer",
         createdAt: 1696187849,
-        updatedAt: 1696187849
+        updatedAt: 1696187849,
+        steps: []
     },
     {
         id: 9,
@@ -117,7 +157,8 @@ export default [
         createdBy: "Sophia Wagner",
         updatedBy: "Sophia Wagner",
         createdAt: 1696163849,
-        updatedAt: 1696163849
+        updatedAt: 1696163849,
+        steps: []
     },
     {
         id: 10,
@@ -129,6 +170,7 @@ export default [
         createdBy: "Julia Schmitt",
         updatedBy: "Julia Schmitt",
         updatedAt: 1696261449,
-        updatedAt: 1696261449
+        updatedAt: 1696261449,
+        steps: []
     },
 ]

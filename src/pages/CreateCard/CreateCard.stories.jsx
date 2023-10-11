@@ -22,6 +22,7 @@ const Template = (args) => (
             Language: ${data.language[0]?.title}
             Description: ${data.description}
             Expiration: ${data.expiration}
+            QRCode: ${data.qrCode}
         `)}
         {...args}
         />
@@ -37,6 +38,7 @@ const TemplateError = (args) => (
             Language: ${data.language[0]?.title}
             Description: ${data.description}
             Expiration: ${data.expiration}
+            QRCode: ${data.qrCode}
         `)}
         onError={{ type: 'error', message: 'This is an error message!' }}
         {...args}

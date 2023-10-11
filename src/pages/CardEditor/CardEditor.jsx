@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { PageHeader, PageMenu, Tabs, TabItem } from './../../';
+import { PageHeader, PageMenu, Tabs, TabItem, ContentWrapper, StepManager } from './../../';
 
 import './CardEditor.scss';
 
-export const CardEditor = ({ userData, userMenu }) => {
+export const CardEditor = ({ userData, userMenu, cardData }) => {
+
     return (
         <div className="Page">
             <div className="Page__wrapper">
@@ -18,17 +19,30 @@ export const CardEditor = ({ userData, userMenu }) => {
                     <PageHeader
                         isTransparent={false}
                         title="Aufträge"
-                        subtitle="Nudeln zubereiten"
+                        subtitle={cardData.title}
                         onBack={() => alert("[NOT IMPLEMENTED]")}
                     />
                     <Tabs>
-                        <TabItem title="Schritte">Schritte...</TabItem>
-                        <TabItem title="Informationen">
-                            Informationen...
+                        <TabItem title="Schritte">
+                            <div style={{ display: "flex", height: "100%"}}>
+                                <StepManager steps={cardData.steps}/>
+                                <div>
+                                    
+                                </div>
+                            </div>
                         </TabItem>
-                        <TabItem title="Module">Module...</TabItem>
+                        <TabItem title="Informationen">
+                            <p>title: {cardData.title}</p>
+                            <p>description: {cardData.description}</p>
+                            <p>released: {cardData.released ? "true" : "false"}</p>
+                            <p>deleted: {cardData.deleted ? "true" : "false"}</p>
+                            <p>version: {cardData.version}</p>
+                            <p>createdBy: {cardData.createdBy}</p>
+                            <p>updatedBy: {cardData.updatedBy}</p>
+                            <p>createdAt: {cardData.createdAt}</p>
+                            <p>updatedAt: {cardData.updatedAt}</p>
+                        </TabItem>
                         <TabItem title="Medien">Medien...</TabItem>
-                        <TabItem title="Material">Material...</TabItem>
                     </Tabs>
                 </div>
             </div>

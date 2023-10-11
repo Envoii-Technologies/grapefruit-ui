@@ -28,11 +28,8 @@ export const SelectBox = ({
         });
 
         onChange({
-            target: 
-            {
                 name: name,
                 value: newee
-            }
         });
         setSelection(newee.map(a => a.title));
     }
@@ -67,15 +64,48 @@ SelectBox.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
+    /**
+     * The name attribute for the select input.
+     */
 	name: PropTypes.string,
+    /**
+     * The label to display for the select box.
+     */
 	label: PropTypes.string,
+    /**
+     * The current selected value(s) in the select box.
+     */
     value: PropTypes.arrayOf(PropTypes.string),
+    /**
+     * Allows creating new options in the select box if set to `true`.
+     */
     allowCreate: PropTypes.bool,
+    /**
+     * The maximum number of selections allowed (for multi-select).
+     */
     max: PropTypes.number,
+    /**
+     * Enables multi-select if set to `true`.
+     */
     multi: PropTypes.bool,
+    /**
+     * Enables or disables the search functionality in the select box.
+     */
     hasSearch: PropTypes.bool,
+    /**
+     * The placeholder text to display when no option is selected.
+     * If not provided, the label is used as the placeholder.
+     */
     placeholder: PropTypes.string,
+    /**
+    * An array of options to populate the select box.
+    * Each option should be an object with `title` and `value` properties.
+    */
     options: PropTypes.array,
+    /**
+     * A callback function to handle changes in the selected value(s).
+     * It receives an object with `name` and `value` properties.
+     */
     onChange: PropTypes.func
 };
 

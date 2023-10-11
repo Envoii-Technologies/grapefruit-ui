@@ -23,15 +23,14 @@ export const PageHeader = ({
     onSearchBarInput,
     ...props
 }) => {
-    const handleAction = (action , e) => {
+    const handleAction = (action, e) => {
         action(e);
     };
 
-    const handleSearchBarInput = (input) =>
-    {
+    const handleSearchBarInput = (input) => {
         onSearchBarInput(input);
-    }
-    
+    };
+
     return (
         <div
             className={`PageHeader 
@@ -63,32 +62,55 @@ export const PageHeader = ({
                 </div>
                 <div className="PageHeader__wrapper__menu">
                     <div className="PageHeader__wrapper__menu__mobile">
-                        <PopOver options={options}>
+                        <PopOver
+                            content={
+                                <>
+                                {
+                                    options &&
+                                    options.map((option, i) => (
+                                        <Button
+                                            key={i}
+                                            disabled={option.disabled || false}
+                                            className=""
+                                            type={option.type || 'primary'}
+                                            label={option.label}
+                                            onClick={(e) =>
+                                                handleAction(option.action, e)
+                                            }
+                                        />
+                                    ))
+                                }
+                                </>
+                                
+                            }
+                            position="bottom-right"
+                        >
                             <Button icon={faEllipsisV}></Button>
                         </PopOver>
                     </div>
                     <div className="PageHeader__wrapper__menu__content">
-                        {
-                            hasSearchBar && (
-                                <>
-                                    <SearchBar handleSearchSubmit={(input) => handleSearchBarInput(input)}/>
-                                </>
-                            )
-                        }
-                        {options
-                            && options.map((option, i) => (
-                                  <Button
-                                      key={i}
-                                      disabled={option.disabled || false}
-                                      className=""
-                                      type={option.type || 'primary'}
-                                      label={option.label}
-                                      onClick={(e) =>
-                                          handleAction(option.action, e)
-                                      }
-                                  />
-                              ))
-                            }
+                        {hasSearchBar && (
+                            <>
+                                <SearchBar
+                                    handleSearchSubmit={(input) =>
+                                        handleSearchBarInput(input)
+                                    }
+                                />
+                            </>
+                        )}
+                        {options &&
+                            options.map((option, i) => (
+                                <Button
+                                    key={i}
+                                    disabled={option.disabled || false}
+                                    className=""
+                                    type={option.type || 'primary'}
+                                    label={option.label}
+                                    onClick={(e) =>
+                                        handleAction(option.action, e)
+                                    }
+                                />
+                            ))}
                     </div>
                 </div>
             </div>
@@ -119,7 +141,7 @@ PageHeader.defaultProps = {
     helplink: undefined,
     options: undefined,
     hasSearchBar: false,
-    onSearchBarInput: undefined
+    onSearchBarInput: undefined,
 };
 
 {

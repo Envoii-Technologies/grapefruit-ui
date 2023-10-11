@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import './Table.scss'; // Import your CSS stylesheet
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSliders } from '@fortawesome/free-solid-svg-icons';
+import { faSliders, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 import { TableHeader, TableBody, TablePagination } from './components';
+import { Button } from '../Button';
 
 export function Table({
     className,
@@ -22,8 +23,12 @@ export function Table({
     ...props
 }) {
     const [sortedColumn, setSortedColumn] = useState(initialSortedColumn);
-    const [sortOrder, setSortOrder] = useState(initialSortedColumn ? 'asc' : 'desc');
-    const [selectedRows, setSelectedRows] = useState(externalSelectedRows || {});
+    const [sortOrder, setSortOrder] = useState(
+        initialSortedColumn ? 'asc' : 'desc'
+    );
+    const [selectedRows, setSelectedRows] = useState(
+        externalSelectedRows || {}
+    );
     const [selectAll, setSelectAll] = useState(false);
     const [columnFilters, setColumnFilters] = useState(initialFilters || {});
     const [currentPage, setCurrentPage] = useState(1);
@@ -43,9 +48,17 @@ export function Table({
     useEffect(() => {
         if (externalSelectedRows) {
             setSelectedRows(externalSelectedRows);
-            setSelectAll(Object.keys(externalSelectedRows).length === data.length);
+            setSelectAll(
+                Object.keys(externalSelectedRows).length === data.length
+            );
         }
     }, [externalSelectedRows, data]);
+
+    const getAmountOfSelectedRows = () => {
+        const amount = Object.values(selectedRows).filter(Boolean).length;
+        
+        return amount > 0 ? `(${amount})` : '';
+    }
 
     const applyFilters = (dataToFilter) => {
         let filteredData = [...dataToFilter];
@@ -129,7 +142,7 @@ export function Table({
         }
         return 0;
     });
-    
+
     const handleFilterClick = () => {
         if (onFilterClick) {
             onFilterClick({
@@ -162,11 +175,27 @@ export function Table({
             }
         `}
         >
-            <div className='TableContainer__menu'>
-                <button onClick={handleFilterClick}><FontAwesomeIcon icon={faSliders} /> Filter</button>
+            <div className="TableContainer__menu">
+                <div className="TableContainer__menu__left">
+                    <Button
+                        icon={faSliders}
+                        // label="Filter"
+                        type="primary"
+                        onClick={handleFilterClick}
+                        />
+                </div>
+                <div className="TableContainer__menu__right">
+                    <Button
+                        label={`${getAmountOfSelectedRows()} Archivieren`}
+                        icon={faTrashCan}
+                        type={getAmountOfSelectedRows() === '' ? '': 'error'}
+                        disabled={getAmountOfSelectedRows() === '' ? true: false}
+                        onClick={() => alert("[NOT IMPLEMENTED]")}
+                    />
+                </div>
             </div>
             {paginatedData.length === 0 ? (
-                <p className='Table__no__rows'>No Content found.</p>
+                <p className="Table__no__rows">No Content found.</p>
             ) : (
                 <div className="TableWrapper">
                     <div className="TableRows">
@@ -233,5 +262,5 @@ Table.defaultProps = {
     data: [],
     initialSortedColumn: 'id',
     pageSize: 5,
-    isSelectable: false
+    isSelectable: false,
 };

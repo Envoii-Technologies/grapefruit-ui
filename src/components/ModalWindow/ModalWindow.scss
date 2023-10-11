@@ -3,7 +3,7 @@
 .modalWrapper {
     position: fixed;
     left: 0;
-    top: -10em;
+    top: 0;
     right: 0;
     bottom: 0;
     background-color: rgba($font-color-default, 0.5);
@@ -14,9 +14,14 @@
 }
 
 .ModalWindow {
-    max-width: 25em;
+    max-width: 100%;
     background: #fff;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+
+    @media only screen and (min-width: $breakpoint-medium) {
+        width: 28rem;
+    }
+    
 
     &__header,
     &__footer {

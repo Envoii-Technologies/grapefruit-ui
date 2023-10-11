@@ -9,23 +9,177 @@ export const Template = (args) => (
 
 # TextInput
 
-...
+The `TextInput` component is used for rendering customizable input fields. It supports various props to configure its appearance and behavior.
 
 ## Examples
 
 ### Default
 
-...
+You can use the `TextInput` component with default settings. Here's how to use some of its key properties:
+
+- `label`: The label to display for the input field.
+- `type`: The type of the input field (e.g., 'text', 'password').
+- `name`: The name attribute for the input field.
+- `placeholder`: The placeholder text for the input field.
+- `metaLabel`: An optional label for additional metadata.
+- `metaPosition`: The position of the metadata label (either 'left' or 'right').
+
 
 <Canvas>
-	<Story
-		name="Default"
-		args={{
-			
-		}}
-	>
-		{ Template.bind({}) }
-	</Story>
+  <Story
+    name="Default"
+    args={{
+      label: 'Username',
+      type: 'text',
+      name: 'username',
+      placeholder: 'Enter your username',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Password Input
+
+Here's an example of a password input field with an error status and a required metadata label:
+
+<Canvas>
+  <Story
+    name="Password Input"
+    args={{
+      label: 'Password',
+      type: 'password',
+      name: 'password',
+      placeholder: 'Enter your password',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom Class Name
+
+You can add a custom class name to the TextInput component using the className property:
+
+<Canvas>
+  <Story
+    name="Custom Class Name"
+    args={{
+      label: 'Custom Class',
+      type: 'text',
+      name: 'custom-class-input',
+      className: 'custom-input',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### AutoFocus
+
+Set the autoFocus prop to true to auto-focus the input field when the component is mounted:
+
+<Canvas>
+  <Story
+    name="AutoFocus"
+    args={{
+      label: 'AutoFocus Input',
+      type: 'text',
+      name: 'autofocus-input',
+      autoFocus: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Different states
+
+Change the status prop to 'success' to indicate a successful input:
+
+<Canvas>
+  <Story
+    name="Success Status"
+    args={{
+      label: 'Success Input',
+      type: 'text',
+      name: 'success-input',
+      status: 'success',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Change the status prop to 'error' to indicate an error in the input:
+
+<Canvas>
+  <Story
+    name="Error Status"
+    args={{
+      label: 'Error Input',
+      type: 'text',
+      name: 'error-input',
+      status: 'error',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Placeholder text
+
+You can specify a custom placeholder text using the placeholder property:
+
+<Canvas>
+  <Story
+    name="Custom Placeholder"
+    args={{
+      label: 'Custom Placeholder',
+      type: 'text',
+      name: 'custom-placeholder-input',
+      placeholder: 'Custom Placeholder Text',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Metadata Label
+
+Add an optional metadata label to the input using the metaLabel property:
+
+<Canvas>
+  <Story
+    name="Metadata Label"
+    args={{
+      label: 'Metadata Input',
+      type: 'text',
+      name: 'metadata-input',
+      metaLabel: 'optional',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Metadata Position
+
+Specify the position of the metadata label using the metaPosition property. Here's an example with the label on the right:
+
+<Canvas>
+  <Story
+    name="Metadata Position"
+    args={{
+      label: 'Metadata Input',
+      type: 'text',
+      name: 'metadata-input',
+      metaLabel: 'right',
+      metaPosition: 'right',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
 </Canvas>
 
 ## API

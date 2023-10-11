@@ -52,11 +52,11 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus, ...props }) =
                 <ContentWrapper
                     hasPadding={false}
                     isCentered={true}
-                    isFluid={true}
+                    isFluid={false}
                     scollFix={false}
                 >
                     <ContentBox
-                        dropAmount={-10}
+                        dropAmount={-5}
                         title="Mitarbeiter Login"
                         footer={
                             <p className="LoginWindow__footer__info">

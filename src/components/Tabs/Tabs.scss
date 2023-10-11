@@ -1,6 +1,10 @@
 @use '../../global-styles/' as *;
 
 .Tabs {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
     &__container {
         background: white;
 

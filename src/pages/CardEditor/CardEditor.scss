@@ -12,18 +12,19 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column;
-
+        
         @media only screen and (min-width: $breakpoint-large){
             flex-direction: row;
+            align-items: stretch;
         }
 
         &__main
-        {
-            background: $default-color-light;
+        {   
             flex-grow: 1;
-            flex-basis: 100px;
             display: flex;
             flex-direction: column;
+            background: $default-color-light;
+            // flex-basis: 100px;
         }
     }
 }

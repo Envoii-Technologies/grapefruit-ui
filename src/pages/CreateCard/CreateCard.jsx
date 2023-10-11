@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import qrCodes from '../../data/mockQRCodes';
+
 import {
     PageHeader,
     PageMenu,
@@ -15,6 +17,7 @@ import {
     TextArea,
     FormNotification,
     DateSelectBox,
+    ModalWindow,
 } from './../../';
 
 import './CreateCard.scss';
@@ -22,11 +25,15 @@ import { faPencil, faQrcode } from '@fortawesome/free-solid-svg-icons';
 
 export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
     const [errorMessage, setErrorMessage] = useState({ type: '', message: '' });
+    const [showQRCodeWindow, setShowQRCodeWindow] = useState(false);
+    const [selectedQRCode, setSelectedQRCode] = useState({});
+    const [ enableCreateNewQRCode, setEnableCreateNewQRCode] = useState(false);
     const [documentInfo, setDocumentInfo] = useState({
         title: '',
         description: '',
         language: '',
         expiration: '',
+        qrCode: ""
     });
 
     const languageOptions = [
@@ -62,6 +69,27 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
 
     return (
         <div className="Page">
+            <ModalWindow
+                show={showQRCodeWindow}
+                body={
+                    <>
+                        <SelectBox placeholder="QR Code" options={qrCodes} onChange={(code) => setSelectedQRCode(code.value[0])}/>
+                        <input type="checkbox" name="createQRCode" id="" onChange={(e) => setEnableCreateNewQRCode(event.target.checked)}/> Neu erstellen
+                        <br />
+                        
+                        <TextInput placeholder="QR Code" disabled={!enableCreateNewQRCode}/>
+                    </>
+                }
+                onCancel={() => setShowQRCodeWindow(false)}
+                onAccept={() => 
+                    {
+                        setDocumentInfo({...documentInfo, qrCode: selectedQRCode.id});
+                        setShowQRCodeWindow(false);
+                    }
+                }
+                acceptText="Hinzufügen"
+            />
+
             <div className="Page__wrapper">
                 <PageMenu
                     userData={userData}
@@ -130,7 +158,9 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
                                 <Column>
                                     <DateSelectBox
                                         label="Gültig Bis"
-                                        onChange={(e) => handleChangeDocumentInfo(e)}
+                                        onChange={(e) =>
+                                            handleChangeDocumentInfo(e)
+                                        }
                                         name="expiration"
                                     />
                                 </Column>
@@ -153,25 +183,38 @@ export const CreateCard = ({ userData, userMenu, onSendData, onError }) => {
                             <Row>
                                 <Column>
                                     <h4>QR-CODES</h4>
-                                    <div style={{ padding: '0.5rem 0 1rem', fontSize: "0.85rem" }}>
-                                        <span className="link">
-                                            <FontAwesomeIcon icon={faQrcode} />{' '}
+                                    <div
+                                        style={{
+                                            padding: '0.5rem 0 1rem',
+                                            fontSize: '0.85rem',
+                                        }}
+                                    >
+                                        <span
+                                            className="link"
+                                            onClick={() => setShowQRCodeWindow(true)}
+                                        >
+                                            <FontAwesomeIcon icon={faQrcode} />
                                             QR-Code hinzufügen
                                         </span>
                                     </div>
                                 </Column>
                             </Row>
-                            <Row>
+                            {/* <Row>
                                 <Column>
-                                <h4>STRUKTURKLASSEN</h4>
-                                    <div style={{ padding: '0.5rem 0 1rem', fontSize: "0.85rem"  }}>
+                                    <h4>STRUKTURKLASSEN</h4>
+                                    <div
+                                        style={{
+                                            padding: '0.5rem 0 1rem',
+                                            fontSize: '0.85rem',
+                                        }}
+                                    >
                                         <span className="link">
                                             <FontAwesomeIcon icon={faPencil} />{' '}
                                             Klassen bearbeiten
                                         </span>
                                     </div>
                                 </Column>
-                            </Row>
+                            </Row> */}
                         </Grid>
                     </ContentWrapper>
                 </div>

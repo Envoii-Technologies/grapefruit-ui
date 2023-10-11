@@ -9,13 +9,25 @@ export const Template = (args) => (
 
 # SelectBox
 
-...
+The `SelectBox` component is used for rendering customizable select boxes. It provides various props to configure its appearance and behavior.
 
 ## Examples
 
 ### Default
 
-...
+You can use the `SelectBox` component with default settings. Here's how to use some of its key properties:
+
+- `className`: Add a custom class name to the component.
+- `name`: The name attribute for the select input.
+- `label`: The label to display for the select box.
+- `value`: Specify the currently selected value(s).
+- `allowCreate`: Allow users to create new options.
+- `max`: Set the maximum number of selections allowed for multi-select.
+- `multi`: Enable multi-select.
+- `hasSearch`: Enable or disable the search functionality.
+- `placeholder`: Specify a custom placeholder text.
+- `options`: Provide an array of options, each with a `title` and `value`.
+- `onChange`: Handle changes in the selected value(s).
 
 <Canvas>
 	<Story
@@ -26,6 +38,172 @@ export const Template = (args) => (
 	>
 		{ Template.bind({}) }
 	</Story>
+</Canvas>
+
+### Custom class name
+
+The `className` prop allows you to add a custom class name to the component. You can use it to apply custom CSS styles to the select box.
+
+<Canvas>
+  <Story
+    name="Custom Class Name"
+    args={{
+      className: 'custom-select', // Add a custom class name
+      name: 'pokemon',
+      label: 'Choose a Pokemon',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom name
+
+The name prop specifies the name attribute for the select input. It is used to identify the select box in form submissions.
+
+<Canvas>
+  <Story
+    name="Name Attribute"
+    args={{
+      name: 'pokemon', // Set the name attribute
+      label: 'Choose a Pokemon',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom label
+
+The label prop defines the label to display for the select box. It provides context to users about the purpose of the select box.
+
+<Canvas>
+  <Story
+    name="Label"
+    args={{
+      label: 'Choose a Pokemon', // Set the label text
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom preselected value
+
+The value prop allows you to specify the currently selected value(s) in the select box. It accepts an array of strings.
+
+<Canvas>
+  <Story
+    name="Selected Value(s)"
+    args={{
+      value: ['Bulbasaur'], // Set the selected value(s)
+      label: 'Choose a Pokemon',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### List item creation
+
+The allowCreate prop, when set to true, allows users to create new options in the select box.
+
+<Canvas>
+  <Story
+    name="Allow Create"
+    args={{
+      allowCreate: true, // Allow users to create new options
+      label: 'Choose a Pokemon',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Maximum allowed selections
+
+The max prop sets the maximum number of selections allowed for multi-select. It limits the number of options that can be chosen.
+
+<Canvas>
+  <Story
+    name="Maximum Selections (Multi-select)"
+    args={{
+      max: 2, // Set the maximum number of selections
+      label: 'Choose Pokemon',
+      multi: true, // Enable multi-select
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Search
+
+The hasSearch prop, when set to true, enables the search functionality in the select box, allowing users to filter options.
+
+<Canvas>
+  <Story
+    name="Search Functionality"
+    args={{
+      hasSearch: true, // Enable search functionality
+      label: 'Choose a Pokemon',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Placeholder
+
+The placeholder prop specifies a custom placeholder text to display when no option is selected. If not provided, the label is used as the placeholder.
+
+<Canvas>
+  <Story
+    name="Custom Placeholder"
+    args={{
+      placeholder: 'Select a Pokemon', // Set a custom placeholder
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom Options
+
+The options prop is an array of options, each with a title and value. It populates the select box with available choices.
+
+<Canvas>
+  <Story
+    name="Options"
+    args={{
+      options: [
+        { title: 'Bulbasaur', value: 'baba' },
+        { title: 'Charmander', value: 'charry' },
+        { title: 'Squirtle', value: 'squiqui' },
+      ], // Provide an array of options
+      label: 'Choose a Pokemon',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### on Change callback functionality
+
+The onChange prop is a callback function that handles changes in the selected value(s). It receives an object with name and value properties.
+
+<Canvas>
+  <Story
+    name="Change Event Handler"
+    args={{
+      onChange: (selected) => {
+        alert('Selected:', selected.value); // Handle the selected value(s)
+      },
+      label: 'Choose a Pokemon',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
 </Canvas>
 
 ## API
