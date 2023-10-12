@@ -1,11 +1,14 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
 import { Layout } from './Layout';
 
+import mockUser from './../../data/mockUser';
+import mockMenu from './../../data/mockMenuItems';
+
+
 export const Template = (args) => (
-	<Layout { ...args }>
-	{/* Your main content goes here */}
-      <h1>Main Content</h1>
-      <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla expedita unde cupiditate aspernatur dolor, facere beatae reprehenderit exercitationem et sunt! Labore recusandae est harum voluptas, ea dolore nobis esse quos.
+	<Layout { ...args } userData={mockUser.userData} menuData={mockMenu}>
+		<p> 
+	  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla expedita unde cupiditate aspernatur dolor, facere beatae reprehenderit exercitationem et sunt! Labore recusandae est harum voluptas, ea dolore nobis esse quos.
 	  Perferendis assumenda asperiores facere in itaque quos possimus quae ad obcaecati deserunt incidunt alias soluta, illum inventore minus pariatur dignissimos nesciunt ut iure natus! Reprehenderit dolor error eaque culpa amet.
 	  Quibusdam et voluptatum, ad excepturi modi non, nihil fugit dolore adipisci explicabo esse neque optio rerum eveniet eos? Error, animi. Natus odio porro dolorem ut, hic distinctio cum fuga mollitia.
 	  Voluptas eveniet, natus ad cumque inventore aspernatur explicabo iure, voluptatibus ipsum blanditiis sit. Eligendi molestias, voluptates perspiciatis ratione sunt nisi consequatur suscipit accusamus adipisci architecto aspernatur nobis! Accusantium, laborum veniam.
@@ -104,12 +107,13 @@ export const Template = (args) => (
 	  Consequatur a cupiditate, laboriosam aliquid repellendus necessitatibus veniam vel officiis culpa voluptatem laudantium officia quis similique in dolore architecto harum numquam sapiente dolorum! Suscipit quae fuga sint nihil optio similique.
 	  Cumque, veritatis culpa? Perspiciatis error pariatur saepe aspernatur architecto distinctio necessitatibus consectetur quis voluptas ad obcaecati culpa, sunt quia quasi iusto eveniet totam deserunt. Porro quis veniam quam eveniet provident.
 	  Earum at cupiditate ab ipsa recusandae tempore nostrum, dolores dolore illum assumenda est iste sed quibusdam voluptatem numquam et quia quasi nam? Voluptatum deleniti et mollitia dolorum nulla amet libero.
-	  Voluptatum totam ipsa sed deserunt magni qui mollitia tempore quas eveniet voluptas, eaque consectetur sapiente rem non voluptatem iusto vitae dicta atque voluptate blanditiis recusandae nemo. Culpa architecto necessitatibus commodi.</p>
-      {/* Add more content as needed */}
-	  </Layout>
+	  Voluptatum totam ipsa sed deserunt magni qui mollitia tempore quas eveniet voluptas, eaque consectetur sapiente rem non voluptatem iusto vitae dicta atque voluptate blanditiis recusandae nemo. Culpa architecto necessitatibus commodi.
+	  </p>
+      	{/* Add more content as needed */}
+	</Layout>
 );
 
-<Meta title='Components/Layout' component={ Layout } />
+<Meta title='Components/Layout' component={ Layout } parameters={{ layout: 'fullscreen' }} />
 
 # Layout
 

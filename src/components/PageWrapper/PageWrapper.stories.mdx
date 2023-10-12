@@ -1,0 +1,36 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { PageWrapper } from './PageWrapper';
+
+export const Template = (args) => (
+	<PageWrapper { ...args }>
+		<p>Left</p>
+		<p>Right</p>
+	</PageWrapper>
+);
+
+<Meta title='Components/PageWrapper' component={ PageWrapper } parameters={{ layout: 'fullscreen' }}/>
+
+# PageWrapper
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ PageWrapper } />

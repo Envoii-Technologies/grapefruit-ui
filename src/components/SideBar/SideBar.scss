@@ -1,0 +1,41 @@
+@use '../../global-styles/' as *;
+
+.SideBar
+{
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    flex-basis: 3rem;
+    flex-grow: 0;
+    align-items: stretch;
+    justify-content: stretch;
+    flex-direction: row;
+    box-shadow: $box-shadow-bottom;
+    position: relative;
+    z-index: 1000;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        height: 100%;
+    }
+
+    &__iconMenu
+    {
+        background: $primary-color;
+        flex-basis: 3rem;
+        flex-shrink: 0;
+        padding: 0.5rem;
+
+        &__menu
+        {
+            
+        }
+    }
+
+    &__textMenu
+    {
+        
+        overflow: hidden;
+        width: 16rem;
+    }
+}

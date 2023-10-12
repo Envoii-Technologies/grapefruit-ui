@@ -1,43 +1,11 @@
-/* Layout.scss */
 .Layout {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 
     @media (min-width: 768px) {
-      flex-direction: row; /* Ändere auf row layout für Desktop */
+        flex-direction: row;
     }
-  
-    &__header {
-      background-color: #333;
-      color: #fff;
-      padding: 16px;
-    }
-  
-    &__main {
-      display: flex;
-      flex-grow: 1;
-
-      @media (min-width: 768px) {
-        flex-direction: column; /* Ändere auf column layout für Desktop */
-      }
-    }
-  
-    &__main {
-      flex-grow: 1;
-      overflow-y: auto;
-      padding: 16px;
-      background: red;
-    }
-
-    &__sidebar {
-      background-color: #ddd;
-      padding: 16px;
-      flex-shrink: 0;
-
-      @media (min-width: 768px) {
-        width: 25%; /* Setze die Breite der Sidebar für Desktop */
-        order: -1; /* Ändere die Reihenfolge, um die Sidebar links anzuzeigen */
-      }
-    }
-  }
+}

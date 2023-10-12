@@ -2,14 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Layout.scss';
 
-export const Layout = ({ className, children, ...props }) => {
+import { LayoutWrapper } from './LayoutWrapper';
+import { LayoutWrapperMain } from './LayoutWrapperMain';
+import { PageHeader } from './../PageHeader';
+import { PageMenu } from '../PageMenu';
+
+export const Layout = ({
+    className,
+    children,
+    userData,
+    menuData,
+    ...props
+}) => {
     return (
         <div className="Layout">
-            <div className="Layout__sidebar">Sidebar</div>
-			<header className="Layout__header">Header</header>
-            <div className="Layout__main">
-                <main className="Layout__content">{children}</main>
-            </div>
+            <PageMenu userData={userData} menuData={menuData} />
+            <LayoutWrapper>
+                <PageHeader />
+
+                <LayoutWrapperMain>
+                    {children}
+                </LayoutWrapperMain>
+            </LayoutWrapper>
         </div>
     );
 };

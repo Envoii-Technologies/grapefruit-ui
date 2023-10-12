@@ -7,13 +7,13 @@ import { PageMenu } from './PageMenu';
 
 export const ExampleTemplate = (args) => (
 	<div style={{ height: 350, width: 500, display: "flex" }}>
-		<PageMenu { ...args } userData={mockUser.userData} menuData={mockMenu.admin} isMenuExpanded={true}/>
+		<PageMenu { ...args } userData={mockUser.userData} menuData={mockMenu} isMenuExpanded={true}/>
 	</div>
 );
 
 export const Template = (args) => (
 	<div style={{ height: 350 , width: 500 }}>
-		<PageMenu { ...args } userData={mockUser.userData} menuData={mockMenu.admin} isMenuExpanded={true}/>
+		<PageMenu { ...args } userData={mockUser.userData} menuData={mockMenu} isMenuExpanded={true}/>
 	</div>
 );
 
